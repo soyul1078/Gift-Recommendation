@@ -1,0 +1,10 @@
+{
+  "name": "gift-recommendation-site",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix gift-workspace",
+    "build": "npm run build --prefix gift-workspace",
+    "start": "npm run start --prefix gift-workspace",
+    "lint": "npm run lint --prefix gift-workspace"
+  }
+}
