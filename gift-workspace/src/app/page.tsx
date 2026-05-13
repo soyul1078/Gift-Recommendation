@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { OptionGrid } from "@/components/OptionGrid";
 import { outboundLinks } from "@/lib/affiliateLinks";
+import { priceFitsBudgetBand } from "@/lib/budgetBand";
 import { buildReason, formatKRW, recommendGifts } from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
 import type { AgeBand, Answers, Budget, Gender, Preference, Relation } from "@/lib/types";
@@ -61,6 +62,12 @@ export default function Home() {
   const [answers, setAnswers] = useState<Answers>({});
 
   const recommended = useMemo(() => recommendGifts(answers), [answers]);
+
+  const showBudgetFallbackNote = useMemo(() => {
+    const b = answers.budget;
+    if (!b) return false;
+    return recommended.some((g) => !priceFitsBudgetBand(g.priceKRW, b));
+  }, [answers.budget, recommended]);
 
   const canNext =
     step === "genderAge"
@@ -230,8 +237,19 @@ export default function Home() {
                     추가해 주세요.
                   </div>
                 ) : (
-                  recommended.map((gift) => {
-                    const links = outboundLinks(gift.title);
+                  <>
+                    {showBudgetFallbackNote && (
+                      <p className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-950">
+                        이 예산 구간에 맞는 대표가 상품이 카탈로그에 없어, 취향에
+                        가까운 대안을 보여 드려요. 링크에서는 비슷한 가격대가 더
+                        많이 보일 수 있어요.
+                      </p>
+                    )}
+                    {recommended.map((gift) => {
+                    const searchQuery = answers.budget
+                      ? `${gift.title} ${answers.budget}`
+                      : gift.title;
+                    const links = outboundLinks(searchQuery);
                     return (
                       <div
                         key={gift.id}
@@ -242,8 +260,14 @@ export default function Home() {
                             <div className="text-lg font-semibold text-zinc-900">
                               {gift.title}
                             </div>
-                            <div className="mt-1 text-sm text-zinc-600">
-                              {formatKRW(gift.priceKRW)}
+                            <div className="mt-1">
+                              <div className="text-base font-semibold text-zinc-900">
+                                {answers.budget ?? "—"}
+                              </div>
+                              <div className="mt-1 text-xs leading-relaxed text-zinc-500">
+                                판매처·옵션에 따라 달라요 · 참고 시세 약{" "}
+                                {formatKRW(gift.priceKRW)}
+                              </div>
                             </div>
                           </div>
                           <div className="flex gap-2">
@@ -293,7 +317,8 @@ export default function Home() {
                         </div>
                       </div>
                     );
-                  })
+                  })}
+                  </>
                 )}
               </div>
             )}
