@@ -47,6 +47,36 @@ const SITUATION_BOOSTS: ReadonlyArray<{
   { needle: "운동", giftIds: ["massage-gun", "stanley-tumbler", "tea-giftbox"] },
   { needle: "커피", giftIds: ["tea-giftbox", "stanley-tumbler", "desk-mat"] },
   { needle: "차", giftIds: ["tea-giftbox", "desk-mat"] },
+  {
+    needle: "어버이날",
+    giftIds: ["tea-giftbox", "massage-gun", "perfume-hand-cream", "stanley-tumbler"],
+  },
+  { needle: "스승의 날", giftIds: ["tea-giftbox", "desk-mat", "perfume-hand-cream"] },
+  { needle: "교사의 날", giftIds: ["tea-giftbox", "desk-mat", "perfume-hand-cream"] },
+  {
+    needle: "설날",
+    giftIds: ["tea-giftbox", "massage-gun", "stanley-tumbler", "perfume-hand-cream"],
+  },
+  {
+    needle: "추석",
+    giftIds: ["tea-giftbox", "massage-gun", "stanley-tumbler", "perfume-hand-cream"],
+  },
+  {
+    needle: "연말",
+    giftIds: ["tea-giftbox", "perfume-hand-cream", "desk-mat", "wireless-charger"],
+  },
+  {
+    needle: "크리스마스",
+    giftIds: ["hobby-kit", "perfume-hand-cream", "tea-giftbox", "wireless-charger"],
+  },
+  { needle: "발렌타인", giftIds: ["perfume-hand-cream", "tea-giftbox", "hobby-kit"] },
+  { needle: "화이트데이", giftIds: ["perfume-hand-cream", "tea-giftbox", "hobby-kit"] },
+  {
+    needle: "어버이",
+    giftIds: ["tea-giftbox", "massage-gun", "perfume-hand-cream", "stanley-tumbler"],
+  },
+  { needle: "부모", giftIds: ["tea-giftbox", "massage-gun", "perfume-hand-cream"] },
+  { needle: "카네이션", giftIds: ["tea-giftbox", "perfume-hand-cream"] },
 ];
 
 function freeTextSituationScore(giftId: string, raw: string): number {
@@ -67,7 +97,10 @@ function scoreGift(gift: Gift, a: Answers): number {
   if (a.age && gift.tags.age.includes(a.age)) score += 2;
   if (a.relation && gift.tags.relation.includes(a.relation)) score += 2;
   if (a.budget && gift.tags.budget.includes(a.budget)) score += 3;
-  if (a.preference && gift.tags.preference.includes(a.preference)) score += 3;
+  const prefs = a.preferences ?? [];
+  for (const p of prefs) {
+    if (gift.tags.preference.includes(p)) score += 3;
+  }
 
   const text = (a.freeText ?? "").trim();
   if (text.length > 0) {
@@ -89,7 +122,7 @@ function scoreGift(gift: Gift, a: Answers): number {
   return score;
 }
 
-export function recommendGifts(answers: Answers, limit = 3): Gift[] {
+export function recommendGifts(answers: Answers, limit = 1): Gift[] {
   return [...gifts]
     .map((g) => ({ g, s: scoreGift(g, answers) }))
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
@@ -102,7 +135,10 @@ export function buildReason(gift: Gift, answers: Answers): string {
   const bits: string[] = [];
   if (answers.relation) bits.push(`${answers.relation}에게 무난한 선택`);
   if (answers.budget) bits.push(`${answers.budget} 예산대에 잘 맞음`);
-  if (answers.preference) bits.push(`${answers.preference} 성향과 궁합이 좋음`);
+  const prefs = answers.preferences?.filter(Boolean) ?? [];
+  if (prefs.length === 1) bits.push(`${prefs[0]} 성향과 궁합이 좋음`);
+  else if (prefs.length > 1)
+    bits.push(`선택한 성향(${prefs.join(", ")})과 잘 맞는 편`);
 
   const free = (answers.freeText ?? "").trim();
   if (free) bits.push(`“${free}” 상황을 고려해 선택`);

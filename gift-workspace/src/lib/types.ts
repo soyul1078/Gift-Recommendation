@@ -63,7 +63,8 @@ export type Answers = {
   age?: AgeBand;
   relation?: Relation;
   budget?: Budget;
-  preference?: Preference;
+  /** 복수 선택 가능한 성향 태그 */
+  preferences?: Preference[];
   freeText?: string;
 };
 

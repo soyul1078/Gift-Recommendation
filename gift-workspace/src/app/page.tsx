@@ -60,7 +60,7 @@ export default function Home() {
   const [step, setStep] = useState<StepId>("genderAge");
   const [answers, setAnswers] = useState<Answers>({});
 
-  const recommended = useMemo(() => recommendGifts(answers, 5), [answers]);
+  const recommended = useMemo(() => recommendGifts(answers, 1), [answers]);
 
   const canNext =
     step === "genderAge"
@@ -70,7 +70,7 @@ export default function Home() {
         : step === "budget"
           ? Boolean(answers.budget)
           : step === "preference"
-            ? Boolean(answers.preference)
+            ? Boolean(answers.preferences && answers.preferences.length > 0)
             : true;
 
   function next() {
@@ -127,7 +127,7 @@ export default function Home() {
                 {step === "genderAge" && "성별 및 연령대"}
                 {step === "relation" && "나와의 관계"}
                 {step === "budget" && "예산 범위"}
-                {step === "preference" && "상대방 성향"}
+                {step === "preference" && "상대방 성향(복수 선택)"}
                 {step === "result" && "선물 추천"}
               </div>
               <div className="mt-1 text-sm text-zinc-500">
@@ -153,7 +153,7 @@ export default function Home() {
                 onChange={(e) =>
                   setAnswers((p) => ({ ...p, freeText: e.target.value }))
                 }
-                placeholder="예: 퇴사 선물 / 집들이 / 승진 / 요즘 러닝 시작 / 커피를 좋아함..."
+                placeholder="예: 어버이날 / 스승의 날 / 퇴사 선물 / 집들이 / 승진 / 설날 / 커피 좋아함..."
                 className="min-h-[84px] w-full resize-y rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-0 focus:border-zinc-400"
               />
             </label>
@@ -205,12 +205,18 @@ export default function Home() {
 
             {step === "preference" && (
               <div className="grid gap-2">
-                <div className="text-sm font-medium text-zinc-900">성향</div>
+                <div className="text-sm font-medium text-zinc-900">
+                  성향{" "}
+                  <span className="font-normal text-zinc-500">
+                    (해당되는 항목을 모두 눌러 주세요)
+                  </span>
+                </div>
                 <OptionGrid
-                  value={answers.preference}
+                  mode="multiple"
+                  values={answers.preferences ?? []}
                   options={preferenceOptions}
-                  onChange={(preference) =>
-                    setAnswers((p) => ({ ...p, preference }))
+                  onChange={(preferences) =>
+                    setAnswers((p) => ({ ...p, preferences: [...preferences] }))
                   }
                 />
               </div>
@@ -224,7 +230,15 @@ export default function Home() {
                     추가해 주세요.
                   </div>
                 ) : (
-                  recommended.map((gift) => {
+                  <>
+                    <p className="text-sm text-zinc-600">
+                      홍보·구매 혼선을 줄이기 위해, 조건에 가장 잘 맞는{" "}
+                      <span className="font-semibold text-zinc-900">
+                        대표 상품 1개
+                      </span>
+                      만 보여 드려요.
+                    </p>
+                    {recommended.map((gift) => {
                     const links = outboundLinks(gift.title);
                     return (
                       <div
@@ -287,7 +301,8 @@ export default function Home() {
                         </div>
                       </div>
                     );
-                  })
+                  })}
+                  </>
                 )}
               </div>
             )}
