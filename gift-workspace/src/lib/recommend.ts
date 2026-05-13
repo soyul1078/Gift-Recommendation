@@ -1,8 +1,4 @@
 import { gifts } from "./gifts";
-import {
-  catalogHasGiftInBudgetBand,
-  priceFitsBudgetBand,
-} from "./budgetBand";
 import type { Answers, Gift } from "./types";
 
 /** 직접 입력에 자주 쓰이는 상황 키워드 → 해당 상황에 어울리는 선물 id 가점 */
@@ -127,26 +123,12 @@ function scoreGift(gift: Gift, a: Answers): number {
 }
 
 export function recommendGifts(answers: Answers, limit = gifts.length): Gift[] {
-  const ranked = [...gifts]
+  return [...gifts]
     .map((g) => ({ g, s: scoreGift(g, answers) }))
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
-    .filter((x) => x.s > 0);
-
-  const band = answers.budget;
-  if (!band) {
-    return ranked.slice(0, limit).map((x) => x.g);
-  }
-
-  const anyInBand = catalogHasGiftInBudgetBand(gifts, band);
-  const filtered = ranked.filter((x) => {
-    const inBand = priceFitsBudgetBand(x.g.priceKRW, band);
-    if (inBand) return true;
-    if (!anyInBand && x.g.tags.budget.includes(band)) return true;
-    return false;
-  });
-
-  const list = filtered.length > 0 ? filtered : ranked;
-  return list.slice(0, limit).map((x) => x.g);
+    .filter((x) => x.s > 0)
+    .slice(0, limit)
+    .map((x) => x.g);
 }
 
 export function buildReason(gift: Gift, answers: Answers): string {
