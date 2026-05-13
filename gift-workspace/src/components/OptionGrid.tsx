@@ -18,15 +18,6 @@ type MultiProps<T extends string> = Base<T> & {
 
 export type OptionGridProps<T extends string> = SingleProps<T> | MultiProps<T>;
 
-const btnBase =
-  "rounded-2xl border px-3 text-sm font-medium shadow-sm transition duration-200";
-
-const btnInactive =
-  "border-rose-100 bg-white/90 text-rose-950 hover:border-rose-200 hover:bg-rose-50/90 hover:shadow-md hover:shadow-rose-100/50";
-
-const btnActive =
-  "border-transparent bg-gradient-to-br from-rose-400 to-pink-500 text-white shadow-md shadow-rose-300/60 hover:from-rose-500 hover:to-pink-600";
-
 export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
   if (props.mode === "multiple") {
     const { values, options, onChange } = props;
@@ -43,9 +34,10 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
                 else onChange([...values, opt]);
               }}
               className={[
-                "min-h-11 py-2 text-left",
-                btnBase,
-                active ? btnActive : btnInactive,
+                "min-h-11 rounded-xl border px-3 py-2 text-left text-sm font-medium transition",
+                active
+                  ? "border-zinc-900 bg-zinc-900 text-white"
+                  : "border-zinc-200 bg-white text-zinc-900 hover:bg-zinc-50",
               ].join(" ")}
             >
               {opt}
@@ -67,9 +59,10 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
             type="button"
             onClick={() => onChange(opt)}
             className={[
-              "h-11",
-              btnBase,
-              active ? btnActive : btnInactive,
+              "h-11 rounded-xl border px-3 text-sm font-medium transition",
+              active
+                ? "border-zinc-900 bg-zinc-900 text-white"
+                : "border-zinc-200 bg-white text-zinc-900 hover:bg-zinc-50",
             ].join(" ")}
           >
             {opt}
