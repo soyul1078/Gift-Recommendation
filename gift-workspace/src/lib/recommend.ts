@@ -122,7 +122,7 @@ function scoreGift(gift: Gift, a: Answers): number {
   return score;
 }
 
-export function recommendGifts(answers: Answers, limit = 1): Gift[] {
+export function recommendGifts(answers: Answers, limit = gifts.length): Gift[] {
   return [...gifts]
     .map((g) => ({ g, s: scoreGift(g, answers) }))
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)

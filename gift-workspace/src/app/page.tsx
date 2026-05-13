@@ -60,7 +60,7 @@ export default function Home() {
   const [step, setStep] = useState<StepId>("genderAge");
   const [answers, setAnswers] = useState<Answers>({});
 
-  const recommended = useMemo(() => recommendGifts(answers, 1), [answers]);
+  const recommended = useMemo(() => recommendGifts(answers), [answers]);
 
   const canNext =
     step === "genderAge"
@@ -230,15 +230,7 @@ export default function Home() {
                     추가해 주세요.
                   </div>
                 ) : (
-                  <>
-                    <p className="text-sm text-zinc-600">
-                      홍보·구매 혼선을 줄이기 위해, 조건에 가장 잘 맞는{" "}
-                      <span className="font-semibold text-zinc-900">
-                        대표 상품 1개
-                      </span>
-                      만 보여 드려요.
-                    </p>
-                    {recommended.map((gift) => {
+                  recommended.map((gift) => {
                     const links = outboundLinks(gift.title);
                     return (
                       <div
@@ -301,8 +293,7 @@ export default function Home() {
                         </div>
                       </div>
                     );
-                  })}
-                  </>
+                  })
                 )}
               </div>
             )}
