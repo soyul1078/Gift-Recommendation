@@ -1,12 +1,32 @@
+import { primaryBudgetBandsForPrice } from "./budgetBand";
 import type { Gift } from "./types";
 
-export const gifts: Gift[] = [
+/**
+ * Representative KRW prices (typical major KR malls / official-ish, before coupons).
+ * `tags.budget` is derived from these numbers so UI, filters, and links stay aligned.
+ */
+type GiftInput = Omit<Gift, "tags"> & {
+  tags: Omit<Gift["tags"], "budget">;
+};
+
+function finalize(g: GiftInput): Gift {
+  const bands = primaryBudgetBandsForPrice(g.priceKRW);
+  if (!bands.length) {
+    throw new Error(`gift ${g.id}: price ${g.priceKRW} fits no budget band`);
+  }
+  return {
+    ...g,
+    tags: { ...g.tags, budget: bands },
+  };
+}
+
+const raw: GiftInput[] = [
   {
     id: "stanley-tumbler",
-    title: "스탠리 텀블러",
-    priceKRW: 52000,
+    title: "스탠리 퀜처 H2.0 텀블러 887ml",
+    priceKRW: 49_000,
     shortReason:
-      "요즘 안 들고 다니는 사람 찾기 힘든 필수템. 실용적이면서도 색상 선택지가 많아 취향 저격 가능해요.",
+      "국내 정가대에서 가장 많이 보이는 887ml 라인. 실용적이면서 색상 선택지도 많아요.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -27,16 +47,15 @@ export const gifts: Gift[] = [
         "가볍게 아는 지인",
         "특별한 기념일(생일, 1주년)",
       ],
-      budget: ["5~10만 원대"],
       preference: ["실용성 우선", "건강/웰빙형", "특정 취미 진심형"],
     },
   },
   {
     id: "desk-mat",
     title: "프리미엄 데스크 매트",
-    priceKRW: 29000,
+    priceKRW: 25_900,
     shortReason:
-      "업무·공부 환경이 바로 좋아지는 선물. 실패 확률이 낮고, 책상 위에서 매일 쓰게 돼요.",
+      "대형 사이즈 기준 흔한 가격대. 책상 분위기·마우스 사용감이 바로 좋아져요.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -56,16 +75,15 @@ export const gifts: Gift[] = [
         "선생님/은사님",
         "가볍게 아는 지인",
       ],
-      budget: ["1~3만 원대"],
       preference: ["자기계발/워커홀릭", "실용성 우선"],
     },
   },
   {
     id: "perfume-hand-cream",
     title: "퍼퓸 핸드크림 세트",
-    priceKRW: 18000,
+    priceKRW: 21_900,
     shortReason:
-      "향은 기분을 바로 바꿔주는 작은 사치. 가벼운 답례/첫인상 선물로 부담이 적어요.",
+      "브랜드 세트 기준으로 자주 보이는 가격대. 가벼운 답례·첫인상 선물로 부담이 적어요.",
     tags: {
       gender: ["여성", "무관"],
       age: [
@@ -83,16 +101,15 @@ export const gifts: Gift[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      budget: ["1~3만 원대"],
       preference: ["감성/디자인 중시", "뷰티/그루밍형"],
     },
   },
   {
     id: "wireless-charger",
     title: "맥세이프/무선 충전 스탠드",
-    priceKRW: 39000,
+    priceKRW: 44_900,
     shortReason:
-      "매일 쓰는 기기 사용 습관을 편하게 만들어주는 아이템. 실용적인 선물의 정석이에요.",
+      "애플 정품 맥세이프 충전기보다 낮고, 브랜드 스탠드 제품에서 흔한 대표가에 가깝게 맞춤.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -112,16 +129,15 @@ export const gifts: Gift[] = [
         "정말 친한 절친",
         "특별한 기념일(생일, 1주년)",
       ],
-      budget: ["3~5만 원대"],
       preference: ["실용성 우선", "자기계발/워커홀릭"],
     },
   },
   {
     id: "tea-giftbox",
     title: "프리미엄 티/드립백 선물세트",
-    priceKRW: 34000,
+    priceKRW: 36_900,
     shortReason:
-      "취향을 크게 타지 않으면서도 ‘센스’로 보이는 구성. 휴식이 필요한 사람에게 좋아요.",
+      "백화점·몰에서 자주 보이는 구성 기준 가격. 휴식·담소 선물로 무난해요.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -142,16 +158,15 @@ export const gifts: Gift[] = [
         "선생님/은사님",
         "가볍게 아는 지인",
       ],
-      budget: ["3~5만 원대"],
       preference: ["미식가형", "건강/웰빙형", "감성/디자인 중시"],
     },
   },
   {
     id: "hobby-kit",
     title: "취미 키트(향초/가죽공예/그림 등)",
-    priceKRW: 48000,
+    priceKRW: 42_900,
     shortReason:
-      "‘시간을 선물’하는 타입. 경험형 선물이라 기억에 남고, 대화거리도 만들어줘요.",
+      "체험형 키트류에서 자주 보이는 중저가~중가 구간. 기억에 남는 선물로 좋아요.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -166,16 +181,15 @@ export const gifts: Gift[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      budget: ["3~5만 원대"],
       preference: ["특정 취미 진심형", "감성/디자인 중시"],
     },
   },
   {
     id: "massage-gun",
     title: "미니 마사지건",
-    priceKRW: 79000,
+    priceKRW: 89_000,
     shortReason:
-      "하루 피로를 바로 풀어주는 체감형 선물. ‘건강 챙기는 센스’가 전달돼요.",
+      "입문형 미니 건 마사지기에서 흔한 출시가·할인 전 기준에 가깝게 맞춤.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -194,9 +208,35 @@ export const gifts: Gift[] = [
         "배우자",
         "특별한 기념일(생일, 1주년)",
       ],
-      budget: ["5~10만 원대"],
       preference: ["건강/웰빙형", "실용성 우선"],
+    },
+  },
+  {
+    id: "wireless-earbuds-entry",
+    title: "무선 이어폰(입문형)",
+    priceKRW: 119_000,
+    shortReason:
+      "에어팟·갤럭시 버즈 등 입문 라인에서 자주 보이는 가격대(할인 전·정가 기준).",
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: [
+        "10대",
+        "20대 초반",
+        "20대 후반",
+        "30대 초반",
+        "30대 후반",
+        "40대",
+      ],
+      relation: [
+        "직장 동기",
+        "직장 후배",
+        "정말 친한 절친",
+        "배우자",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["실용성 우선", "자기계발/워커홀릭"],
     },
   },
 ];
 
+export const gifts: Gift[] = raw.map(finalize);
