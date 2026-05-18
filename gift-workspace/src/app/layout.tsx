@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+
   title: "선물 추천 워크스페이스",
   description:
     "취향/상황을 선택하거나 직접 입력하면 이유 있는 선물을 추천하고 바로 구매로 연결합니다.",
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="ko"
+    
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -34,3 +35,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
+  );
+}
