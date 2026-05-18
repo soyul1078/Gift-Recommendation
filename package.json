@@ -6,5 +6,8 @@
     "build": "npm run build --prefix gift-workspace",
     "start": "npm run start --prefix gift-workspace",
     "lint": "npm run lint --prefix gift-workspace"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
   }
 }
