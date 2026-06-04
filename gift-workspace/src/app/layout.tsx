@@ -31,6 +31,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y25LY6JNJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y25LY6JNJX');
+</script>
         {/* 새 측정 ID(G-VDNT5S5ZXS) 반영 */}
         <Script
           src="https://googletagmanager.com"
