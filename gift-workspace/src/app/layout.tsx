@@ -31,8 +31,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <Script
-          src="https://googletagmanager.com"
+      <Script
+          src="https://googletagmanager.com/gtag.js?id=G-vdnt5s5zxs"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
