@@ -32,7 +32,7 @@ export default function RootLayout({
     >
       <head>
       <Script
-          src="https://googletagmanager.com/gtag.js?id=G-vdnt5s5zxs"
+          src="https://googletagmanager.com/gtag.js?id=G-VDNT5S5ZXS"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
