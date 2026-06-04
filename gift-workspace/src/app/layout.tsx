@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script"; // 1. Next.js 스크립트 컴포넌트 추가
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +31,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {/* 2. Google 태그 (gtag.js) Next.js 방식으로 삽입 */}
+        {/* 새 측정 ID(G-VDNT5S5ZXS) 반영 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Y25LY6JNJX"
+          src="https://googletagmanager.com"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -41,7 +41,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-Y25LY6JNJX');
+            gtag('config', 'G-VDNT5S5ZXS');
           `}
         </Script>
       </head>
