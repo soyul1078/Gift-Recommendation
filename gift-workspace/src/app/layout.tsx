@@ -31,7 +31,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {/* 구글 태그가 올바른 새 측정 ID(G-VDNT5S5ZXS)로 정상 적용되었습니다 */}
         <Script
           src="https://googletagmanager.com"
           strategy="afterInteractive"
