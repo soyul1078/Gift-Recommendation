@@ -30,19 +30,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {/* 구글 애널리틱스 비동기 스크립트 로드 */}
+        {/* 현재 대시보드의 측정 ID로 스크립트 로드 */}
         <Script
           src="https://googletagmanager.com"
           strategy="afterInteractive"
         />
-        {/* 구글 애널리틱스 초기화 설정 */}
+        {/* 현재 대시보드의 측정 ID로 초기화 설정 */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-Y25LY6JNJX');
+            gtag('config', 'G-VDNT5S5ZX5');
           `}
         </Script>
       </head>
