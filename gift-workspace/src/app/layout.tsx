@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "선물 추천 워크스페이스",
-  description:
-    "취향/상황을 선택하거나 직접 입력하면 이유 있는 선물을 추천하고 바로 구매로 연결합니다.",
+  description: "취향/상황을 선택하거나 직접 입력하면 이유 있는 선물을 추천하고 바로 구매로 연결합니다.",
 };
 
 export default function RootLayout({
@@ -31,21 +30,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y25LY6JNJX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y25LY6JNJX');
-</script>
+        {/* 구글 애널리틱스 비동기 스크립트 로드 */}
+        <Script
+          src="https://googletagmanager.com"
+          strategy="afterInteractive"
+        />
+        {/* 구글 애널리틱스 초기화 설정 */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-VDNT5S5ZXS');
+
+            gtag('config', 'G-Y25LY6JNJX');
           `}
         </Script>
       </head>
