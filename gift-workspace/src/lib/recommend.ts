@@ -126,7 +126,17 @@ function scoreGift(gift: Gift, a: Answers): number {
   return score;
 }
 
-export function recommendGifts(answers: Answers, limit = gifts.length): Gift[] {
+function rotateGifts(list: Gift[], seed: number): Gift[] {
+  if (seed === 0 || list.length <= 1) return list;
+  const offset = seed % list.length;
+  return [...list.slice(offset), ...list.slice(0, offset)];
+}
+
+export function recommendGifts(
+  answers: Answers,
+  limit = gifts.length,
+  seed = 0,
+): Gift[] {
   const ranked = [...gifts]
     .map((g) => ({ g, s: scoreGift(g, answers) }))
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
@@ -134,7 +144,10 @@ export function recommendGifts(answers: Answers, limit = gifts.length): Gift[] {
 
   const band = answers.budget;
   if (!band) {
-    return ranked.slice(0, limit).map((x) => x.g);
+    return rotateGifts(
+      ranked.slice(0, limit).map((x) => x.g),
+      seed,
+    );
   }
 
   const anyInBand = catalogHasGiftInBudgetBand(gifts, band);
@@ -145,7 +158,7 @@ export function recommendGifts(answers: Answers, limit = gifts.length): Gift[] {
   });
 
   const list = filtered.length > 0 ? filtered : ranked;
-  return list.slice(0, limit).map((x) => x.g);
+  return rotateGifts(list.slice(0, limit).map((x) => x.g), seed);
 }
 
 export function buildReason(gift: Gift, answers: Answers): string {

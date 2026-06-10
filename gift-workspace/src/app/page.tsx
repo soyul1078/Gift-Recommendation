@@ -2,11 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { OptionGrid } from "@/components/OptionGrid";
-import { outboundLinks } from "@/lib/affiliateLinks";
+import { RelationSectionPicker } from "@/components/RelationSectionPicker";
+import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
 import { buildReason, formatKRW, recommendGifts } from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
-import type { AgeBand, Answers, Budget, Gender, Preference, Relation } from "@/lib/types";
+import type { AgeBand, Answers, Budget, Gender, Preference } from "@/lib/types";
 
 const genderOptions: readonly Gender[] = ["여성", "남성", "무관"];
 const ageOptions: readonly AgeBand[] = [
@@ -18,22 +19,6 @@ const ageOptions: readonly AgeBand[] = [
   "40대",
   "50대",
   "60대 이상",
-];
-const relationOptions: readonly Relation[] = [
-  "직장 상사",
-  "직장 동기",
-  "직장 후배",
-  "퇴사자/이직자",
-  "거래처",
-  "부모님",
-  "형제/자매",
-  "배우자",
-  "시댁/처가 어른",
-  "정말 친한 절친",
-  "가볍게 아는 지인",
-  "선생님/은사님",
-  "가벼운 기념일(100일 등)",
-  "특별한 기념일(생일, 1주년)",
 ];
 const budgetOptions: readonly Budget[] = [
   "1~3만 원대",
@@ -55,13 +40,17 @@ const preferenceOptions: readonly Preference[] = [
   "뷰티/그루밍형",
 ];
 
-type StepId = "genderAge" | "relation" | "budget" | "preference" | "result";
+type StepId = "relation" | "genderAge" | "budget" | "preference" | "result";
 
 export default function Home() {
-  const [step, setStep] = useState<StepId>("genderAge");
+  const [step, setStep] = useState<StepId>("relation");
   const [answers, setAnswers] = useState<Answers>({});
+  const [recommendSeed, setRecommendSeed] = useState(0);
 
-  const recommended = useMemo(() => recommendGifts(answers), [answers]);
+  const recommended = useMemo(
+    () => recommendGifts(answers, undefined, recommendSeed),
+    [answers, recommendSeed],
+  );
 
   const showBudgetFallbackNote = useMemo(() => {
     const b = answers.budget;
@@ -70,10 +59,10 @@ export default function Home() {
   }, [answers.budget, recommended]);
 
   const canNext =
-    step === "genderAge"
-      ? Boolean(answers.gender && answers.age)
-      : step === "relation"
-        ? Boolean(answers.relation)
+    step === "relation"
+      ? Boolean(answers.relation)
+      : step === "genderAge"
+        ? Boolean(answers.gender && answers.age)
         : step === "budget"
           ? Boolean(answers.budget)
           : step === "preference"
@@ -83,10 +72,13 @@ export default function Home() {
   function next() {
     if (!canNext) return;
     setStep((s) => {
-      if (s === "genderAge") return "relation";
-      if (s === "relation") return "budget";
+      if (s === "relation") return "genderAge";
+      if (s === "genderAge") return "budget";
       if (s === "budget") return "preference";
-      if (s === "preference") return "result";
+      if (s === "preference") {
+        setRecommendSeed(0);
+        return "result";
+      }
       return "result";
     });
   }
@@ -95,15 +87,20 @@ export default function Home() {
     setStep((s) => {
       if (s === "result") return "preference";
       if (s === "preference") return "budget";
-      if (s === "budget") return "relation";
-      if (s === "relation") return "genderAge";
-      return "genderAge";
+      if (s === "budget") return "genderAge";
+      if (s === "genderAge") return "relation";
+      return "relation";
     });
   }
 
   function reset() {
     setAnswers({});
-    setStep("genderAge");
+    setRecommendSeed(0);
+    setStep("relation");
+  }
+
+  function recommendAgain() {
+    setRecommendSeed((s) => s + 1);
   }
 
   return (
@@ -131,14 +128,20 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="text-lg font-semibold text-zinc-900">
-                {step === "genderAge" && "성별 및 연령대"}
                 {step === "relation" && "나와의 관계"}
+                {step === "genderAge" && "성별 및 연령대"}
                 {step === "budget" && "예산 범위"}
                 {step === "preference" && "상대방 성향(복수 선택)"}
                 {step === "result" && "선물 추천"}
               </div>
               <div className="mt-1 text-sm text-zinc-500">
-                카테고리를 선택하거나, 특수한 상황이면 직접 입력해도 돼요.
+                {step === "relation" &&
+                  "카테고리를 눌러 관계를 선택해 주세요."}
+                {step === "genderAge" && "선물 받을 분의 성별과 연령대를 골라 주세요."}
+                {step === "budget" && "예산 범위를 선택해 주세요."}
+                {step === "preference" &&
+                  "해당되는 성향을 모두 선택해 주세요."}
+                {step === "result" && "입력하신 조건에 맞는 선물이에요."}
               </div>
             </div>
             <button
@@ -151,19 +154,14 @@ export default function Home() {
           </div>
 
           <div className="mt-5 grid gap-4">
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-zinc-900">
-                직접 입력(선택)
-              </span>
-              <textarea
-                value={answers.freeText ?? ""}
-                onChange={(e) =>
-                  setAnswers((p) => ({ ...p, freeText: e.target.value }))
+            {step === "relation" && (
+              <RelationSectionPicker
+                value={answers.relation}
+                onChange={(relation) =>
+                  setAnswers((p) => ({ ...p, relation }))
                 }
-                placeholder="예: 어버이날 / 스승의 날 / 퇴사 선물 / 집들이 / 승진 / 설날 / 커피 좋아함..."
-                className="min-h-[84px] w-full resize-y rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-0 focus:border-zinc-400"
               />
-            </label>
+            )}
 
             {step === "genderAge" && (
               <div className="grid gap-4">
@@ -183,19 +181,6 @@ export default function Home() {
                     onChange={(age) => setAnswers((p) => ({ ...p, age }))}
                   />
                 </div>
-              </div>
-            )}
-
-            {step === "relation" && (
-              <div className="grid gap-2">
-                <div className="text-sm font-medium text-zinc-900">관계</div>
-                <OptionGrid
-                  value={answers.relation}
-                  options={relationOptions}
-                  onChange={(relation) =>
-                    setAnswers((p) => ({ ...p, relation }))
-                  }
-                />
               </div>
             )}
 
@@ -246,8 +231,7 @@ export default function Home() {
                       </div>
                     )}
                     {recommended.map((gift) => {
-                      const searchQuery = `${gift.title} ${gift.priceKRW.toLocaleString("ko-KR")}원`;
-                      const links = outboundLinks(searchQuery);
+                      const links = outboundLinksForGift(gift);
                       return (
                         <div
                           key={gift.id}
@@ -267,8 +251,9 @@ export default function Home() {
                               </div>
                               <div className="text-xs leading-relaxed text-zinc-500">
                                 위 금액은 국내 주요 몰 기준 대표 소비자가예요.
-                                실제 결제가는 옵션·할인·배송비에 따라 달라질 수
-                                있어요.
+                                구매 버튼은 이 가격대에 맞춰 검색·필터를
+                                적용해요. 옵션·할인·배송비에 따라 결제가는
+                                조금 달라질 수 있어요.
                               </div>
                             </div>
                             </div>
@@ -330,10 +315,10 @@ export default function Home() {
             <button
               type="button"
               onClick={back}
-              disabled={step === "genderAge"}
+              disabled={step === "relation"}
               className={[
                 "h-11 rounded-xl px-4 text-sm font-semibold transition",
-                step === "genderAge"
+                step === "relation"
                   ? "cursor-not-allowed bg-zinc-100 text-zinc-400"
                   : "bg-zinc-200 text-zinc-900 hover:bg-zinc-300",
               ].join(" ")}
@@ -356,7 +341,7 @@ export default function Home() {
             ) : (
               <button
                 type="button"
-                onClick={reset}
+                onClick={recommendAgain}
                 className="h-11 rounded-xl bg-zinc-900 px-5 text-sm font-semibold text-white hover:bg-zinc-800"
               >
                 다시 추천받기
