@@ -9,6 +9,8 @@ const BANDS_ORDERED: readonly Budget[] = [
   "20~30만 원대",
   "30~50만 원대",
   "50만 원 이상",
+  "70~100만 원대",
+  "100만 원 이상",
 ];
 
 /** Half-open KRW intervals aligned with UI labels (만 원 단위). */
@@ -29,7 +31,13 @@ export function priceFitsBudgetBand(krw: number, band: Budget): boolean {
     case "30~50만 원대":
       return krw >= 300_000 && krw < 500_000;
     case "50만 원 이상":
-      return krw >= 500_000;
+      // For users who select "50만 원 이상", recommendations should be capped
+      // to items up to 700,000원 (50만 이상 ~ 70만 미만).
+      return krw >= 500_000 && krw < 700_000;
+    case "70~100만 원대":
+      return krw >= 700_000 && krw < 1_000_000;
+    case "100만 원 이상":
+      return krw >= 1_000_000;
     default: {
       const _e: never = band;
       return _e;

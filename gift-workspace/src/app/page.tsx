@@ -31,6 +31,8 @@ const budgetOptions: readonly Budget[] = [
   "20~30만 원대",
   "30~50만 원대",
   "50만 원 이상",
+  "70~100만 원대",
+  "100만 원 이상",
 ];
 const preferenceOptions: readonly Preference[] = [
   "실용성 우선",
@@ -43,18 +45,21 @@ const preferenceOptions: readonly Preference[] = [
 ];
 
 
-type StepId = "relation" | "genderAge" | "budget" | "preference" | "result";
-
+type StepId = "genderAge" | "relation" | "budget" | "preference" | "result";
 
 export default function Home() {
-  const [step, setStep] = useState<StepId>("relation");
+  const [step, setStep] = useState<StepId>("genderAge");
   const [answers, setAnswers] = useState<Answers>({});
   const [recommendSeed, setRecommendSeed] = useState(0);
 
 
+  const [excludedIds, setExcludedIds] = useState<string[]>([]);
+
+  const RECOMMEND_LIMIT = 4; // show between 3~5, default to 4
+
   const recommended = useMemo(
-    () => recommendGifts(answers, undefined, recommendSeed),
-    [answers, recommendSeed],
+    () => recommendGifts(answers, RECOMMEND_LIMIT, recommendSeed, excludedIds),
+    [answers, recommendSeed, excludedIds],
   );
 
   const addon = useMemo(() => {
@@ -70,10 +75,10 @@ export default function Home() {
 
 
   const canNext =
-    step === "relation"
-      ? Boolean(answers.relation)
-      : step === "genderAge"
-        ? Boolean(answers.gender && answers.age)
+    step === "genderAge"
+      ? Boolean(answers.gender && answers.age)
+      : step === "relation"
+        ? Boolean(answers.relation)
         : step === "budget"
           ? Boolean(answers.budget)
           : step === "preference"
@@ -84,8 +89,8 @@ export default function Home() {
   function next() {
     if (!canNext) return;
     setStep((s) => {
-      if (s === "relation") return "genderAge";
-      if (s === "genderAge") return "budget";
+      if (s === "genderAge") return "relation";
+      if (s === "relation") return "budget";
       if (s === "budget") return "preference";
       if (s === "preference") {
         setRecommendSeed(0);
@@ -100,9 +105,9 @@ export default function Home() {
     setStep((s) => {
       if (s === "result") return "preference";
       if (s === "preference") return "budget";
-      if (s === "budget") return "genderAge";
-      if (s === "genderAge") return "relation";
-      return "relation";
+      if (s === "budget") return "relation";
+      if (s === "relation") return "genderAge";
+      return "genderAge";
     });
   }
 
@@ -110,11 +115,14 @@ export default function Home() {
   function reset() {
     setAnswers({});
     setRecommendSeed(0);
-    setStep("relation");
+    setExcludedIds([]);
+    setStep("genderAge");
   }
 
 
   function recommendAgain() {
+    // exclude current shown ids and ask for a new seed
+    setExcludedIds((prev) => [...prev, ...recommended.map((g) => g.id)]);
     setRecommendSeed((s) => s + 1);
   }
 
@@ -165,8 +173,8 @@ export default function Home() {
             <div className="ml-4 hidden w-72 sm:block">
               <div className="text-sm text-zinc-500">
                 [{
-                  step === "relation" ? "1/5" :
-                  step === "genderAge" ? "2/5" :
+                  step === "genderAge" ? "1/5" :
+                  step === "relation" ? "2/5" :
                   step === "budget" ? "3/5" :
                   step === "preference" ? "4/5" :
                   "5/5"
@@ -176,8 +184,8 @@ export default function Home() {
                 <div
                   className="h-2 rounded-full bg-rose-500 transition-all"
                   style={{ width:
-                    step === "relation" ? "20%" :
-                    step === "genderAge" ? "40%" :
+                    step === "genderAge" ? "20%" :
+                    step === "relation" ? "40%" :
                     step === "budget" ? "60%" :
                     step === "preference" ? "80%" :
                     "100%"
