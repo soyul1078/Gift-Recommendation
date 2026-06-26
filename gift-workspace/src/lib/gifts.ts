@@ -1,6 +1,7 @@
 import { primaryBudgetBandsForPrice } from "./budgetBand";
 import type { Gift } from "./types";
 
+
 /**
  * Representative KRW prices (typical major KR malls / official-ish, before coupons).
  * `tags.budget` is derived from these numbers so UI, filters, and links stay aligned.
@@ -8,6 +9,7 @@ import type { Gift } from "./types";
 type GiftInput = Omit<Gift, "tags"> & {
   tags: Omit<Gift["tags"], "budget">;
 };
+
 
 function finalize(g: GiftInput): Gift {
   const bands = primaryBudgetBandsForPrice(g.priceKRW);
@@ -20,7 +22,94 @@ function finalize(g: GiftInput): Gift {
   };
 }
 
+
 const raw: GiftInput[] = [
+  // --- High-end single items (top 1%) ---
+  {
+    id: "lv-pocket-organizer",
+    title: "루이비통 가죽 포켓 오거나이저",
+    priceKRW: 450_000,
+    shortReason: "루이비통의 고급 가죽 포켓 오거나이저는 실용적이면서도 명품 감성을 전달합니다.",
+    tags: {
+      gender: ["남성", "무관"],
+      age: ["30대 초반", "30대 후반", "40대", "50대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
+      preference: ["실용성 우선", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "dior-oblique-wallet",
+    title: "디올 오블리크 자카드 반지갑",
+    priceKRW: 420_000,
+    shortReason: "디올의 시그니처 패턴을 살린 고급 반지갑으로 선물 가치가 높습니다.",
+    tags: {
+      gender: ["남성", "무관"],
+      age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시", "실용성 우선"],
+    },
+  },
+  {
+    id: "tag-heuer-aquaracer",
+    title: "태그호이어 아쿠아레이서 프로페셔널",
+    priceKRW: 2_800_000,
+    shortReason: "하이엔드 스포츠 워치로 만족도가 높고 오랫동안 간직하기 좋은 아이템입니다.",
+    tags: {
+      gender: ["남성"],
+      age: ["30대 초반", "30대 후반", "40대", "50대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
+      preference: ["실용성 우선", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "chanel-coco-crush-ring",
+    title: "샤넬 코코 크러쉬 링 미디움",
+    priceKRW: 1_200_000,
+    shortReason: "파인 주얼리로서 기념일 선물에 적합한 샤넬의 아이코닉 링입니다.",
+    tags: {
+      gender: ["여성"],
+      age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시", "뷰티/그루밍형"],
+    },
+  },
+  {
+    id: "dior-prestige-cream",
+    title: "디올 프레스티지 라 크렘",
+    priceKRW: 350_000,
+    shortReason: "럭셔리 스킨케어로 특별한 사람에게 주기 좋은 고급 아이템입니다.",
+    tags: {
+      gender: ["여성"],
+      age: ["30대 초반", "30대 후반", "40대", "50대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"] as any,
+      preference: ["뷰티/그루밍형", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "royal-copenhagen-tea",
+    title: "로얄 코펜하겐 티 컬렉션",
+    priceKRW: 220_000,
+    shortReason: "하이엔드 식기·홈웨어로 집들이나 기념일에 어울리는 고급 선물입니다.",
+    tags: {
+      gender: ["무관"],
+      age: ["30대 초반", "30대 후반", "40대", "50대", "60대 이상"],
+      relation: ["부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시", "미식가형"],
+    },
+  },
+  {
+    id: "gucci-marmont-card-case",
+    title: "구찌 마몽 GG 가죽 카드 케이스",
+    priceKRW: 260_000,
+    shortReason: "실용적이면서도 명품 포인트를 줄 수 있는 가죽 카드 케이스입니다.",
+    tags: {
+      gender: ["무관"],
+      age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
+      relation: ["정말 친한 절친", "배우자", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시", "실용성 우선"],
+    },
+  },
+
   {
     id: "stanley-tumbler",
     title: "스탠리 퀜처 H2.0 텀블러 887ml",
@@ -239,4 +328,8 @@ const raw: GiftInput[] = [
   },
 ];
 
+
 export const gifts: Gift[] = raw.map(finalize);
+
+
+

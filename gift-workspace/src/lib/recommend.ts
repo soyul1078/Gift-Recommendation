@@ -97,13 +97,14 @@ function freeTextSituationScore(giftId: string, raw: string): number {
 
 function scoreGift(gift: Gift, a: Answers): number {
   let score = 0;
-  if (a.gender && gift.tags.gender.includes(a.gender)) score += 2;
+  // Gender is used only as a gate/filter (handled in recommendGifts); don't score it.
   if (a.age && gift.tags.age.includes(a.age)) score += 2;
-  if (a.relation && gift.tags.relation.includes(a.relation)) score += 2;
-  if (a.budget && gift.tags.budget.includes(a.budget)) score += 3;
+  // Relation has lower weight: +1
+  if (a.relation && gift.tags.relation.includes(a.relation)) score += 1;
+  // Preferences get highest weight: +4 per matching preference
   const prefs = a.preferences ?? [];
   for (const p of prefs) {
-    if (gift.tags.preference.includes(p)) score += 3;
+    if (gift.tags.preference.includes(p)) score += 4;
   }
 
   const text = (a.freeText ?? "").trim();
@@ -136,8 +137,21 @@ export function recommendGifts(
   answers: Answers,
   limit = gifts.length,
   seed = 0,
+  excludeIds: string[] = [],
 ): Gift[] {
-  const ranked = [...gifts]
+  // Gender is a gate filter (not a scoring weight).
+  let pool = [...gifts];
+  if (answers.gender) {
+    pool = pool.filter((g) => g.tags.gender.includes(answers.gender!));
+  }
+
+  // Exclude previously shown items when requested (재추천 시 사용).
+  if (excludeIds.length > 0) {
+    const ex = new Set(excludeIds);
+    pool = pool.filter((g) => !ex.has(g.id));
+  }
+
+  const ranked = pool
     .map((g) => ({ g, s: scoreGift(g, answers) }))
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
     .filter((x) => x.s > 0);
@@ -159,6 +173,15 @@ export function recommendGifts(
 
   const list = filtered.length > 0 ? filtered : ranked;
   return rotateGifts(list.slice(0, limit).map((x) => x.g), seed);
+}
+
+export function getAddonForPreferences(preferences: string[] = []): string | null {
+  if (!preferences || preferences.length === 0) return null;
+  if (preferences.includes("감성/디자인 중시"))
+    return "프리미엄 생화 꽃다발 또는 꾸뛰르 플라워 박스";
+  if (preferences.includes("건강/웰빙형") || preferences.includes("미식가형"))
+    return "최고급 호텔 디저트 또는 프리미엄 티 세트";
+  return null;
 }
 
 export function buildReason(gift: Gift, answers: Answers): string {

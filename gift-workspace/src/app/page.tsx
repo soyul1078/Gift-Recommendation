@@ -1,13 +1,15 @@
 "use client";
 
+
 import { useMemo, useState } from "react";
 import { OptionGrid } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
-import { buildReason, formatKRW, recommendGifts } from "@/lib/recommend";
+import { buildReason, formatKRW, recommendGifts, getAddonForPreferences } from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
 import type { AgeBand, Answers, Budget, Gender, Preference } from "@/lib/types";
+
 
 const genderOptions: readonly Gender[] = ["여성", "남성", "무관"];
 const ageOptions: readonly AgeBand[] = [
@@ -40,23 +42,32 @@ const preferenceOptions: readonly Preference[] = [
   "뷰티/그루밍형",
 ];
 
+
 type StepId = "relation" | "genderAge" | "budget" | "preference" | "result";
+
 
 export default function Home() {
   const [step, setStep] = useState<StepId>("relation");
   const [answers, setAnswers] = useState<Answers>({});
   const [recommendSeed, setRecommendSeed] = useState(0);
 
+
   const recommended = useMemo(
     () => recommendGifts(answers, undefined, recommendSeed),
     [answers, recommendSeed],
   );
+
+  const addon = useMemo(() => {
+    return getAddonForPreferences(answers.preferences ?? []);
+  }, [answers.preferences]);
+
 
   const showBudgetFallbackNote = useMemo(() => {
     const b = answers.budget;
     if (!b) return false;
     return recommended.some((g) => !priceFitsBudgetBand(g.priceKRW, b));
   }, [answers.budget, recommended]);
+
 
   const canNext =
     step === "relation"
@@ -68,6 +79,7 @@ export default function Home() {
           : step === "preference"
             ? Boolean(answers.preferences && answers.preferences.length > 0)
             : true;
+
 
   function next() {
     if (!canNext) return;
@@ -83,6 +95,7 @@ export default function Home() {
     });
   }
 
+
   function back() {
     setStep((s) => {
       if (s === "result") return "preference";
@@ -93,15 +106,18 @@ export default function Home() {
     });
   }
 
+
   function reset() {
     setAnswers({});
     setRecommendSeed(0);
     setStep("relation");
   }
 
+
   function recommendAgain() {
     setRecommendSeed((s) => s + 1);
   }
+
 
   return (
     <div className="min-h-full bg-zinc-50">
@@ -122,6 +138,7 @@ export default function Home() {
           </div>
         </div>
       </header>
+
 
       <main className="mx-auto w-full max-w-3xl px-5 py-8">
         <section className="rounded-2xl border bg-white p-5 sm:p-7">
@@ -144,6 +161,30 @@ export default function Home() {
                 {step === "result" && "입력하신 조건에 맞는 선물이에요."}
               </div>
             </div>
+            {/* Progress gauge */}
+            <div className="ml-4 hidden w-72 sm:block">
+              <div className="text-sm text-zinc-500">
+                [{
+                  step === "relation" ? "1/5" :
+                  step === "genderAge" ? "2/5" :
+                  step === "budget" ? "3/5" :
+                  step === "preference" ? "4/5" :
+                  "5/5"
+                } / 5 단계]
+              </div>
+              <div className="mt-2 h-2 w-full rounded-full bg-gray-200">
+                <div
+                  className="h-2 rounded-full bg-rose-500 transition-all"
+                  style={{ width:
+                    step === "relation" ? "20%" :
+                    step === "genderAge" ? "40%" :
+                    step === "budget" ? "60%" :
+                    step === "preference" ? "80%" :
+                    "100%"
+                  }}
+                />
+              </div>
+            </div>
             <button
               type="button"
               onClick={reset}
@@ -152,6 +193,7 @@ export default function Home() {
               초기화
             </button>
           </div>
+
 
           <div className="mt-5 grid gap-4">
             {step === "relation" && (
@@ -162,6 +204,7 @@ export default function Home() {
                 }
               />
             )}
+
 
             {step === "genderAge" && (
               <div className="grid gap-4">
@@ -184,6 +227,7 @@ export default function Home() {
               </div>
             )}
 
+
             {step === "budget" && (
               <div className="grid gap-2">
                 <div className="text-sm font-medium text-zinc-900">예산</div>
@@ -194,6 +238,7 @@ export default function Home() {
                 />
               </div>
             )}
+
 
             {step === "preference" && (
               <div className="grid gap-2">
@@ -213,6 +258,7 @@ export default function Home() {
                 />
               </div>
             )}
+
 
             {step === "result" && (
               <div className="grid gap-4">
@@ -293,6 +339,12 @@ export default function Home() {
                               </a>
                             </div>
                           </div>
+                          {addon && (
+                            <div className="mt-3 rounded-lg bg-rose-50 p-3 text-sm text-rose-900">
+                              자동 구성 1+1: {gift.title} & {addon}
+                            </div>
+                          )}
+
 
                           <div className="mt-4">
                             <div className="text-sm font-semibold text-zinc-900">
@@ -311,6 +363,7 @@ export default function Home() {
             )}
           </div>
 
+
           <div className="mt-6 flex items-center justify-between gap-3">
             <button
               type="button"
@@ -325,6 +378,7 @@ export default function Home() {
             >
               이전
             </button>
+
 
             {step !== "result" ? (
               <button
@@ -350,6 +404,7 @@ export default function Home() {
           </div>
         </section>
 
+
         <footer className="mt-6 text-xs leading-5 text-zinc-500">
           개인정보·결제정보는 수집하지 않습니다. 제휴 구매 버튼 클릭 시
           익명으로 채널·추천 ID만 기록해 CTR 분석에 쓸 수 있으며, 웹훅을
@@ -359,3 +414,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+
