@@ -172,17 +172,17 @@ export default function Home() {
             {/* Progress gauge */}
             <div className="ml-4 hidden w-72 sm:block">
               <div className="text-sm text-zinc-500">
-                [{
+                {
                   step === "genderAge" ? "1/5" :
                   step === "relation" ? "2/5" :
                   step === "budget" ? "3/5" :
                   step === "preference" ? "4/5" :
                   "5/5"
-                } / 5 단계]
+                }
               </div>
               <div className="mt-2 h-2 w-full rounded-full bg-gray-200">
                 <div
-                  className="h-2 rounded-full bg-rose-500 transition-all"
+                  className="h-2 rounded-full bg-emerald-500 transition-all"
                   style={{ width:
                     step === "genderAge" ? "20%" :
                     step === "relation" ? "40%" :
