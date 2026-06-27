@@ -45,10 +45,10 @@ const preferenceOptions: readonly Preference[] = [
 ];
 
 
-type StepId = "genderAge" | "relation" | "budget" | "preference" | "result";
+type StepId = "start" | "genderAge" | "relation" | "budget" | "preference" | "result";
 
 export default function Home() {
-  const [step, setStep] = useState<StepId>("genderAge");
+  const [step, setStep] = useState<StepId>("start");
   const [answers, setAnswers] = useState<Answers>({});
   const [recommendSeed, setRecommendSeed] = useState(0);
 
@@ -75,20 +75,23 @@ export default function Home() {
 
 
   const canNext =
-    step === "genderAge"
-      ? Boolean(answers.gender && answers.age)
-      : step === "relation"
-        ? Boolean(answers.relation)
-        : step === "budget"
-          ? Boolean(answers.budget)
-          : step === "preference"
-            ? Boolean(answers.preferences && answers.preferences.length > 0)
-            : true;
+    step === "start"
+      ? true
+      : step === "genderAge"
+        ? Boolean(answers.gender && answers.age)
+        : step === "relation"
+          ? Boolean(answers.relation)
+          : step === "budget"
+            ? Boolean(answers.budget)
+            : step === "preference"
+              ? Boolean(answers.preferences && answers.preferences.length > 0)
+              : true;
 
 
   function next() {
     if (!canNext) return;
     setStep((s) => {
+      if (s === "start") return "genderAge";
       if (s === "genderAge") return "relation";
       if (s === "relation") return "budget";
       if (s === "budget") return "preference";
@@ -107,7 +110,8 @@ export default function Home() {
       if (s === "preference") return "budget";
       if (s === "budget") return "relation";
       if (s === "relation") return "genderAge";
-      return "genderAge";
+      if (s === "genderAge") return "start";
+      return "start";
     });
   }
 
@@ -116,7 +120,7 @@ export default function Home() {
     setAnswers({});
     setRecommendSeed(0);
     setExcludedIds([]);
-    setStep("genderAge");
+    setStep("start");
   }
 
 
@@ -153,6 +157,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="text-lg font-semibold text-zinc-900">
+                {step === "start" && "선물 추천 시작"}
                 {step === "relation" && "나와의 관계"}
                 {step === "genderAge" && "성별 및 연령대"}
                 {step === "budget" && "예산 범위"}
@@ -160,6 +165,8 @@ export default function Home() {
                 {step === "result" && "선물 추천"}
               </div>
               <div className="mt-1 text-sm text-zinc-500">
+                {step === "start" &&
+                  "아래 버튼을 눌러 간단한 질문으로 선물 추천을 시작하세요."}
                 {step === "relation" &&
                   "카테고리를 눌러 관계를 선택해 주세요."}
                 {step === "genderAge" && "선물 받을 분의 성별과 연령대를 골라 주세요."}
@@ -204,6 +211,25 @@ export default function Home() {
 
 
           <div className="mt-5 grid gap-4">
+            {step === "start" && (
+              <div className="grid gap-4 rounded-3xl border border-zinc-200 bg-zinc-50 p-6 text-center shadow-sm">
+                <div className="text-2xl font-bold text-zinc-900">
+                  선물 추천을 시작해 볼까요?
+                </div>
+                <p className="mx-auto max-w-xl text-sm leading-7 text-zinc-600">
+                  성별과 연령대를 먼저 선택한 후, 상대방과의 관계와 예산, 성향을
+                  입력하면 최적의 고급 선물을 제안해 드립니다.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStep("genderAge")}
+                  className="mx-auto mt-3 inline-flex h-12 items-center justify-center rounded-full bg-emerald-600 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
+                >
+                  시작하기
+                </button>
+              </div>
+            )}
+
             {step === "relation" && (
               <RelationSectionPicker
                 value={answers.relation}
@@ -376,10 +402,10 @@ export default function Home() {
             <button
               type="button"
               onClick={back}
-              disabled={step === "relation"}
+              disabled={step === "start"}
               className={[
                 "h-11 rounded-xl px-4 text-sm font-semibold transition",
-                step === "relation"
+                step === "start"
                   ? "cursor-not-allowed bg-zinc-100 text-zinc-400"
                   : "bg-zinc-200 text-zinc-900 hover:bg-zinc-300",
               ].join(" ")}
