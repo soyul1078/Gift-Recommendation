@@ -184,7 +184,7 @@ export default function Home() {
                   step === "relation" ? "2/5" :
                   step === "budget" ? "3/5" :
                   step === "preference" ? "4/5" :
-                  "5/5"
+                  "0/5"
                 }
               </div>
               <div className="mt-2 h-2 w-full rounded-full bg-gray-200">
@@ -195,18 +195,13 @@ export default function Home() {
                     step === "relation" ? "40%" :
                     step === "budget" ? "60%" :
                     step === "preference" ? "80%" :
-                    "100%"
+                    "0%"
                   }}
                 />
+                
               </div>
             </div>
-            <button
-              type="button"
-              onClick={reset}
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900"
-            >
-              초기화
-            </button>
+            
           </div>
 
 
@@ -398,35 +393,8 @@ export default function Home() {
           </div>
 
 
-          <div className="mt-6 flex items-center justify-between gap-3">
-            <button
-              type="button"
-              onClick={back}
-              disabled={step === "start"}
-              className={[
-                "h-11 rounded-xl px-4 text-sm font-semibold transition",
-                step === "start"
-                  ? "cursor-not-allowed bg-zinc-100 text-zinc-400"
-                  : "bg-zinc-200 text-zinc-900 hover:bg-zinc-300",
-              ].join(" ")}
-            >
-              이전
-            </button>
-
-
-            {step !== "result" ? (
-              <button
-                type="button"
-                onClick={next}
-                disabled={!canNext}
-                className={[
-                  "h-11 rounded-xl px-5 text-sm font-semibold text-white transition",
-                  canNext ? "bg-zinc-900 hover:bg-zinc-800" : "bg-zinc-300",
-                ].join(" ")}
-              >
-                다음으로
-              </button>
-            ) : (
+          <div className="mt-6 flex items-center justify-end gap-3">
+            {step === "result" && (
               <button
                 type="button"
                 onClick={recommendAgain}
