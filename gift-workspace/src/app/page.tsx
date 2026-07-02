@@ -201,7 +201,17 @@ export default function Home() {
                 
               </div>
             </div>
-            
+
+            {step === "result" && (
+              <button
+                type="button"
+                onClick={reset}
+                className="text-sm font-medium text-zinc-600 hover:text-zinc-900"
+              >
+                초기화
+              </button>
+            )}
+
           </div>
 
 
@@ -393,15 +403,56 @@ export default function Home() {
           </div>
 
 
-          <div className="mt-6 flex items-center justify-end gap-3">
-            {step === "result" && (
-              <button
-                type="button"
-                onClick={recommendAgain}
-                className="h-11 rounded-xl bg-zinc-900 px-5 text-sm font-semibold text-white hover:bg-zinc-800"
-              >
-                다시 추천받기
-              </button>
+          <div className="mt-6 flex items-center justify-between gap-3">
+            {step === "start" ? null : step === "result" ? (
+              <>
+                <button
+                  type="button"
+                  onClick={back}
+                  className={[
+                    "h-11 rounded-xl px-4 text-sm font-semibold transition",
+                    "bg-zinc-200 text-zinc-900 hover:bg-zinc-300",
+                  ].join(" ")}
+                >
+                  이전
+                </button>
+
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="h-11 rounded-xl bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 hover:bg-zinc-200"
+                >
+                  초기화
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={back}
+                  disabled={step === "start"}
+                  className={[
+                    "h-11 rounded-xl px-4 text-sm font-semibold transition",
+                    step === "start"
+                      ? "cursor-not-allowed bg-zinc-100 text-zinc-400"
+                      : "bg-zinc-200 text-zinc-900 hover:bg-zinc-300",
+                  ].join(" ")}
+                >
+                  이전
+                </button>
+
+                <button
+                  type="button"
+                  onClick={next}
+                  disabled={!canNext}
+                  className={[
+                    "h-11 rounded-xl px-5 text-sm font-semibold text-white transition",
+                    canNext ? "bg-zinc-900 hover:bg-zinc-800" : "bg-zinc-300",
+                  ].join(" ")}
+                >
+                  다음으로
+                </button>
+              </>
             )}
           </div>
         </section>
