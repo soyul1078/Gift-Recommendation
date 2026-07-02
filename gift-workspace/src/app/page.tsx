@@ -430,13 +430,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={back}
-                  disabled={step === "start"}
-                  className={[
-                    "h-11 rounded-xl px-4 text-sm font-semibold transition",
-                    step === "start"
-                      ? "cursor-not-allowed bg-zinc-100 text-zinc-400"
-                      : "bg-zinc-200 text-zinc-900 hover:bg-zinc-300",
-                  ].join(" ")}
+                  className="h-11 rounded-xl px-4 text-sm font-semibold text-zinc-900 bg-zinc-200 hover:bg-zinc-300 transition"
                 >
                   이전
                 </button>
