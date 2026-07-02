@@ -1,12 +1,6 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "gift-workspace/package.json",
-      "use": "@vercel/next"
-    }
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
   "installCommand": "npm install --prefix gift-workspace",
-  "buildCommand": "npm run build --prefix gift-workspace",
-  "outputDirectory": "gift-workspace/.next"
+  "buildCommand": "npm run build --prefix gift-workspace"
 }
