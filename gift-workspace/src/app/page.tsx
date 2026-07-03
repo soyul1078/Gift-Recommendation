@@ -157,6 +157,15 @@ export default function Home() {
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">관계를 선택해 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">가장 자연스러운 선물 포인트가 보이도록 관계를 골라주세요.</p>
+                  <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
+                    <div className="flex items-center justify-between text-xs text-zinc-500">
+                      <span>진행도</span>
+                      <span className="font-semibold text-zinc-900">{progressLabel}</span>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-zinc-200">
+                      <div className="h-2 rounded-full bg-zinc-900 transition-all" style={{ width: progressWidth }} />
+                    </div>
+                  </div>
                 </div>
                 <RelationSectionPicker
                   value={answers.relation}
@@ -170,6 +179,15 @@ export default function Home() {
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
+                  <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
+                    <div className="flex items-center justify-between text-xs text-zinc-500">
+                      <span>진행도</span>
+                      <span className="font-semibold text-zinc-900">{progressLabel}</span>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-zinc-200">
+                      <div className="h-2 rounded-full bg-zinc-900 transition-all" style={{ width: progressWidth }} />
+                    </div>
+                  </div>
                 </div>
                 <div className="grid gap-4">
                   <div className="grid gap-2">
@@ -189,6 +207,15 @@ export default function Home() {
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
+                  <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
+                    <div className="flex items-center justify-between text-xs text-zinc-500">
+                      <span>진행도</span>
+                      <span className="font-semibold text-zinc-900">{progressLabel}</span>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-zinc-200">
+                      <div className="h-2 rounded-full bg-zinc-900 transition-all" style={{ width: progressWidth }} />
+                    </div>
+                  </div>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">예산</div>
@@ -202,6 +229,15 @@ export default function Home() {
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">상대방의 성향을 골라 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다.</p>
+                  <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
+                    <div className="flex items-center justify-between text-xs text-zinc-500">
+                      <span>진행도</span>
+                      <span className="font-semibold text-zinc-900">{progressLabel}</span>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-zinc-200">
+                      <div className="h-2 rounded-full bg-zinc-900 transition-all" style={{ width: progressWidth }} />
+                    </div>
+                  </div>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">
