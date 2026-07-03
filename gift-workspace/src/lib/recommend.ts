@@ -129,7 +129,7 @@ function scoreGift(gift: Gift, a: Answers): number {
     if (gift.tags.preference.includes(p)) score += 4;
   }
 
-  if (a.budget && HIGH_END_BUDGETS.has(a.budget) && LUXURY_GIFT_IDS.has(gift.id)) {
+  if (a.budget && HIGH_END_BUDGETS.has(a.budget) && LUXURY_FALLBACK_GIFT_IDS.has(gift.id)) {
     score += 5;
   }
 
