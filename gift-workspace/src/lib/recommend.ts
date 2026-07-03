@@ -95,12 +95,22 @@ function freeTextSituationScore(giftId: string, raw: string): number {
   return add;
 }
 
+function relationTargets(relation?: string): string[] {
+  if (!relation) return [];
+  if (relation === "생일·기념일") return ["특별한 기념일(생일, 1주년)", "가벼운 기념일(100일 등)"];
+  if (relation === "어버이날") return ["부모님", "시댁/처가 어른"];
+  if (relation === "스승의날") return ["선생님/은사님"];
+  if (relation === "가벼운 기념일(100일 등)") return ["가벼운 기념일(100일 등)", "생일·기념일"];
+  return [relation];
+}
+
 function scoreGift(gift: Gift, a: Answers): number {
   let score = 0;
   // Gender is used only as a gate/filter (handled in recommendGifts); don't score it.
   if (a.age && gift.tags.age.includes(a.age)) score += 2;
   // Relation has lower weight: +1
-  if (a.relation && gift.tags.relation.includes(a.relation)) score += 1;
+  const targets = relationTargets(a.relation);
+  if (a.relation && targets.some((r) => gift.tags.relation.includes(r as any))) score += 1;
   // Preferences get highest weight: +4 per matching preference
   const prefs = a.preferences ?? [];
   for (const p of prefs) {
@@ -164,15 +174,8 @@ export function recommendGifts(
     );
   }
 
-  const anyInBand = catalogHasGiftInBudgetBand(gifts, band);
-  const filtered = ranked.filter((x) => {
-    if (priceFitsBudgetBand(x.g.priceKRW, band)) return true;
-    if (!anyInBand && x.g.tags.budget.includes(band)) return true;
-    return false;
-  });
-
-  const list = filtered.length > 0 ? filtered : ranked;
-  return rotateGifts(list.slice(0, limit).map((x) => x.g), seed);
+  const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
+  return rotateGifts(filtered.slice(0, limit).map((x) => x.g), seed);
 }
 
 export function getAddonForPreferences(preferences: string[] = []): string | null {

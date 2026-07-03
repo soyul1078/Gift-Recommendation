@@ -57,12 +57,6 @@ export default function Home() {
   );
   const addon = useMemo(() => getAddonForPreferences(answers.preferences ?? []), [answers.preferences]);
 
-  const showBudgetFallbackNote = useMemo(() => {
-    const b = answers.budget;
-    if (!b) return false;
-    return recommended.some((g) => !priceFitsBudgetBand(g.priceKRW, b));
-  }, [answers.budget, recommended]);
-
   const canNext =
     step === "start"
       ? true
@@ -115,26 +109,23 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(244,114,182,0.18),_transparent_28%),linear-gradient(135deg,_#fff7ed_0%,_#fdf2f8_48%,_#f5f3ff_100%)] text-zinc-900">
-      <header className="border-b border-white/60 bg-white/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-zinc-50 text-slate-900">
+      <header className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto flex max-w-5xl items-center px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-emerald-700 via-emerald-600 to-lime-600 text-sm font-semibold text-white shadow-lg">
+            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-zinc-900 text-sm font-semibold text-white">
               G
             </div>
             <div>
               <div className="text-sm font-semibold text-zinc-900">선물 추천 워크스페이스</div>
-              <div className="text-xs text-zinc-500">고민은 줄이고 센스는 더하고, 결제는 한 번에</div>
+              <div className="text-xs text-zinc-500">간단한 질문으로 예산에 딱 맞는 선물을 찾습니다.</div>
             </div>
-          </div>
-          <div className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
-            AI 추천
           </div>
         </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
-        <section className="rounded-[32px] border border-white/70 bg-white/80 p-5 shadow-[0_25px_80px_-35px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:p-7 lg:p-8">
+        <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
               <div className="text-2xl font-semibold text-zinc-900">
@@ -145,23 +136,23 @@ export default function Home() {
                 {step === "preference" && "상대방 성향(복수 선택)"}
                 {step === "result" && "선물 추천"}
               </div>
-              <div className="mt-2 text-sm leading-6 text-zinc-600">
+              <div className="mt-2 text-sm leading-6 text-slate-600">
                 {step === "start" && "아래 버튼을 눌러 간단한 질문으로 선물 추천을 시작하세요."}
-                {step === "relation" && "카테고리를 눌러 관계를 선택해 주세요."}
-                {step === "genderAge" && "선물 받을 분의 성별과 연령대를 골라 주세요."}
+                {step === "relation" && "관계를 선택해 주시면 더 정확한 추천이 가능합니다."}
+                {step === "genderAge" && "성별과 연령대를 선택하면 추천이 더 잘 맞습니다."}
                 {step === "budget" && "예산 범위를 선택해 주세요."}
-                {step === "preference" && "해당되는 성향을 모두 선택해 주세요."}
-                {step === "result" && "입력하신 조건에 맞는 선물이에요."}
+                {step === "preference" && "여러 성향을 선택하면 더욱 맞춤 추천이 됩니다."}
+                {step === "result" && "선택하신 예산에 맞는 추천 결과입니다."}
               </div>
             </div>
 
-            <div className="w-full max-w-[280px] rounded-2xl border border-zinc-200 bg-zinc-50/90 p-4 shadow-sm">
+            <div className="w-full max-w-[280px] rounded-2xl border border-zinc-200 bg-zinc-50 p-4 shadow-sm">
               <div className="flex items-center justify-between text-sm text-zinc-600">
                 <span>진행도</span>
                 <span className="font-semibold text-zinc-900">{progressLabel}</span>
               </div>
               <div className="mt-3 h-2 rounded-full bg-zinc-200">
-                <div className="h-2 rounded-full bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 transition-all" style={{ width: progressWidth }} />
+                <div className="h-2 rounded-full bg-zinc-900 transition-all" style={{ width: progressWidth }} />
               </div>
               <div className="mt-3 text-sm text-zinc-500">{step === "result" ? "추천 완료" : "다음 질문만 남았어요"}</div>
             </div>
@@ -169,20 +160,20 @@ export default function Home() {
 
           <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
             {step === "start" && (
-              <div className="grid gap-5 rounded-[24px] border border-rose-100 bg-gradient-to-br from-rose-50 via-white to-violet-50 p-6 text-center shadow-sm">
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-gradient-to-br from-emerald-700 via-emerald-600 to-lime-600 text-3xl text-white shadow-lg">
+              <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-white p-6 text-center shadow-sm">
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-slate-900 text-3xl text-white shadow">
                   ✨
                 </div>
                 <div>
-                  <div className="text-2xl font-semibold text-zinc-900">선물 추천을 시작해 볼까요?</div>
-                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
-                    성별과 연령대를 먼저 선택한 후, 상대방과의 관계와 예산, 성향을 입력하면 최적의 선물을 제안해 드립니다.
+                  <div className="text-2xl font-semibold text-slate-900">선물 추천을 시작해 볼까요?</div>
+                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
+                    간단한 질문으로 예산에 딱 맞는 추천을 받아보세요.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setStep("genderAge")}
-                  className="mx-auto inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 px-6 text-sm font-semibold text-white shadow-lg transition hover:scale-[1.01]"
+                  className="mx-auto inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-white shadow transition hover:bg-slate-800"
                 >
                   시작하기
                 </button>
@@ -191,7 +182,7 @@ export default function Home() {
 
             {step === "relation" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">관계를 선택해 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">가장 자연스러운 선물 포인트가 보이도록 관계를 골라주세요.</p>
                 </div>
@@ -204,7 +195,7 @@ export default function Home() {
 
             {step === "genderAge" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
                 </div>
@@ -223,9 +214,9 @@ export default function Home() {
 
             {step === "budget" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
-                  <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 현실적인 추천을 보여드릴게요.</p>
+                  <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">예산</div>
@@ -236,9 +227,9 @@ export default function Home() {
 
             {step === "preference" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">상대방의 성향을 골라 주세요</div>
-                  <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드릴 수 있어요.</p>
+                  <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다.</p>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">
@@ -252,36 +243,31 @@ export default function Home() {
             {step === "result" && (
               <div className="grid gap-4">
                 {recommended.length === 0 ? (
-                  <div className="rounded-2xl border border-zinc-200 bg-white/80 p-4 text-sm text-zinc-700 shadow-sm">
-                    아직 조건이 충분하지 않아요. 이전 단계로 돌아가서 선택을 추가해 주세요.
+                  <div className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700 shadow-sm">
+                    선택하신 예산대에 맞는 상품이 없습니다. 이전 단계로 돌아가 예산을 변경하거나 다른 조건을 선택해 주세요.
                   </div>
                 ) : (
                   <>
-                    {showBudgetFallbackNote && (
-                      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-950 shadow-sm">
-                        이 예산 구간에 맞는 대표 상품이 카탈로그에 없어, 가장 가까운 추천을 보여 드려요. 가격은 아래 표기(대표 소비자가)를 참고해 주세요.
-                      </div>
-                    )}
                     {recommended.map((gift) => {
                       const links = outboundLinksForGift(gift);
                       return (
-                        <div key={gift.id} className="rounded-[24px] border border-zinc-200 bg-white p-5 shadow-sm">
+                        <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
                           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                             <div className="max-w-2xl">
                               <div className="text-lg font-semibold text-zinc-900">{gift.title}</div>
                               <div className="mt-2 space-y-1">
-                                <div className="text-2xl font-bold tracking-tight text-zinc-900">{formatKRW(gift.priceKRW)}</div>
-                                <div className="text-sm font-medium text-zinc-600">선택 예산: {answers.budget ?? "—"}</div>
-                                <div className="text-xs leading-relaxed text-zinc-500">
-                                  위 금액은 국내 주요 몰 기준 대표 소비자가예요. 구매 버튼은 이 가격대에 맞춰 검색·필터를 적용해요. 옵션·할인·배송비에 따라 결제가는 조금 달라질 수 있어요.
+                                <div className="text-2xl font-bold tracking-tight text-slate-900">{formatKRW(gift.priceKRW)}</div>
+                                <div className="text-sm font-medium text-slate-600">선택 예산: {answers.budget ?? "—"}</div>
+                                <div className="text-xs leading-relaxed text-slate-500">
+                                  예산대에 맞는 추천입니다. 실제 가격은 판매처와 옵션에 따라 달라질 수 있습니다.
                                 </div>
                               </div>
                             </div>
                             <div className="flex flex-wrap gap-2">
-                              <a className="rounded-xl bg-yellow-400 px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-yellow-300" href={links.kakaoGift} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("kakao", gift.id)}>
+                              <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.kakaoGift} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("kakao", gift.id)}>
                                 카카오톡 선물하기
                               </a>
-                              <a className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800" href={links.coupang} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("coupang", gift.id)}>
+                              <a className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800" href={links.coupang} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("coupang", gift.id)}>
                                 쿠팡 바로가기
                               </a>
                               <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.naverShopping} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("naver", gift.id)}>
