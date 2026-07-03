@@ -130,28 +130,6 @@ export default function Home() {
 
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
         <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-2xl">
-              <div className="text-2xl font-semibold text-zinc-900">
-                {step === "start" && "선물 추천 시작"}
-                {step === "relation" && "나와의 관계"}
-                {step === "genderAge" && "성별 및 연령대"}
-                {step === "budget" && "예산 범위"}
-                {step === "preference" && "상대방 성향(복수 선택)"}
-                {step === "result" && "선물 추천"}
-              </div>
-              <div className="mt-2 text-sm leading-6 text-slate-600">
-                {step === "start" && "아래 버튼을 눌러 간단한 질문으로 선물 추천을 시작하세요."}
-                {step === "relation" && "관계를 선택해 주시면 더 정확한 추천이 가능합니다."}
-                {step === "genderAge" && "성별과 연령대를 선택하면 추천이 더 잘 맞습니다."}
-                {step === "budget" && "예산 범위를 선택해 주세요."}
-                {step === "preference" && "여러 성향을 선택하면 더욱 맞춤 추천이 됩니다."}
-                {step === "result" && "선택하신 예산에 맞는 추천 결과입니다."}
-              </div>
-            </div>
-
-          </div>
-
           <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
             {step === "start" && (
               <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-white p-6 text-center shadow-sm">
