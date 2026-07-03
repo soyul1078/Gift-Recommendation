@@ -150,16 +150,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full max-w-[280px] rounded-2xl border border-zinc-200 bg-zinc-50 p-4 shadow-sm">
-              <div className="flex items-center justify-between text-sm text-zinc-600">
-                <span>진행도</span>
-                <span className="font-semibold text-zinc-900">{progressLabel}</span>
-              </div>
-              <div className="mt-3 h-2 rounded-full bg-zinc-200">
-                <div className="h-2 rounded-full bg-zinc-900 transition-all" style={{ width: progressWidth }} />
-              </div>
-              <div className="mt-3 text-sm text-zinc-500">{step === "result" ? "추천 완료" : "다음 질문만 남았어요"}</div>
-            </div>
           </div>
 
           <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
