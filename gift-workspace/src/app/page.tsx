@@ -50,11 +50,15 @@ export default function Home() {
   const [recommendSeed, setRecommendSeed] = useState(0);
   const [excludedIds, setExcludedIds] = useState<string[]>([]);
 
-  const RECOMMEND_LIMIT = 4;
+  const RECOMMEND_LIMIT = 5;
   const recommended = useMemo(
     () => recommendGifts(answers, RECOMMEND_LIMIT, recommendSeed, excludedIds),
     [answers, recommendSeed, excludedIds],
   );
+  const isBudgetFallback =
+    answers.budget &&
+    recommended.length > 0 &&
+    recommended.every((gift) => !priceFitsBudgetBand(gift.priceKRW, answers.budget!));
   const addon = useMemo(() => getAddonForPreferences(answers.preferences ?? []), [answers.preferences]);
 
   const canNext =
@@ -248,6 +252,11 @@ export default function Home() {
                   </div>
                 ) : (
                   <>
+                    {isBudgetFallback && (
+                      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
+                        선택하신 예산대에 딱 맞는 상품은 없지만, 명품 브랜드 홈페이지로 바로 이동 가능한 추천 선물 3~5개를 보여드립니다.
+                      </div>
+                    )}
                     {recommended.map((gift) => {
                       const links = outboundLinksForGift(gift);
                       return (
@@ -273,6 +282,11 @@ export default function Home() {
                               <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.naverShopping} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("naver", gift.id)}>
                                 네이버 쇼핑
                               </a>
+                              {gift.brandUrl ? (
+                                <a className="rounded-xl border border-zinc-200 bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800" href={gift.brandUrl} target="_blank" rel="noreferrer">
+                                  브랜드 공식 홈페이지
+                                </a>
+                              ) : null}
                             </div>
                           </div>
                           {addon && (

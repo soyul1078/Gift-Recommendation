@@ -54,6 +54,7 @@ export type Gift = {
   title: string;
   priceKRW: number;
   shortReason: string;
+  brandUrl?: string;
   tags: {
     gender: Gender[];
     age: AgeBand[];

@@ -30,6 +30,7 @@ const raw: GiftInput[] = [
     title: "루이비통 가죽 포켓 오거나이저",
     priceKRW: 450_000,
     shortReason: "루이비통의 고급 가죽 포켓 오거나이저는 실용적이면서도 명품 감성을 전달합니다.",
+    brandUrl: "https://kr.louisvuitton.com/kor-kr/products/",
     tags: {
       gender: ["남성", "무관"],
       age: ["30대 초반", "30대 후반", "40대", "50대"],
@@ -42,6 +43,7 @@ const raw: GiftInput[] = [
     title: "디올 오블리크 자카드 반지갑",
     priceKRW: 420_000,
     shortReason: "디올의 시그니처 패턴을 살린 고급 반지갑으로 선물 가치가 높습니다.",
+    brandUrl: "https://www.dior.com/ko_kr",
     tags: {
       gender: ["남성", "무관"],
       age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
@@ -54,6 +56,7 @@ const raw: GiftInput[] = [
     title: "태그호이어 아쿠아레이서 프로페셔널",
     priceKRW: 2_800_000,
     shortReason: "하이엔드 스포츠 워치로 만족도가 높고 오랫동안 간직하기 좋은 아이템입니다.",
+    brandUrl: "https://www.tagheuer.com/ko-kr",
     tags: {
       gender: ["남성"],
       age: ["30대 초반", "30대 후반", "40대", "50대"],
@@ -66,6 +69,7 @@ const raw: GiftInput[] = [
     title: "샤넬 코코 크러쉬 링 미디움",
     priceKRW: 1_200_000,
     shortReason: "파인 주얼리로서 기념일 선물에 적합한 샤넬의 아이코닉 링입니다.",
+    brandUrl: "https://www.chanel.com/kr/",
     tags: {
       gender: ["여성"],
       age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
@@ -78,6 +82,7 @@ const raw: GiftInput[] = [
     title: "디올 프레스티지 라 크렘",
     priceKRW: 350_000,
     shortReason: "럭셔리 스킨케어로 특별한 사람에게 주기 좋은 고급 아이템입니다.",
+    brandUrl: "https://www.dior.com/ko_kr",
     tags: {
       gender: ["여성"],
       age: ["30대 초반", "30대 후반", "40대", "50대"],
@@ -90,6 +95,7 @@ const raw: GiftInput[] = [
     title: "버버리 클래식 트렌치코트",
     priceKRW: 1_150_000,
     shortReason: "정통 하이엔드 클래식 트렌치로 특별한 날에 어울리는 럭셔리 패션 선물입니다.",
+    brandUrl: "https://www.burberry.com/",
     tags: {
       gender: ["여성", "남성"],
       age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
@@ -102,6 +108,7 @@ const raw: GiftInput[] = [
     title: "로얄 코펜하겐 티 컬렉션",
     priceKRW: 220_000,
     shortReason: "하이엔드 식기·홈웨어로 집들이나 기념일에 어울리는 고급 선물입니다.",
+    brandUrl: "https://www.royalcopenhagen.com/",
     tags: {
       gender: ["무관"],
       age: ["30대 초반", "30대 후반", "40대", "50대", "60대 이상"],
@@ -114,6 +121,7 @@ const raw: GiftInput[] = [
     title: "구찌 마몽 GG 가죽 카드 케이스",
     priceKRW: 260_000,
     shortReason: "실용적이면서도 명품 포인트를 줄 수 있는 가죽 카드 케이스입니다.",
+    brandUrl: "https://www.gucci.com/kr/ko/",
     tags: {
       gender: ["무관"],
       age: ["20대 후반", "30대 초반", "30대 후반", "40대"],

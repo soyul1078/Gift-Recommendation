@@ -104,8 +104,8 @@ function relationTargets(relation?: string): string[] {
   return [relation];
 }
 
-const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["70~100만 원대", "100만 원 이상"]);
-const LUXURY_GIFT_IDS: ReadonlySet<string> = new Set([
+const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대", "100만 원 이상"]);
+const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "lv-pocket-organizer",
   "dior-oblique-wallet",
   "tag-heuer-aquaracer",
@@ -191,7 +191,16 @@ export function recommendGifts(
   }
 
   const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
-  return rotateGifts(filtered.slice(0, limit).map((x) => x.g), seed);
+  if (filtered.length > 0) {
+    return rotateGifts(filtered.slice(0, limit).map((x) => x.g), seed);
+  }
+
+  const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
+  if (fallback.length > 0) {
+    return rotateGifts(fallback.slice(0, limit).map((x) => x.g), seed);
+  }
+
+  return rotateGifts(ranked.slice(0, limit).map((x) => x.g), seed);
 }
 
 export function getAddonForPreferences(preferences: string[] = []): string | null {
