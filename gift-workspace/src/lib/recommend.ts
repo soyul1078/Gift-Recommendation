@@ -3,7 +3,7 @@ import {
   catalogHasGiftInBudgetBand,
   priceFitsBudgetBand,
 } from "./budgetBand";
-import type { Answers, Gift } from "./types";
+import type { Answers, Budget, Gift } from "./types";
 
 /** 직접 입력에 자주 쓰이는 상황 키워드 → 해당 상황에 어울리는 선물 id 가점 */
 const SITUATION_BOOSTS: ReadonlyArray<{
@@ -104,6 +104,18 @@ function relationTargets(relation?: string): string[] {
   return [relation];
 }
 
+const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["70~100만 원대", "100만 원 이상"]);
+const LUXURY_GIFT_IDS: ReadonlySet<string> = new Set([
+  "lv-pocket-organizer",
+  "dior-oblique-wallet",
+  "tag-heuer-aquaracer",
+  "chanel-coco-crush-ring",
+  "dior-prestige-cream",
+  "royal-copenhagen-tea",
+  "gucci-marmont-card-case",
+  "burberry-trench-coat",
+]);
+
 function scoreGift(gift: Gift, a: Answers): number {
   let score = 0;
   // Gender is used only as a gate/filter (handled in recommendGifts); don't score it.
@@ -115,6 +127,10 @@ function scoreGift(gift: Gift, a: Answers): number {
   const prefs = a.preferences ?? [];
   for (const p of prefs) {
     if (gift.tags.preference.includes(p)) score += 4;
+  }
+
+  if (a.budget && HIGH_END_BUDGETS.has(a.budget) && LUXURY_GIFT_IDS.has(gift.id)) {
+    score += 5;
   }
 
   const text = (a.freeText ?? "").trim();

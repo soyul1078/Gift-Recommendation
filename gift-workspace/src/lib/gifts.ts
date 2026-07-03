@@ -86,6 +86,18 @@ const raw: GiftInput[] = [
     },
   },
   {
+    id: "burberry-trench-coat",
+    title: "버버리 클래식 트렌치코트",
+    priceKRW: 1_150_000,
+    shortReason: "정통 하이엔드 클래식 트렌치로 특별한 날에 어울리는 럭셔리 패션 선물입니다.",
+    tags: {
+      gender: ["여성", "남성"],
+      age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시", "뷰티/그루밍형"],
+    },
+  },
+  {
     id: "royal-copenhagen-tea",
     title: "로얄 코펜하겐 티 컬렉션",
     priceKRW: 220_000,
