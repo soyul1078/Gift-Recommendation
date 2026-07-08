@@ -327,22 +327,22 @@ export default function Home() {
                                   </div>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                              <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.kakaoGift} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("kakao", gift.id)}>
-                                카카오톡 선물하기
-                              </a>
-                              <a className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800" href={links.coupang} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("coupang", gift.id)}>
-                                쿠팡 바로가기
-                              </a>
-                              <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.naverShopping} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("naver", gift.id)}>
-                                네이버 쇼핑
-                              </a>
-                              {gift.brandUrl ? (
-                                <a className="rounded-xl border border-zinc-200 bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800" href={gift.brandUrl} target="_blank" rel="noreferrer">
-                                  브랜드 공식 홈페이지
-                                </a>
-                              ) : null}
-                            </div>
-                          </div>
+                                  <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.kakaoGift} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("kakao", gift.id)}>
+                                    카카오톡 선물하기
+                                  </a>
+                                  <a className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800" href={links.coupang} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("coupang", gift.id)}>
+                                    쿠팡 바로가기
+                                  </a>
+                                  <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.naverShopping} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("naver", gift.id)}>
+                                    네이버 쇼핑
+                                  </a>
+                                  {showBrandHomepageLink ? (
+                                    <a className="rounded-xl border border-zinc-200 bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800" href={gift.brandUrl} target="_blank" rel="noreferrer">
+                                      브랜드 공식 홈페이지
+                                    </a>
+                                  ) : null}
+                                </div>
+                              </div>
                           {addon && (
                             <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
                               자동 구성 1+1: {gift.title} & {addon}
