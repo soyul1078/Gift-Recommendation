@@ -1,8 +1,5 @@
 import { gifts } from "./gifts";
-import {
-  catalogHasGiftInBudgetBand,
-  priceFitsBudgetBand,
-} from "./budgetBand";
+import { priceFitsBudgetBand } from "./budgetBand";
 import type { Answers, Budget, Gift } from "./types";
 
 /** 직접 입력에 자주 쓰이는 상황 키워드 → 해당 상황에 어울리는 선물 id 가점 */
@@ -105,7 +102,7 @@ function relationTargets(relation?: string): string[] {
 }
 
 const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대", "100만 원 이상"]);
-const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
+export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "lv-pocket-organizer",
   "dior-oblique-wallet",
   "tag-heuer-aquaracer",
@@ -201,6 +198,10 @@ export function recommendGifts(
   }
 
   return rotateGifts(ranked.slice(0, limit).map((x) => x.g), seed);
+}
+
+export function isLuxuryCatalogGift(giftId: string): boolean {
+  return LUXURY_FALLBACK_GIFT_IDS.has(giftId);
 }
 
 export function getAddonForPreferences(preferences: string[] = []): string | null {

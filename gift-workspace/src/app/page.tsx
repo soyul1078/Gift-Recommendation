@@ -5,7 +5,7 @@ import { OptionGrid } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
-import { buildReason, formatKRW, recommendGifts, getAddonForPreferences } from "@/lib/recommend";
+import { buildReason, formatKRW, recommendGifts, getAddonForPreferences, isLuxuryCatalogGift } from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
 import type { AgeBand, Answers, Budget, Gender, Preference } from "@/lib/types";
 
@@ -112,6 +112,11 @@ export default function Home() {
     setStep("start");
   }
 
+  function recommendAgain() {
+    setExcludedIds((prev) => [...new Set([...prev, ...recommended.map((g) => g.id)])]);
+    setRecommendSeed((s) => s + 1);
+  }
+
   return (
     <div className="min-h-screen bg-zinc-50 text-slate-900">
       <header className="border-b border-zinc-200 bg-white">
@@ -121,8 +126,8 @@ export default function Home() {
               G
             </div>
             <div>
-              <div className="text-sm font-semibold text-zinc-900">선물 추천 워크스페이스</div>
-              <div className="text-xs text-zinc-500">간단한 질문으로 예산에 딱 맞는 선물을 찾습니다.</div>
+              <div className="text-sm font-semibold text-zinc-900">선물 추천</div>
+              <div className="text-xs text-zinc-500">예산·취향에 맞는 선물을 바로 구매까지 연결해 드립니다.</div>
             </div>
           </div>
         </div>
@@ -139,7 +144,7 @@ export default function Home() {
                 <div>
                   <div className="text-2xl font-semibold text-slate-900">선물 추천을 시작해 볼까요?</div>
                   <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-                    간단한 질문으로 예산에 딱 맞는 추천을 받아보세요.
+                    5가지 질문만으로 예산에 맞는 선물 3~5개를 추천하고, 카카오·쿠팡·네이버에서 바로 구매할 수 있어요.
                   </p>
                 </div>
                 <button
@@ -266,15 +271,21 @@ export default function Home() {
 
             {step === "result" && (
               <div className="grid gap-4">
+                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+                  <div className="text-sm font-semibold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
+                  <p className="mt-1 text-sm text-zinc-500">
+                    마음에 들지 않으면 다른 추천을 받아보세요. 구매 버튼은 표시 가격대에 맞춰 검색합니다.
+                  </p>
+                </div>
                 {recommended.length === 0 ? (
                   <div className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700 shadow-sm">
-                    선택하신 예산대에 맞는 상품이 없습니다. 이전 단계로 돌아가 예산을 변경하거나 다른 조건을 선택해 주세요.
+                    선택하신 조건에 맞는 상품이 없습니다. 이전 단계로 돌아가 예산을 변경하거나 다른 조건을 선택해 주세요.
                   </div>
                 ) : (
                   <>
                     {isBudgetFallback && (
                       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
-                        선택하신 예산대에 딱 맞는 상품은 없지만, 명품 브랜드 홈페이지로 바로 이동 가능한 추천 선물 3~5개를 보여드립니다.
+                        선택하신 예산대에 딱 맞는 상품은 없지만, 비슷한 스타일의 프리미엄 선물 3~5개를 추천해 드립니다.
                       </div>
                     )}
                     {recommended.map((gift) => {
@@ -283,25 +294,34 @@ export default function Home() {
                       const hasDirectAffiliateLink = Boolean(
                         gift.affiliateUrls?.naverShopping || gift.affiliateUrls?.coupang || gift.affiliateUrls?.kakaoGift,
                       );
-                      const isLuxuryGift = gift.priceKRW >= 300_000;
-                      const showBrandHomepageLink = Boolean(gift.brandUrl && !isLuxuryGift);
+                      const isLuxuryGift = isLuxuryCatalogGift(gift.id);
 
                       return (
                         <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
                           <div className="grid gap-4 lg:grid-cols-[170px_minmax(0,1fr)] lg:items-start">
-                            <div className="overflow-hidden rounded-3xl bg-zinc-100">
+                            <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-100 via-white to-amber-50">
                               {gift.imageUrl ? (
                                 <img src={gift.imageUrl} alt={gift.title} className="h-44 w-full object-cover" />
                               ) : (
-                                <div className="flex h-44 items-center justify-center text-sm font-semibold text-zinc-500">
-                                  추천 상품 이미지
+                                <div className="flex h-44 flex-col items-center justify-center gap-2 px-3 text-center">
+                                  <span className="text-3xl" aria-hidden>
+                                    {isLuxuryGift ? "✨" : "🎁"}
+                                  </span>
+                                  <span className="text-xs font-semibold leading-5 text-zinc-500">{gift.title}</span>
                                 </div>
                               )}
                             </div>
                             <div>
                               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                                 <div className="max-w-2xl">
-                                  <div className="text-lg font-semibold text-zinc-900">{gift.title}</div>
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <div className="text-lg font-semibold text-zinc-900">{gift.title}</div>
+                                    {isLuxuryGift && (
+                                      <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
+                                        프리미엄
+                                      </span>
+                                    )}
+                                  </div>
                                   <div className="mt-2 space-y-2">
                                     <div className="text-2xl font-bold tracking-tight text-slate-900">{formatKRW(gift.priceKRW)}</div>
                                     <div className="flex flex-wrap gap-2 text-sm text-slate-600">
@@ -322,35 +342,50 @@ export default function Home() {
                                           ? exactBudgetMatch
                                             ? "예산대에 잘 맞는 추천입니다."
                                             : "예산대에 근접한 추천입니다."
-                                          : "실제 가격은 판매처와 옵션에 따라 달라질 수 있습니다."}
+                                          : "위 금액은 국내 주요 몰 기준 대표 소비자가예요. 구매 버튼은 이 가격대에 맞춰 검색·필터를 적용합니다."}
                                     </div>
                                   </div>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                                  <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.kakaoGift} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("kakao", gift.id)}>
+                                  <a
+                                    className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
+                                    href={links.kakaoGift}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    onClick={() => trackAffiliateClick("kakao", gift.id)}
+                                  >
                                     카카오톡 선물하기
                                   </a>
-                                  <a className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800" href={links.coupang} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("coupang", gift.id)}>
+                                  <a
+                                    className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+                                    href={links.coupang}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    onClick={() => trackAffiliateClick("coupang", gift.id)}
+                                  >
                                     쿠팡 바로가기
                                   </a>
-                                  <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.naverShopping} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("naver", gift.id)}>
+                                  <a
+                                    className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
+                                    href={links.naverShopping}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    onClick={() => trackAffiliateClick("naver", gift.id)}
+                                  >
                                     네이버 쇼핑
                                   </a>
-                                  {showBrandHomepageLink ? (
-                                    <a className="rounded-xl border border-zinc-200 bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800" href={gift.brandUrl} target="_blank" rel="noreferrer">
-                                      브랜드 공식 홈페이지
-                                    </a>
-                                  ) : null}
                                 </div>
                               </div>
-                          {addon && (
-                            <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
-                              자동 구성 1+1: {gift.title} & {addon}
+                              {addon && (
+                                <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
+                                  자동 구성 1+1: {gift.title} & {addon}
+                                </div>
+                              )}
+                              <div className="mt-4">
+                                <div className="text-sm font-semibold text-zinc-900">이유</div>
+                                <p className="mt-2 whitespace-pre-line text-sm leading-6 text-zinc-700">{buildReason(gift, answers)}</p>
+                              </div>
                             </div>
-                          )}
-                          <div className="mt-4">
-                            <div className="text-sm font-semibold text-zinc-900">이유</div>
-                            <p className="mt-2 whitespace-pre-line text-sm leading-6 text-zinc-700">{buildReason(gift, answers)}</p>
                           </div>
                         </div>
                       );
@@ -367,9 +402,18 @@ export default function Home() {
                 <button type="button" onClick={back} className="h-11 rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
                   이전
                 </button>
-                <button type="button" onClick={reset} className="h-11 rounded-xl bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200">
-                  초기화
-                </button>
+                <div className="flex flex-wrap items-center justify-end gap-2">
+                  <button type="button" onClick={reset} className="h-11 rounded-xl bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200">
+                    초기화
+                  </button>
+                  <button
+                    type="button"
+                    onClick={recommendAgain}
+                    className="h-11 rounded-xl bg-zinc-900 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800"
+                  >
+                    다시 추천받기
+                  </button>
+                </div>
               </>
             ) : (
               <>

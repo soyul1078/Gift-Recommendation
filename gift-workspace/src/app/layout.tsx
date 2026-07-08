@@ -15,8 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "선물 추천 워크스페이스",
-  description: "취향/상황을 선택하거나 직접 입력하면 이유 있는 선물을 추천하고 바로 구매로 연결합니다.",
+  title: "선물 추천 | 예산·취향 맞춤 선물 찾기",
+  description: "관계, 예산, 성향을 선택하면 이유 있는 선물 3~5개를 추천하고 카카오·쿠팡·네이버에서 바로 구매할 수 있습니다.",
+  openGraph: {
+    title: "선물 추천 | 예산·취향 맞춤 선물 찾기",
+    description: "5가지 질문으로 예산에 맞는 선물을 추천받고 바로 구매하세요.",
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +38,7 @@ export default function RootLayout({
       <head>
         {/* 현재 대시보드의 측정 ID로 스크립트 로드 */}
         <Script
-          src="https://googletagmanager.com"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VDNT5S5ZX5"
           strategy="afterInteractive"
         />
         {/* 현재 대시보드의 측정 ID로 초기화 설정 */}
