@@ -279,20 +279,52 @@ export default function Home() {
                     )}
                     {recommended.map((gift) => {
                       const links = outboundLinksForGift(gift);
+                      const exactBudgetMatch = answers.budget ? priceFitsBudgetBand(gift.priceKRW, answers.budget) : false;
+                      const hasDirectAffiliateLink = Boolean(
+                        gift.affiliateUrls?.naverShopping || gift.affiliateUrls?.coupang || gift.affiliateUrls?.kakaoGift,
+                      );
+
                       return (
                         <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-                          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                            <div className="max-w-2xl">
-                              <div className="text-lg font-semibold text-zinc-900">{gift.title}</div>
-                              <div className="mt-2 space-y-1">
-                                <div className="text-2xl font-bold tracking-tight text-slate-900">{formatKRW(gift.priceKRW)}</div>
-                                <div className="text-sm font-medium text-slate-600">선택 예산: {answers.budget ?? "—"}</div>
-                                <div className="text-xs leading-relaxed text-slate-500">
-                                  예산대에 맞는 추천입니다. 실제 가격은 판매처와 옵션에 따라 달라질 수 있습니다.
+                          <div className="grid gap-4 lg:grid-cols-[170px_minmax(0,1fr)] lg:items-start">
+                            <div className="overflow-hidden rounded-3xl bg-zinc-100">
+                              {gift.imageUrl ? (
+                                <img src={gift.imageUrl} alt={gift.title} className="h-44 w-full object-cover" />
+                              ) : (
+                                <div className="flex h-44 items-center justify-center text-sm font-semibold text-zinc-500">
+                                  추천 상품 이미지
                                 </div>
-                              </div>
+                              )}
                             </div>
-                            <div className="flex flex-wrap gap-2">
+                            <div>
+                              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                                <div className="max-w-2xl">
+                                  <div className="text-lg font-semibold text-zinc-900">{gift.title}</div>
+                                  <div className="mt-2 space-y-2">
+                                    <div className="text-2xl font-bold tracking-tight text-slate-900">{formatKRW(gift.priceKRW)}</div>
+                                    <div className="flex flex-wrap gap-2 text-sm text-slate-600">
+                                      <span>선택 예산: {answers.budget ?? "—"}</span>
+                                      <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-semibold text-slate-600">
+                                        {answers.budget ? (exactBudgetMatch ? "예산대 일치" : "예산대 불일치") : "예산 정보 없음"}
+                                      </span>
+                                      {hasDirectAffiliateLink && (
+                                        <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                                          직접 추천 링크
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div className="text-xs leading-relaxed text-slate-500">
+                                      {isBudgetFallback
+                                        ? "선택하신 예산대에 딱 맞는 상품은 없지만, 비슷한 스타일의 추천을 제공합니다."
+                                        : answers.budget
+                                          ? exactBudgetMatch
+                                            ? "예산대에 잘 맞는 추천입니다."
+                                            : "예산대에 근접한 추천입니다."
+                                          : "실제 가격은 판매처와 옵션에 따라 달라질 수 있습니다."}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
                               <a className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50" href={links.kakaoGift} target="_blank" rel="noreferrer" onClick={() => trackAffiliateClick("kakao", gift.id)}>
                                 카카오톡 선물하기
                               </a>

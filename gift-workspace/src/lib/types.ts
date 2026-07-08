@@ -55,6 +55,12 @@ export type Gift = {
   priceKRW: number;
   shortReason: string;
   brandUrl?: string;
+  imageUrl?: string;
+  affiliateUrls?: {
+    naverShopping?: string;
+    coupang?: string;
+    kakaoGift?: string;
+  };
   tags: {
     gender: Gender[];
     age: AgeBand[];

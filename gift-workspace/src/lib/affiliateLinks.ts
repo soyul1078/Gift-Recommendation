@@ -73,6 +73,19 @@ export function outboundLinks(query: string, priceKRW?: number) {
   return { naverShopping: naver, coupang, kakaoGift };
 }
 
-export function outboundLinksForGift(gift: { title: string; priceKRW: number }) {
-  return outboundLinks(gift.title.trim(), gift.priceKRW);
+export function outboundLinksForGift(gift: {
+  title: string;
+  priceKRW: number;
+  affiliateUrls?: {
+    naverShopping?: string;
+    coupang?: string;
+    kakaoGift?: string;
+  };
+}) {
+  const fallback = outboundLinks(gift.title.trim(), gift.priceKRW);
+  return {
+    naverShopping: gift.affiliateUrls?.naverShopping ?? fallback.naverShopping,
+    coupang: gift.affiliateUrls?.coupang ?? fallback.coupang,
+    kakaoGift: gift.affiliateUrls?.kakaoGift ?? fallback.kakaoGift,
+  };
 }
