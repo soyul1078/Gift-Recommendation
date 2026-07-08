@@ -283,6 +283,8 @@ export default function Home() {
                       const hasDirectAffiliateLink = Boolean(
                         gift.affiliateUrls?.naverShopping || gift.affiliateUrls?.coupang || gift.affiliateUrls?.kakaoGift,
                       );
+                      const isLuxuryGift = gift.priceKRW >= 300_000;
+                      const showBrandHomepageLink = Boolean(gift.brandUrl && !isLuxuryGift);
 
                       return (
                         <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">

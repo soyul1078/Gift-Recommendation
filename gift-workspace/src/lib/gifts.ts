@@ -31,6 +31,11 @@ const raw: GiftInput[] = [
     priceKRW: 450_000,
     shortReason: "루이비통의 고급 가죽 포켓 오거나이저는 실용적이면서도 명품 감성을 전달합니다.",
     brandUrl: "https://kr.louisvuitton.com/kor-kr/products/",
+    affiliateUrls: {
+      naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%A3%A8%EC%9D%B4%EB%B9%84%ED%88%AC%EC%8A%A4+%EA%B0%80%EC%A1%B1+%ED%8C%8C%EC%BB%B5+%EC%98%A4%EA%B1%B0%EB%82%98%EC%9D%B4%EC%A0%80",
+      coupang: "https://www.coupang.com/np/search?q=%EB%A3%A8%EC%9D%B4%EB%B9%84%ED%88%AC%EC%8A%A4+%EA%B0%80%EC%A1%B1+%ED%8C%8C%EC%BB%B5+%EC%98%A4%EA%B1%B0%EB%82%98%EC%9D%B4%EC%A0%80",
+      kakaoGift: "https://gift.kakao.com/search/result?query=%EB%A3%A8%EC%9D%B4%EB%B9%84%ED%88%AC%EC%8A%A4%20%EA%B0%80%EC%A1%B1%20%ED%8C%8C%EC%BB%B5%20%EC%98%A4%EA%B1%B0%EB%82%98%EC%9D%B4%EC%A0%80&searchType=search_related_keyword_search_box",
+    },
     tags: {
       gender: ["남성", "무관"],
       age: ["30대 초반", "30대 후반", "40대", "50대"],
@@ -44,6 +49,11 @@ const raw: GiftInput[] = [
     priceKRW: 420_000,
     shortReason: "디올의 시그니처 패턴을 살린 고급 반지갑으로 선물 가치가 높습니다.",
     brandUrl: "https://www.dior.com/ko_kr",
+    affiliateUrls: {
+      naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%94%94%EC%98%AC+%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC+%EC%9E%90%EC%B9%B4%EB%93%9C+%EB%B0%98%EC%A7%80%EA%B0%91",
+      coupang: "https://www.coupang.com/np/search?q=%EB%94%94%EC%98%AC+%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC+%EC%9E%90%EC%B9%B4%EB%93%9C+%EB%B0%98%EC%A7%80%EA%B0%91",
+      kakaoGift: "https://gift.kakao.com/search/result?query=%EB%94%94%EC%98%AC%20%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC%20%EC%9E%90%EC%B9%B4%EB%93%9C%20%EB%B0%98%EC%A7%80%EA%B0%91&searchType=search_related_keyword_search_box",
+    },
     tags: {
       gender: ["남성", "무관"],
       age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
@@ -57,6 +67,11 @@ const raw: GiftInput[] = [
     priceKRW: 2_800_000,
     shortReason: "하이엔드 스포츠 워치로 만족도가 높고 오랫동안 간직하기 좋은 아이템입니다.",
     brandUrl: "https://www.tagheuer.com/ko-kr",
+    affiliateUrls: {
+      naverShopping: "https://search.shopping.naver.com/search/all?query=%ED%83%9C%EA%B7%B8%ED%98%B8%EC%9D%B4%EC%96%B4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A0%88%EC%82%AC",
+      coupang: "https://www.coupang.com/np/search?q=%ED%83%9C%EA%B7%B8%ED%98%B8%EC%9D%B4%EC%96%B4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A0%88%EC%82%AC",
+      kakaoGift: "https://gift.kakao.com/search/result?query=%ED%83%9C%EA%B7%B8%ED%98%B8%EC%9D%B4%EC%96%B4%20%EC%95%84%EC%BF%A0%EC%95%84%EB%A0%88%EC%82%AC&searchType=search_related_keyword_search_box",
+    },
     tags: {
       gender: ["남성"],
       age: ["30대 초반", "30대 후반", "40대", "50대"],
