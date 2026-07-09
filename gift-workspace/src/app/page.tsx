@@ -37,7 +37,7 @@ const preferenceOptions: readonly Preference[] = [
   "감성/디자인 중시",
   "건강/웰빙형",
   "자기계발/워커홀릭",
-  "특정 취미 진심형",
+  "취미 활동",
   "미식가형",
   "뷰티/그루밍형",
 ];

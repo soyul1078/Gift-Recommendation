@@ -15,8 +15,8 @@ const relationSections: readonly RelationSection[] = [
   {
     id: "family",
     label: "가족",
-    description: "부모님, 배우자, 형제·시댁 등",
-    options: ["부모님", "형제/자매", "배우자", "시댁/처가 어른"],
+    description: "부모님, 자녀, 배우자, 형제·시댁 등",
+    options: ["부모님", "자녀", "형제/자매", "배우자", "시댁/처가 어른"],
   },
   {
     id: "work",

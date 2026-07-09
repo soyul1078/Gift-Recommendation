@@ -171,7 +171,7 @@ const raw: GiftInput[] = [
         "가볍게 아는 지인",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["실용성 우선", "건강/웰빙형", "특정 취미 진심형"],
+      preference: ["실용성 우선", "건강/웰빙형", "취미 활동"],
     },
   },
   {
@@ -305,7 +305,94 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["특정 취미 진심형", "감성/디자인 중시"],
+      preference: ["취미 활동", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "miniature-craft-kit",
+    title: "미니어처 만들기 키트",
+    priceKRW: 58_900,
+    shortReason:
+      "취미 활동을 즐기는 분께 5~10만 원대에 잘 맞는 미니어처 DIY 키트입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/1280120013?itemId=2288019926&vendorItemId=70285086746&q=%EB%AF%B8%EB%8B%88%EC%96%B4%EC%B3%90+%EB%A7%8C%EB%93%A4%EA%B8%B0&searchId=07f6ddcc6240921&sourceType=search&itemsCount=60&searchRank=3&rank=3&traceId=mrd1ickj",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: [
+        "10대",
+        "20대 초반",
+        "20대 후반",
+        "30대 초반",
+        "30대 후반",
+        "40대",
+      ],
+      relation: [
+        "정말 친한 절친",
+        "자녀",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["취미 활동", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "miniature-supplies-kit",
+    title: "미니어처 공예 세트",
+    priceKRW: 63_800,
+    shortReason:
+      "취미 활동 성향을 가진 분께 좋은 5~10만 원대 미니어처 공예 세트입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8485137127?itemId=12381363424&vendorItemId=79651074825&q=%EB%AF%B8%EB%8B%88%EC%96%B4%EC%B3%90+%EB%A7%8C%EB%93%A4%EA%B8%B0&searchId=07f6ddcc6240921&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrd1i04l",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: [
+        "10대",
+        "20대 초반",
+        "20대 후반",
+        "30대 초반",
+        "30대 후반",
+        "40대",
+      ],
+      relation: [
+        "정말 친한 절친",
+        "자녀",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["취미 활동", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "miniature-assembly-kit",
+    title: "미니어처 DIY 세트",
+    priceKRW: 67_900,
+    shortReason:
+      "취미 활동을 즐기는 분께 추천하는 5~10만 원대 미니어처 DIY 세트입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8485577245?itemId=24868773397&vendorItemId=91875732291&sourceType=srp_product_ads&clickEventId=20555000-7b53-11f1-9b89-bc447aad98d3&korePlacement=15&koreSubPlacement=1&traceId=mrd1gnn6",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: [
+        "10대",
+        "20대 초반",
+        "20대 후반",
+        "30대 초반",
+        "30대 후반",
+        "40대",
+      ],
+      relation: [
+        "정말 친한 절친",
+        "자녀",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["취미 활동", "감성/디자인 중시"],
     },
   },
   {
