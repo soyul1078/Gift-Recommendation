@@ -150,7 +150,11 @@ const raw: GiftInput[] = [
     title: "스탠리 퀜처 H2.0 텀블러 887ml",
     priceKRW: 49_000,
     shortReason:
-      "국내 정가대에서 가장 많이 보이는 887ml 라인. 실용적이면서 색상 선택지도 많아요.",
+      "국내 정가대에서 가장 많이 보이는 887ml 라인. 여행·캠핑에 들고 다니기 좋고 실용적이면서 색상 선택지도 많아요.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/6792297030?itemId=28754136502&vendorItemId=95692969028&q=%EC%8A%A4%ED%83%A0%EB%A6%AC+%ED%80%9C%EC%B2%98+H2.0+%ED%85%80%EB%B8%94%EB%9F%AC+887ml&searchId=f5c262825938132&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrdl5qp2",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -180,6 +184,10 @@ const raw: GiftInput[] = [
     priceKRW: 25_900,
     shortReason:
       "대형 사이즈 기준 흔한 가격대. 책상 분위기·마우스 사용감이 바로 좋아져요.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/7279646307?itemId=18582944334&vendorItemId=90335345695&sourceType=srp_product_ads&clickEventId=8a8594b0-7ba0-11f1-9c68-9201e9ac44e9&korePlacement=15&koreSubPlacement=1&traceId=mrdl95qy",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -316,7 +324,7 @@ const raw: GiftInput[] = [
       "취미 활동을 즐기는 분께 5~10만 원대에 잘 맞는 미니어처 DIY 키트입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/1280120013?itemId=2288019926&vendorItemId=70285086746&q=%EB%AF%B8%EB%8B%88%EC%96%B4%EC%B3%90+%EB%A7%8C%EB%93%A4%EA%B8%B0&searchId=07f6ddcc6240921&sourceType=search&itemsCount=60&searchRank=3&rank=3&traceId=mrd1ickj",
+        "https://www.coupang.com/vp/products/8799085203?itemId=25619136028&vendorItemId=92609524987&sourceType=srp_product_ads&clickEventId=a27b9d30-7ba0-11f1-ae98-84258119afd8&korePlacement=15&koreSubPlacement=5&traceId=mrdla3gi",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -334,6 +342,22 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
+      preference: ["취미 활동", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "malang-squishy",
+    title: "말랑이(소프트 토이)",
+    priceKRW: 11020,
+    shortReason: "간단한 취미/스트레스 해소용 말랑이 토이입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8901021453?itemId=22510569626&vendorItemId=89552647246&sourceType=srp_product_ads&clickEventId=d2787710-7ba0-11f1-92b0-9cc8ac73deaa&korePlacement=15&koreSubPlacement=5&traceId=mrdlbu41",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대 초반", "20대 후반", "30대 초반", "30대 후반"],
+      relation: ["정말 친한 절친", "자녀", "가벼운 기념일(100일 등)", "특별한 기념일(생일, 1주년)"],
       preference: ["취미 활동", "감성/디자인 중시"],
     },
   },

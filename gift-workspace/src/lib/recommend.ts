@@ -196,19 +196,50 @@ export function recommendGifts(
       seed,
     );
   }
-
   const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
   if (filtered.length > 0) {
-    return rotateGifts(filtered.slice(0, limit).map((x) => x.g), seed);
+    return diversifyAndRotate(filtered.map((x) => x.g), limit, seed);
   }
 
-  const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
-  if (fallback.length > 0) {
-    return rotateGifts(fallback.slice(0, limit).map((x) => x.g), seed);
+  // For high-end budgets we continue to provide a luxury fallback catalog.
+  if (HIGH_END_BUDGETS.has(band)) {
+    const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
+    if (fallback.length > 0) {
+      return diversifyAndRotate(fallback.map((x) => x.g), limit, seed);
+    }
   }
 
-  return rotateGifts(ranked.slice(0, limit).map((x) => x.g), seed);
+  // If there are no items that match the selected budget, do not return
+  // unrelated higher/lower priced items. Let the UI show the "no results"
+  // state so the user can adjust the budget or other filters.
+  return [];
 }
+
+function diversifyAndRotate(list: Gift[], limit: number, seed: number): Gift[] {
+  const rotated = rotateGifts(list, seed);
+  const seenTitle = new Set<string>();
+  const preferenceCounts = new Map<string, number>();
+  const maxPerPreference = 2;
+  const out: Gift[] = [];
+
+  for (const g of rotated) {
+    if (out.length >= limit) break;
+    const titleKey = g.title.trim().toLowerCase();
+    if (seenTitle.has(titleKey)) continue;
+
+    // compute primary preference (if any) to avoid over-recommending same category
+    const primaryPref = g.tags.preference?.[0] ?? null;
+    if (primaryPref) {
+      const cur = preferenceCounts.get(primaryPref) ?? 0;
+      if (cur >= maxPerPreference) continue;
+      preferenceCounts.set(primaryPref, cur + 1);
+    }
+
+    seenTitle.add(titleKey);
+    out.push(g);
+  }
+
+  return out;
 
 export function isLuxuryCatalogGift(giftId: string): boolean {
   return LUXURY_FALLBACK_GIFT_IDS.has(giftId);
