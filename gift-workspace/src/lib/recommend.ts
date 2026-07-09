@@ -240,6 +240,7 @@ function diversifyAndRotate(list: Gift[], limit: number, seed: number): Gift[] {
   }
 
   return out;
+}
 
 export function isLuxuryCatalogGift(giftId: string): boolean {
   return LUXURY_FALLBACK_GIFT_IDS.has(giftId);

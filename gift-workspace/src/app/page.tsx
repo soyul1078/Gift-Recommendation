@@ -117,6 +117,8 @@ export default function Home() {
     setRecommendSeed((s) => s + 1);
   }
 
+  const platformClass = answers.platform === "mobile" ? "max-w-sm" : "max-w-5xl";
+
   return (
     <div className="min-h-screen bg-zinc-50 text-slate-900">
       <header className="border-b border-zinc-200 bg-white">
@@ -133,7 +135,10 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
+      <main
+        className={["mx-auto flex w-full flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8", platformClass].join(" ")}
+        style={answers.platform === "mobile" ? { writingMode: "horizontal-tb" } : undefined}
+      >
         <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
             {step === "start" && (
@@ -147,13 +152,32 @@ export default function Home() {
                     5가지 질문만으로 예산에 맞는 선물 3~5개를 추천하고, 카카오·쿠팡·네이버에서 바로 구매할 수 있어요.
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setStep("genderAge")}
-                  className="mx-auto inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-white shadow transition hover:bg-slate-800"
-                >
-                  시작하기
-                </button>
+                <div className="mx-auto grid w-full max-w-xs gap-3">
+                  <div className="text-sm text-slate-600">디바이스를 선택하세요 (모바일/PC 레이아웃 미리보기)</div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setAnswers((p) => ({ ...p, platform: "mobile" }))}
+                      className={"h-10 rounded-2xl border px-3 text-sm font-medium " + (answers.platform === "mobile" ? "border-transparent bg-emerald-600 text-white" : "border-zinc-200 bg-white")}
+                    >
+                      모바일
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setAnswers((p) => ({ ...p, platform: "pc" }))}
+                      className={"h-10 rounded-2xl border px-3 text-sm font-medium " + (answers.platform === "pc" ? "border-transparent bg-emerald-600 text-white" : "border-zinc-200 bg-white")}
+                    >
+                      PC
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setStep("genderAge")}
+                    className="mx-auto mt-2 inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-white shadow transition hover:bg-slate-800"
+                  >
+                    시작하기
+                  </button>
+                </div>
               </div>
             )}
 

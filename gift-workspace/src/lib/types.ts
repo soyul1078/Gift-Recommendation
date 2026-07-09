@@ -77,6 +77,8 @@ export type Answers = {
   age?: AgeBand;
   relation?: Relation;
   budget?: Budget;
+  /** 화면 타겟: 'pc' 또는 'mobile' */
+  platform?: "pc" | "mobile";
   /** 복수 선택 가능한 성향 태그 */
   preferences?: Preference[];
   freeText?: string;
