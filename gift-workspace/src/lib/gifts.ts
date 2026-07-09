@@ -341,6 +341,10 @@ const raw: GiftInput[] = [
     priceKRW: 119_000,
     shortReason:
       "에어팟·갤럭시 버즈 등 입문 라인에서 자주 보이는 가격대(할인 전·정가 기준).",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9016203048?itemId=26432790619&vendorItemId=93408536548&sourceType=srp_product_ads&clickEventId=b0823740-7b50-11f1-9e89-e8c704ca0aec&korePlacement=15&koreSubPlacement=1&traceId=mrd0ucs0",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -356,6 +360,66 @@ const raw: GiftInput[] = [
         "직장 후배",
         "정말 친한 절친",
         "배우자",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["실용성 우선", "자기계발/워커홀릭"],
+    },
+  },
+  {
+    id: "wireless-earbuds-used",
+    title: "무선 이어폰(중고)",
+    badge: "중고",
+    priceKRW: 89_000,
+    shortReason:
+      "가성비를 중요하게 생각하는 분께 잘 맞는 중고 무선 이어폰입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8427819177?itemId=24379702680&vendorItemId=94887813438&q=%EB%AC%B4%EC%84%A0+%EC%9D%B4%EC%96%B4%ED%8F%B0%28%EC%9E%85%EB%AC%B8%ED%98%95%29&searchId=48ca1d742073263&sourceType=search&itemsCount=34&searchRank=1&rank=1&traceId=mrd0rch5",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: [
+        "10대",
+        "20대 초반",
+        "20대 후반",
+        "30대 초반",
+        "30대 후반",
+        "40대",
+      ],
+      relation: [
+        "직장 동기",
+        "직장 후배",
+        "정말 친한 절친",
+        "배우자",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["실용성 우선", "자기계발/워커홀릭"],
+    },
+  },
+  {
+    id: "iphone-15-pro",
+    title: "아이폰 15 Pro",
+    badge: "Pro",
+    priceKRW: 1_430_000,
+    shortReason:
+      "실용성과 최신 기능을 모두 갖춘 스마트폰으로 고가 예산에 적합한 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9024167576?itemId=26462330287&vendorItemId=93437609640&pickType=COU_PICK&q=%EC%95%84%EC%9D%B4%ED%8F%B0&searchId=e4df1ae27876472&sourceType=search&itemsCount=58&searchRank=0&rank=0&traceId=mrd0yihe",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: [
+        "20대 후반",
+        "30대 초반",
+        "30대 후반",
+        "40대",
+        "50대",
+      ],
+      relation: [
+        "배우자",
+        "정말 친한 절친",
+        "부모님",
         "특별한 기념일(생일, 1주년)",
       ],
       preference: ["실용성 우선", "자기계발/워커홀릭"],

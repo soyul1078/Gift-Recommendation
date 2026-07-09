@@ -334,6 +334,11 @@ export default function Home() {
                                           직접 추천 링크
                                         </span>
                                       )}
+                                      {gift.badge && (
+                                        <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                                          {gift.badge}
+                                        </span>
+                                      )}
                                     </div>
                                     <div className="text-xs leading-relaxed text-slate-500">
                                       {isBudgetFallback

@@ -56,6 +56,7 @@ export type Gift = {
   shortReason: string;
   brandUrl?: string;
   imageUrl?: string;
+  badge?: string;
   affiliateUrls?: {
     naverShopping?: string;
     coupang?: string;
