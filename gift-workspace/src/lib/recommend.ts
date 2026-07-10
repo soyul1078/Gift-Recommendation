@@ -102,16 +102,12 @@ function relationTargets(relation?: string): string[] {
 }
 
 const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대", "100만 원 이상"]);
-const HIGH_BUDGET_PHONE_IDS: ReadonlySet<string> = new Set(["iphone-15-pro"]);
 export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "lv-pocket-organizer",
   "dior-oblique-wallet",
-  "tag-heuer-aquaracer",
-  "chanel-coco-crush-ring",
   "dior-prestige-cream",
   "royal-copenhagen-tea",
   "gucci-marmont-card-case",
-  "burberry-trench-coat",
 ]);
 
 function scoreGift(gift: Gift, a: Answers): number {
@@ -129,15 +125,6 @@ function scoreGift(gift: Gift, a: Answers): number {
 
   if (a.budget && HIGH_END_BUDGETS.has(a.budget) && LUXURY_FALLBACK_GIFT_IDS.has(gift.id)) {
     score += 5;
-  }
-
-  if (
-    a.budget &&
-    HIGH_END_BUDGETS.has(a.budget) &&
-    a.preferences?.includes("실용성 우선") &&
-    HIGH_BUDGET_PHONE_IDS.has(gift.id)
-  ) {
-    score += 6;
   }
 
   const text = (a.freeText ?? "").trim();

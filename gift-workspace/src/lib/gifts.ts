@@ -62,37 +62,6 @@ const raw: GiftInput[] = [
     },
   },
   {
-    id: "tag-heuer-aquaracer",
-    title: "태그호이어 아쿠아레이서 프로페셔널",
-    priceKRW: 2_800_000,
-    shortReason: "하이엔드 스포츠 워치로 만족도가 높고 오랫동안 간직하기 좋은 아이템입니다.",
-    brandUrl: "https://www.tagheuer.com/ko-kr",
-    affiliateUrls: {
-      naverShopping: "https://search.shopping.naver.com/search/all?query=%ED%83%9C%EA%B7%B8%ED%98%B8%EC%9D%B4%EC%96%B4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A0%88%EC%82%AC",
-      coupang: "https://www.coupang.com/np/search?q=%ED%83%9C%EA%B7%B8%ED%98%B8%EC%9D%B4%EC%96%B4+%EC%95%84%EC%BF%A0%EC%95%84%EB%A0%88%EC%82%AC",
-      kakaoGift: "https://gift.kakao.com/search/result?query=%ED%83%9C%EA%B7%B8%ED%98%B8%EC%9D%B4%EC%96%B4%20%EC%95%84%EC%BF%A0%EC%95%84%EB%A0%88%EC%82%AC&searchType=search_related_keyword_search_box",
-    },
-    tags: {
-      gender: ["남성"],
-      age: ["30대 초반", "30대 후반", "40대", "50대"],
-      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
-      preference: ["실용성 우선", "감성/디자인 중시"],
-    },
-  },
-  {
-    id: "chanel-coco-crush-ring",
-    title: "샤넬 코코 크러쉬 링 미디움",
-    priceKRW: 1_200_000,
-    shortReason: "파인 주얼리로서 기념일 선물에 적합한 샤넬의 아이코닉 링입니다.",
-    brandUrl: "https://www.chanel.com/kr/",
-    tags: {
-      gender: ["여성"],
-      age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
-      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
-      preference: ["감성/디자인 중시", "뷰티/그루밍형"],
-    },
-  },
-  {
     id: "dior-prestige-cream",
     title: "디올 프레스티지 라 크렘",
     priceKRW: 350_000,
@@ -103,19 +72,6 @@ const raw: GiftInput[] = [
       age: ["30대 초반", "30대 후반", "40대", "50대"],
       relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"] as any,
       preference: ["뷰티/그루밍형", "감성/디자인 중시"],
-    },
-  },
-  {
-    id: "burberry-trench-coat",
-    title: "버버리 클래식 트렌치코트",
-    priceKRW: 1_150_000,
-    shortReason: "정통 하이엔드 클래식 트렌치로 특별한 날에 어울리는 럭셔리 패션 선물입니다.",
-    brandUrl: "https://www.burberry.com/",
-    tags: {
-      gender: ["여성", "남성"],
-      age: ["20대 후반", "30대 초반", "30대 후반", "40대"],
-      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
-      preference: ["감성/디자인 중시", "뷰티/그루밍형"],
     },
   },
   {
@@ -147,7 +103,7 @@ const raw: GiftInput[] = [
 
   {
     id: "stanley-tumbler",
-    title: "스탠리 퀜처 H2.0 텀블러 887ml",
+    title: "스탠리 퀜처 H2.0 플로우 스테이트 텀블러",
     priceKRW: 49_000,
     shortReason:
       "국내 정가대에서 가장 많이 보이는 887ml 라인. 여행·캠핑에 들고 다니기 좋고 실용적이면서 색상 선택지도 많아요.",
@@ -238,10 +194,14 @@ const raw: GiftInput[] = [
   },
   {
     id: "wireless-charger",
-    title: "맥세이프/무선 충전 스탠드",
+    title: "Mankiw맨큐 접이식 3in1 무선충전기 아이폰 애플워치 에어팟 고속충전 돼지코 포함",
     priceKRW: 44_900,
     shortReason:
       "애플 정품 맥세이프 충전기보다 낮고, 브랜드 스탠드 제품에서 흔한 대표가에 가깝게 맞춤.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9606479201?itemId=28678659938&vendorItemId=94995973251&sourceType=srp_product_ads&clickEventId=325a3ac0-7c09-11f1-9703-882ef51fb9b9&korePlacement=15&koreSubPlacement=1&traceId=mrec0kq8",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -270,6 +230,10 @@ const raw: GiftInput[] = [
     priceKRW: 36_900,
     shortReason:
       "백화점·몰에서 자주 보이는 구성 기준 가격. 휴식·담소 선물로 무난해요.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8474157902?itemId=24521096106&vendorItemId=91533821651&q=%EC%98%A4%EC%85%9C%EB%A1%9D&searchId=a9c2fbeb4453255&sourceType=search&itemsCount=60&searchRank=3&rank=3&traceId=mrebywz7",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
@@ -502,35 +466,6 @@ const raw: GiftInput[] = [
         "직장 후배",
         "정말 친한 절친",
         "배우자",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["실용성 우선", "자기계발/워커홀릭"],
-    },
-  },
-  {
-    id: "iphone-15-pro",
-    title: "아이폰 15 Pro",
-    badge: "Pro",
-    priceKRW: 1_430_000,
-    shortReason:
-      "실용성과 최신 기능을 모두 갖춘 스마트폰으로 고가 예산에 적합한 선물입니다.",
-    affiliateUrls: {
-      coupang:
-        "https://www.coupang.com/vp/products/9024167576?itemId=26462330287&vendorItemId=93437609640&pickType=COU_PICK&q=%EC%95%84%EC%9D%B4%ED%8F%B0&searchId=e4df1ae27876472&sourceType=search&itemsCount=58&searchRank=0&rank=0&traceId=mrd0yihe",
-    },
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: [
-        "20대 후반",
-        "30대 초반",
-        "30대 후반",
-        "40대",
-        "50대",
-      ],
-      relation: [
-        "배우자",
-        "정말 친한 절친",
-        "부모님",
         "특별한 기념일(생일, 1주년)",
       ],
       preference: ["실용성 우선", "자기계발/워커홀릭"],
