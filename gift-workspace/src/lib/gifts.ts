@@ -194,8 +194,8 @@ const raw: GiftInput[] = [
   },
   {
     id: "wireless-charger",
-    title: "Mankiw맨큐 접이식 3in1 무선충전기 아이폰 애플워치 에어팟 고속충전 돼지코 포함",
-    priceKRW: 44_900,
+    title: "무선충전기 아이폰 애플워치 에어팟 고속충전",
+    priceKRW: 12_800,
     shortReason:
       "애플 정품 맥세이프 충전기보다 낮고, 브랜드 스탠드 제품에서 흔한 대표가에 가깝게 맞춤.",
     affiliateUrls: {
@@ -226,8 +226,8 @@ const raw: GiftInput[] = [
   },
   {
     id: "tea-giftbox",
-    title: "프리미엄 티/드립백 선물세트",
-    priceKRW: 36_900,
+    title: "오설록 오 땡큐 티 선물세트, 티박스 6종, 1개",
+    priceKRW: 21_200,
     shortReason:
       "백화점·몰에서 자주 보이는 구성 기준 가격. 휴식·담소 선물로 무난해요.",
     affiliateUrls: {
@@ -259,10 +259,14 @@ const raw: GiftInput[] = [
   },
   {
     id: "hobby-kit",
-    title: "취미 키트(향초/가죽공예/그림 등)",
-    priceKRW: 42_900,
+    title: "미니 아트 도자기 만들기 DIY",
+    priceKRW: 41_000,
     shortReason:
       "체험형 키트류에서 자주 보이는 중저가~중가 구간. 기억에 남는 선물로 좋아요.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8853414422?itemId=25811757566&vendorItemId=93852895705&q=%EC%B7%A8%EB%AF%B8+%ED%82%A4%ED%8A%B8%28%ED%96%A5%EC%B4%88%2F%EA%B0%80%EC%A3%BD%EA%B3%B5%EC%98%88%2F%EA%B7%B8%EB%A6%BC+%EB%93%B1%29&searchId=a7cbf4d44455320&sourceType=search&itemsCount=33&searchRank=0&rank=0&traceId=mrec2ygu",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: [
