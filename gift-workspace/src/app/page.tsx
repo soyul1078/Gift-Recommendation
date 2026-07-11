@@ -5,7 +5,7 @@ import { OptionGrid } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
-import { buildReason, formatKRW, recommendGifts, getAddonForPreferences, isLuxuryCatalogGift } from "@/lib/recommend";
+import { buildReason, formatKRW, recommendGifts, isLuxuryCatalogGift } from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
 import type { AgeBand, Answers, Budget, Gender, Preference } from "@/lib/types";
 
@@ -30,7 +30,6 @@ const budgetOptions: readonly Budget[] = [
   "30~50만 원대",
   "50만 원 이상",
   "70~100만 원대",
-  "100만 원 이상",
 ];
 const preferenceOptions: readonly Preference[] = [
   "실용성 우선",
@@ -59,7 +58,6 @@ export default function Home() {
     answers.budget &&
     recommended.length > 0 &&
     recommended.every((gift) => !priceFitsBudgetBand(gift.priceKRW, answers.budget!));
-  const addon = useMemo(() => getAddonForPreferences(answers.preferences ?? []), [answers.preferences]);
 
   const canNext =
     step === "start"
@@ -113,8 +111,13 @@ export default function Home() {
   }
 
   function recommendAgain() {
-    setExcludedIds((prev) => [...new Set([...prev, ...recommended.map((g) => g.id)])]);
-    setRecommendSeed((s) => s + 1);
+    const nextExcluded = [...new Set([...excludedIds, ...recommended.map((g) => g.id)])];
+    const nextSeed = recommendSeed + 1;
+    // If excluding everything shown so far would leave nothing to recommend,
+    // start the exclusion list over so the button never gets stuck on "no results".
+    const preview = recommendGifts(answers, RECOMMEND_LIMIT, nextSeed, nextExcluded);
+    setExcludedIds(preview.length > 0 ? nextExcluded : []);
+    setRecommendSeed(nextSeed);
   }
 
   
@@ -383,11 +386,6 @@ export default function Home() {
                                   </a>
                                 </div>
                               </div>
-                              {addon && (
-                                <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
-                                  자동 구성 1+1: {gift.title} & {addon}
-                                </div>
-                              )}
                               <div className="mt-4">
                                 <div className="text-sm font-semibold text-zinc-900">이유</div>
                                 <p className="mt-2 whitespace-pre-line text-sm leading-6 text-zinc-700">{buildReason(gift, answers)}</p>

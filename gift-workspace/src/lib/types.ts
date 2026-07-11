@@ -38,8 +38,7 @@ export type Budget =
   | "20~30만 원대"
   | "30~50만 원대"
   | "50만 원 이상"
-  | "70~100만 원대"
-  | "100만 원 이상";
+  | "70~100만 원대";
 
 export type Preference =
   | "실용성 우선"
@@ -63,6 +62,8 @@ export type Gift = {
     coupang?: string;
     kakaoGift?: string;
   };
+  /** 이 관계에는 절대 추천하지 않을 관계 목록 (점수와 무관하게 하드 제외). */
+  excludedRelations?: Relation[];
   tags: {
     gender: Gender[];
     age: AgeBand[];

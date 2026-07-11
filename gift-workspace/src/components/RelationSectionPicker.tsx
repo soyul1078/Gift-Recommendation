@@ -38,6 +38,12 @@ const relationSections: readonly RelationSection[] = [
   },
 ];
 
+const OTHER_SECTION_LABELS: Partial<Record<Relation, string>> = {
+  "정말 친한 절친": "친구",
+  "가볍게 아는 지인": "지인",
+  "선생님/은사님": "선생님",
+};
+
 function sectionIdForRelation(relation?: Relation): string | null {
   if (!relation) return null;
   return relationSections.find((s) => s.options.includes(relation))?.id ?? null;
@@ -76,7 +82,7 @@ export function RelationSectionPicker({ value, onChange }: Props) {
               <div className="flex items-center gap-2">
                 {selectedInSection && (
                   <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
-                    {value}
+                    {section.id === "other" ? OTHER_SECTION_LABELS[value!] ?? value : value}
                   </span>
                 )}
                 <span className={["grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm transition", open ? "bg-emerald-700 text-white" : "bg-zinc-100 text-zinc-600"].join(" ")} aria-hidden>
@@ -87,7 +93,12 @@ export function RelationSectionPicker({ value, onChange }: Props) {
 
             {open && (
               <div className="border-t border-zinc-200 px-4 pb-4 pt-3">
-                <OptionGrid value={value} options={section.options} onChange={onChange} />
+                <OptionGrid
+                  value={value}
+                  options={section.options}
+                  onChange={onChange}
+                  labels={section.id === "other" ? OTHER_SECTION_LABELS : undefined}
+                />
               </div>
             )}
           </div>

@@ -45,14 +45,14 @@ const raw: GiftInput[] = [
   },
   {
     id: "dior-oblique-wallet",
-    title: "디올 오블리크 자카드 반지갑",
-    priceKRW: 420_000,
+    title: "디올 30 몽테뉴 로투스 3단 반지갑",
+    priceKRW: 336_000,
     shortReason: "디올의 시그니처 패턴을 살린 고급 반지갑으로 선물 가치가 높습니다.",
     brandUrl: "https://www.dior.com/ko_kr",
     affiliateUrls: {
-      naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%94%94%EC%98%AC+%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC+%EC%9E%90%EC%B9%B4%EB%93%9C+%EB%B0%98%EC%A7%80%EA%B0%91",
-      coupang: "https://www.coupang.com/np/search?q=%EB%94%94%EC%98%AC+%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC+%EC%9E%90%EC%B9%B4%EB%93%9C+%EB%B0%98%EC%A7%80%EA%B0%91",
-      kakaoGift: "https://gift.kakao.com/search/result?query=%EB%94%94%EC%98%AC%20%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC%20%EC%9E%90%EC%B9%B4%EB%93%9C%20%EB%B0%98%EC%A7%80%EA%B0%91&searchType=search_related_keyword_search_box",
+      naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%94%94%EC%98%AC+30+%EB%AA%BD%ED%85%8C%EB%89%B4+%EB%A1%9C%ED%88%AC%EC%8A%A4+3%EB%8B%A8+%EB%B0%98%EC%A7%80%EA%B0%91",
+      coupang: "https://www.coupang.com/vp/products/9618032057?itemId=28719245364&vendorItemId=95659829428&q=%EB%94%94%EC%98%AC+%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC+%EC%9E%90%EC%B9%B4%EB%93%9C+%EB%B0%98%EC%A7%80%EA%B0%91&searchId=eb782fff4334420&sourceType=search&itemsCount=60&searchRank=12&rank=12&traceId=mred5q1t",
+      kakaoGift: "https://gift.kakao.com/search/result?query=%EB%94%94%EC%98%AC%2030%20%EB%AA%BD%ED%85%8C%EB%89%B4%20%EB%A1%9C%ED%88%AC%EC%8A%A4%203%EB%8B%A8%20%EB%B0%98%EC%A7%80%EA%B0%91&searchType=search_related_keyword_search_box",
     },
     tags: {
       gender: ["남성", "무관"],
@@ -263,6 +263,7 @@ const raw: GiftInput[] = [
     priceKRW: 41_000,
     shortReason:
       "체험형 키트류에서 자주 보이는 중저가~중가 구간. 기억에 남는 선물로 좋아요.",
+    excludedRelations: ["직장 상사", "선생님/은사님", "스승의날"],
     affiliateUrls: {
       coupang:
         "https://www.coupang.com/vp/products/8853414422?itemId=25811757566&vendorItemId=93852895705&q=%EC%B7%A8%EB%AF%B8+%ED%82%A4%ED%8A%B8%28%ED%96%A5%EC%B4%88%2F%EA%B0%80%EC%A3%BD%EA%B3%B5%EC%98%88%2F%EA%B7%B8%EB%A6%BC+%EB%93%B1%29&searchId=a7cbf4d44455320&sourceType=search&itemsCount=33&searchRank=0&rank=0&traceId=mrec2ygu",

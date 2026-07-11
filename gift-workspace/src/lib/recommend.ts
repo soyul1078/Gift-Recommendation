@@ -101,7 +101,7 @@ function relationTargets(relation?: string): string[] {
   return [relation];
 }
 
-const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대", "100만 원 이상"]);
+const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대"]);
 export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "lv-pocket-organizer",
   "dior-oblique-wallet",
@@ -171,6 +171,14 @@ export function recommendGifts(
     pool = pool.filter((g) => !ex.has(g.id));
   }
 
+  // Hard-block gifts that are a poor fit for the selected relation, regardless of score.
+  if (answers.relation) {
+    const targets = new Set([answers.relation, ...relationTargets(answers.relation)]);
+    pool = pool.filter(
+      (g) => !g.excludedRelations?.some((r) => targets.has(r)),
+    );
+  }
+
   const ranked = pool
     .map((g) => ({ g, s: scoreGift(g, answers) }))
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
@@ -231,15 +239,6 @@ function diversifyAndRotate(list: Gift[], limit: number, seed: number): Gift[] {
 
 export function isLuxuryCatalogGift(giftId: string): boolean {
   return LUXURY_FALLBACK_GIFT_IDS.has(giftId);
-}
-
-export function getAddonForPreferences(preferences: string[] = []): string | null {
-  if (!preferences || preferences.length === 0) return null;
-  if (preferences.includes("감성/디자인 중시"))
-    return "프리미엄 생화 꽃다발 또는 꾸뛰르 플라워 박스";
-  if (preferences.includes("건강/웰빙형") || preferences.includes("미식가형"))
-    return "최고급 호텔 디저트 또는 프리미엄 티 세트";
-  return null;
 }
 
 export function buildReason(gift: Gift, answers: Answers): string {
