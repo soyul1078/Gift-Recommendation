@@ -1,10 +1,8 @@
 export type Gender = "여성" | "남성" | "무관";
 export type AgeBand =
   | "10대"
-  | "20대 초반"
-  | "20대 후반"
-  | "30대 초반"
-  | "30대 후반"
+  | "20대"
+  | "30대"
   | "40대"
   | "50대"
   | "60대 이상";
@@ -45,9 +43,19 @@ export type Preference =
   | "감성/디자인 중시"
   | "건강/웰빙형"
   | "자기계발/워커홀릭"
-  | "취미 활동"
-  | "미식가형"
-  | "뷰티/그루밍형";
+  | "레저/캠핑형"
+  | "미니어처/DIY형"
+  | "집돌이/홈힐링형"
+  | "홈카페/미식가형"
+  | "뷰티/그루밍형"
+  | "디저트형"
+  | "식사/간식형";
+
+/** '음식'을 고르면 이어서 묻는 하위 분기 (실제 매칭 태그는 Preference의 디저트형/식사·간식형). */
+export type FoodSubType = "디저트" | "식사/간식";
+
+/** 부모님(40~60대) 추천 시 최우선으로 고려하는 3대 핵심 가치. */
+export type ParentValueTag = "몸에 도움" | "오래 사용" | "가족 경험";
 
 export type Gift = {
   id: string;
@@ -64,6 +72,8 @@ export type Gift = {
   };
   /** 이 관계에는 절대 추천하지 않을 관계 목록 (점수와 무관하게 하드 제외). */
   excludedRelations?: Relation[];
+  /** 부모님 맞춤 추천에서 우선순위를 매길 때 쓰는 가치 태그 (해당 없으면 생략). */
+  parentValue?: ParentValueTag[];
   tags: {
     gender: Gender[];
     age: AgeBand[];

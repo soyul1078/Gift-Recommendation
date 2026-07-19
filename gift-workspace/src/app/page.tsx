@@ -12,10 +12,8 @@ import type { AgeBand, Answers, Budget, Gender, Preference } from "@/lib/types";
 const genderOptions: readonly Gender[] = ["여성", "남성", "무관"];
 const ageOptions: readonly AgeBand[] = [
   "10대",
-  "20대 초반",
-  "20대 후반",
-  "30대 초반",
-  "30대 후반",
+  "20대",
+  "30대",
   "40대",
   "50대",
   "60대 이상",
@@ -36,10 +34,28 @@ const preferenceOptions: readonly Preference[] = [
   "감성/디자인 중시",
   "건강/웰빙형",
   "자기계발/워커홀릭",
-  "취미 활동",
-  "미식가형",
+  "레저/캠핑형",
+  "미니어처/DIY형",
+  "집돌이/홈힐링형",
+  "홈카페/미식가형",
   "뷰티/그루밍형",
 ];
+const preferenceLabels: Partial<Record<Preference, string>> = {
+  "실용성 우선": "💼 실용성 우선",
+  "감성/디자인 중시": "🎨 감성/디자인 중시",
+  "건강/웰빙형": "🌿 건강/웰빙형",
+  "자기계발/워커홀릭": "📈 자기계발/워커홀릭",
+  "레저/캠핑형": "⛺ 레저/캠핑형",
+  "미니어처/DIY형": "🧱 미니어처/DIY형",
+  "집돌이/홈힐링형": "📚 집돌이/홈힐링형",
+  "홈카페/미식가형": "☕ 홈카페/미식가형",
+  "뷰티/그루밍형": "💄 뷰티/그루밍형",
+};
+const foodOptions: readonly Preference[] = ["디저트형", "식사/간식형"];
+const foodLabels: Partial<Record<Preference, string>> = {
+  "디저트형": "🍰 디저트파 (마카롱·케이크·젤리 등)",
+  "식사/간식형": "🍚 식사·간식파 (한 끼·든든한 간식 중요)",
+};
 
 type StepId = "start" | "genderAge" | "relation" | "budget" | "preference" | "result";
 
@@ -48,6 +64,8 @@ export default function Home() {
   const [answers, setAnswers] = useState<Answers>({ platform: "pc" });
   const [recommendSeed, setRecommendSeed] = useState(0);
   const [excludedIds, setExcludedIds] = useState<string[]>([]);
+  const selectedFoodPrefs = (answers.preferences ?? []).filter((p) => foodOptions.includes(p));
+  const [foodPanelOpen, setFoodPanelOpen] = useState(false);
 
   const RECOMMEND_LIMIT = 5;
   const recommended = useMemo(
@@ -138,7 +156,18 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
+      {step !== "start" && (
+        <div className="sticky top-0 z-10 border-b border-zinc-200 bg-white/95 backdrop-blur">
+          <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-200">
+              <div className="h-1.5 rounded-full bg-emerald-500 transition-all" style={{ width: progressWidth }} />
+            </div>
+            <span className="shrink-0 text-xs font-semibold text-emerald-800">진행도 {progressLabel}</span>
+          </div>
+        </div>
+      )}
+
+      <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 pb-28 sm:px-6 lg:px-8">
         <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
             {step === "start" && (
@@ -165,21 +194,8 @@ export default function Home() {
             {step === "relation" && (
               <div className="grid gap-4">
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-semibold text-zinc-900">관계를 선택해 주세요</div>
-                      <p className="mt-1 text-sm text-zinc-500">가장 자연스러운 선물 포인트가 보이도록 관계를 골라주세요.</p>
-                    </div>
-                    <div className="min-w-[180px] max-w-[220px] rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
-                      <div className="flex items-center justify-between text-xs text-emerald-700">
-                        <span>진행도</span>
-                        <span className="font-semibold text-emerald-900">{progressLabel}</span>
-                      </div>
-                      <div className="mt-2 h-2 rounded-full bg-zinc-200">
-                        <div className="h-2 rounded-full bg-emerald-500 transition-all" style={{ width: progressWidth }} />
-                      </div>
-                    </div>
-                  </div>
+                  <div className="text-sm font-semibold text-zinc-900">관계를 선택해 주세요</div>
+                  <p className="mt-1 text-sm text-zinc-500">가장 자연스러운 선물 포인트가 보이도록 관계를 골라주세요.</p>
                 </div>
                 <RelationSectionPicker
                   value={answers.relation}
@@ -191,21 +207,8 @@ export default function Home() {
             {step === "genderAge" && (
               <div className="grid gap-4">
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-semibold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
-                      <p className="mt-1 text-sm text-zinc-500">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
-                    </div>
-                    <div className="min-w-[180px] max-w-[220px] rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
-                      <div className="flex items-center justify-between text-xs text-emerald-700">
-                        <span>진행도</span>
-                        <span className="font-semibold text-emerald-900">{progressLabel}</span>
-                      </div>
-                      <div className="mt-2 h-2 rounded-full bg-zinc-200">
-                        <div className="h-2 rounded-full bg-emerald-500 transition-all" style={{ width: progressWidth }} />
-                      </div>
-                    </div>
-                  </div>
+                  <div className="text-sm font-semibold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
+                  <p className="mt-1 text-sm text-zinc-500">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
                 </div>
                 <div className="grid gap-4">
                   <div className="grid gap-2">
@@ -223,21 +226,8 @@ export default function Home() {
             {step === "budget" && (
               <div className="grid gap-4">
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
-                      <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
-                    </div>
-                    <div className="min-w-[180px] max-w-[220px] rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
-                      <div className="flex items-center justify-between text-xs text-emerald-700">
-                        <span>진행도</span>
-                        <span className="font-semibold text-emerald-900">{progressLabel}</span>
-                      </div>
-                      <div className="mt-2 h-2 rounded-full bg-zinc-200">
-                        <div className="h-2 rounded-full bg-emerald-500 transition-all" style={{ width: progressWidth }} />
-                      </div>
-                    </div>
-                  </div>
+                  <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
+                  <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">예산</div>
@@ -249,27 +239,56 @@ export default function Home() {
             {step === "preference" && (
               <div className="grid gap-4">
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-semibold text-zinc-900">상대방의 성향을 골라 주세요</div>
-                      <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다.</p>
-                    </div>
-                    <div className="min-w-[180px] max-w-[220px] rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
-                      <div className="flex items-center justify-between text-xs text-emerald-700">
-                        <span>진행도</span>
-                        <span className="font-semibold text-emerald-900">{progressLabel}</span>
-                      </div>
-                      <div className="mt-2 h-2 rounded-full bg-zinc-200">
-                        <div className="h-2 rounded-full bg-emerald-500 transition-all" style={{ width: progressWidth }} />
-                      </div>
-                    </div>
-                  </div>
+                  <div className="text-sm font-semibold text-zinc-900">상대방의 성향을 골라 주세요</div>
+                  <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다. 조건에 맞는 성향만 반영해 추천하니, 해당 사항이 없으면 누르지 마세요.</p>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">
                     성향 <span className="font-normal text-zinc-500">(해당되는 항목을 모두 눌러 주세요)</span>
                   </div>
-                  <OptionGrid mode="multiple" values={answers.preferences ?? []} options={preferenceOptions} onChange={(preferences) => setAnswers((p) => ({ ...p, preferences: [...preferences] }))} />
+                  <OptionGrid
+                    mode="multiple"
+                    values={answers.preferences ?? []}
+                    options={preferenceOptions}
+                    labels={preferenceLabels}
+                    onChange={(preferences) => setAnswers((p) => ({ ...p, preferences: [...preferences] }))}
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setFoodPanelOpen((v) => !v)}
+                    className={[
+                      "min-h-11 rounded-2xl border px-3 py-2 text-left text-sm font-medium transition",
+                      foodPanelOpen || selectedFoodPrefs.length > 0
+                        ? "border-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 text-white shadow-lg"
+                        : "border-zinc-200 bg-white/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50",
+                    ].join(" ")}
+                  >
+                    🍽 음식이 중요해요
+                    {selectedFoodPrefs.length > 0 && (
+                      <span className="ml-2 text-xs font-normal opacity-90">
+                        ({selectedFoodPrefs.map((p) => (p === "디저트형" ? "디저트" : "식사/간식")).join(", ")} 선택됨)
+                      </span>
+                    )}
+                  </button>
+                  {foodPanelOpen && (
+                    <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3">
+                      <div className="mb-2 text-sm text-zinc-600">디저트가 좋을까요, 식사·간식이 좋을까요?</div>
+                      <OptionGrid
+                        mode="multiple"
+                        values={selectedFoodPrefs}
+                        options={foodOptions}
+                        labels={foodLabels}
+                        onChange={(nextFood) => {
+                          setAnswers((p) => {
+                            const base = (p.preferences ?? []).filter((pref) => !foodOptions.includes(pref));
+                            return { ...p, preferences: [...base, ...nextFood] };
+                          });
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -400,21 +419,29 @@ export default function Home() {
               </div>
             )}
           </div>
+        </section>
 
-          <div className="mt-6 flex items-center justify-between gap-3">
-            {step === "start" ? null : step === "result" ? (
+        <footer className="text-center text-xs leading-5 text-zinc-500">
+          개인정보·결제정보는 수집하지 않습니다. 제휴 구매 버튼 클릭 시 익명으로 채널·추천 ID만 기록해 CTR 분석에 쓸 수 있으며, 웹훅을 설정하지 않으면 서버에 저장되지 않습니다.
+        </footer>
+      </main>
+
+      {step !== "start" && (
+        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-zinc-200 bg-white/95 backdrop-blur">
+          <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+            {step === "result" ? (
               <>
-                <button type="button" onClick={back} className="h-11 rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
+                <button type="button" onClick={back} className="h-12 min-w-[48px] rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
                   이전
                 </button>
                 <div className="flex flex-wrap items-center justify-end gap-2">
-                  <button type="button" onClick={reset} className="h-11 rounded-xl bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200">
+                  <button type="button" onClick={reset} className="h-12 min-w-[48px] rounded-xl bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200">
                     초기화
                   </button>
                   <button
                     type="button"
                     onClick={recommendAgain}
-                    className="h-11 rounded-xl bg-zinc-900 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800"
+                    className="h-12 min-w-[48px] rounded-xl bg-zinc-900 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800"
                   >
                     다시 추천받기
                   </button>
@@ -422,21 +449,17 @@ export default function Home() {
               </>
             ) : (
               <>
-                <button type="button" onClick={back} className="h-11 rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
+                <button type="button" onClick={back} className="h-12 min-w-[48px] rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
                   이전
                 </button>
-                <button type="button" onClick={next} disabled={!canNext} className={["h-11 rounded-xl px-5 text-sm font-semibold text-white transition", canNext ? "bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 hover:opacity-90" : "bg-zinc-300"].join(" ")}>
+                <button type="button" onClick={next} disabled={!canNext} className={["h-12 min-w-[48px] flex-1 max-w-[240px] rounded-xl px-5 text-sm font-semibold text-white transition", canNext ? "bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 hover:opacity-90" : "bg-zinc-300"].join(" ")}>
                   다음으로
                 </button>
               </>
             )}
           </div>
-        </section>
-
-        <footer className="text-center text-xs leading-5 text-zinc-500">
-          개인정보·결제정보는 수집하지 않습니다. 제휴 구매 버튼 클릭 시 익명으로 채널·추천 ID만 기록해 CTR 분석에 쓸 수 있으며, 웹훅을 설정하지 않으면 서버에 저장되지 않습니다.
-        </footer>
-      </main>
+        </div>
+      )}
     </div>
   );
 }

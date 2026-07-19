@@ -112,7 +112,9 @@ export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
 
 function scoreGift(gift: Gift, a: Answers): number {
   let score = 0;
-  // Gender is used only as a gate/filter (handled in recommendGifts); don't score it.
+  // Gender, age, and (when selected) preference are hard filters applied in
+  // recommendGifts before scoring — every gift reaching this function already
+  // satisfies them. Scoring below only breaks ties among the filtered pool.
   if (a.age && gift.tags.age.includes(a.age)) score += 2;
   // Relation has lower weight: +1
   const targets = relationTargets(a.relation);
@@ -121,6 +123,12 @@ function scoreGift(gift: Gift, a: Answers): number {
   const prefs = a.preferences ?? [];
   for (const p of prefs) {
     if (gift.tags.preference.includes(p)) score += 4;
+  }
+
+  // 부모님(40~60대) 맞춤: '몸에 도움 / 오래 사용 / 가족 경험' 3대 가치와 겹치는
+  // 검증 카탈로그를 최우선으로 노출한다.
+  if (a.relation === "부모님" && gift.parentValue?.length) {
+    score += gift.parentValue.length * 5;
   }
 
   if (a.budget && HIGH_END_BUDGETS.has(a.budget) && LUXURY_FALLBACK_GIFT_IDS.has(gift.id)) {
@@ -159,10 +167,20 @@ export function recommendGifts(
   seed = 0,
   excludeIds: string[] = [],
 ): Gift[] {
-  // Gender is a gate filter (not a scoring weight).
+  // Gender, age, and preference are gate filters (AND/교집합), not scoring
+  // weights — a gift that doesn't match the selected age or any selected
+  // preference is dropped from the candidate pool entirely, so unrelated
+  // items never slip through just because they scored well on something else.
   let pool = [...gifts];
   if (answers.gender) {
     pool = pool.filter((g) => g.tags.gender.includes(answers.gender!));
+  }
+  if (answers.age) {
+    pool = pool.filter((g) => g.tags.age.includes(answers.age!));
+  }
+  if (answers.preferences && answers.preferences.length > 0) {
+    const selected = new Set(answers.preferences);
+    pool = pool.filter((g) => g.tags.preference.some((p) => selected.has(p)));
   }
 
   // Exclude previously shown items when requested (재추천 시 사용).
