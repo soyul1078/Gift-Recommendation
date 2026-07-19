@@ -51,7 +51,7 @@ const raw: GiftInput[] = [
     brandUrl: "https://www.dior.com/ko_kr",
     affiliateUrls: {
       naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%94%94%EC%98%AC+30+%EB%AA%BD%ED%85%8C%EB%89%B4+%EB%A1%9C%ED%88%AC%EC%8A%A4+3%EB%8B%A8+%EB%B0%98%EC%A7%80%EA%B0%91",
-      coupang: "https://www.coupang.com/vp/products/9618032057?itemId=28719245364&vendorItemId=95659829428&q=%EB%94%94%EC%98%AC+%EC%98%A4%EB%B8%94%EB%A6%AC%ED%81%AC+%EC%9E%90%EC%B9%B4%EB%93%9C+%EB%B0%98%EC%A7%80%EA%B0%91&searchId=eb782fff4334420&sourceType=search&itemsCount=60&searchRank=12&rank=12&traceId=mred5q1t",
+      coupang: "https://www.coupang.com/vp/products/9633616706?itemId=28778154560&vendorItemId=95715299227&q=%EB%94%94%EC%98%AC+30+%EB%AA%BD%ED%85%8C%EB%89%B4+%EB%A1%9C%ED%88%AC%EC%8A%A4+3%EB%8B%A8+%EB%B0%98%EC%A7%80%EA%B0%91&searchId=6100d3575375421&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrroeusi",
       kakaoGift: "https://gift.kakao.com/search/result?query=%EB%94%94%EC%98%AC%2030%20%EB%AA%BD%ED%85%8C%EB%89%B4%20%EB%A1%9C%ED%88%AC%EC%8A%A4%203%EB%8B%A8%20%EB%B0%98%EC%A7%80%EA%B0%91&searchType=search_related_keyword_search_box",
     },
     tags: {
@@ -443,6 +443,60 @@ const raw: GiftInput[] = [
       age: ["40대", "50대", "60대 이상"],
       relation: ["부모님", "시댁/처가 어른", "어버이날"],
       preference: ["감성/디자인 중시", "실용성 우선"],
+    },
+  },
+  {
+    id: "parent-gongjindan",
+    title: "공진단",
+    priceKRW: 73_000,
+    shortReason:
+      "면역력과 기력 보충에 좋은 전통 건강 선물로, 1개 가격 73,000원에 부담 없이 챙겨드릴 수 있어요.",
+    parentValue: ["몸에 도움"],
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/7523923017?itemId=25025332492&vendorItemId=94607411630&q=%EA%B3%B5%EC%A7%84%EB%8B%A8&searchId=d38966c712484958&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrropw1i",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["40대", "50대", "60대 이상"],
+      relation: ["부모님", "시댁/처가 어른", "어버이날"],
+      preference: ["건강/웰빙형", "실용성 우선"],
+    },
+  },
+  {
+    id: "parent-ginseng-stick",
+    title: "정관장 홍삼 스틱",
+    priceKRW: 10_400,
+    shortReason:
+      "휴대와 섭취가 간편한 정관장 홍삼 스틱으로, 1개 10,400원 · 3개 세트 83,200원으로 용량에 맞게 고르기 좋아요.",
+    parentValue: ["몸에 도움"],
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8297839707?itemId=23934641451&vendorItemId=90956614459&q=%EC%A0%95%EA%B4%80%EC%9E%A5+%ED%99%8D%EC%82%BC+%EC%8A%A4%ED%8B%B1&searchId=146e61b19936330&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrrope6y",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["40대", "50대", "60대 이상"],
+      relation: ["부모님", "시댁/처가 어른", "어버이날"],
+      preference: ["건강/웰빙형", "실용성 우선"],
+    },
+  },
+  {
+    id: "sanseoham-811",
+    title: "산서함 811",
+    priceKRW: 103_800,
+    shortReason:
+      "# 인삼정과 콩고물 도라지정과 도라지청 천혜향정과 생강편강 이바지음식 세트",
+    parentValue: ["몸에 도움", "가족 경험"],
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8411366204?itemId=24320644739&vendorItemId=91336393929&q=%EC%82%B0%EC%84%9C%ED%95%A8+811&searchId=8519b74d11711477&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrrovfq2",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["40대", "50대", "60대 이상"],
+      relation: ["부모님", "시댁/처가 어른", "어버이날"],
+      preference: ["건강/웰빙형", "홈카페/미식가형"],
     },
   },
   {

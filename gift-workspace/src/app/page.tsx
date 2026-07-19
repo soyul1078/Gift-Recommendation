@@ -34,9 +34,6 @@ const preferenceOptions: readonly Preference[] = [
   "감성/디자인 중시",
   "건강/웰빙형",
   "자기계발/워커홀릭",
-  "레저/캠핑형",
-  "미니어처/DIY형",
-  "집돌이/홈힐링형",
   "홈카페/미식가형",
   "뷰티/그루밍형",
 ];
@@ -45,9 +42,6 @@ const preferenceLabels: Partial<Record<Preference, string>> = {
   "감성/디자인 중시": "🎨 감성/디자인 중시",
   "건강/웰빙형": "🌿 건강/웰빙형",
   "자기계발/워커홀릭": "📈 자기계발/워커홀릭",
-  "레저/캠핑형": "⛺ 레저/캠핑형",
-  "미니어처/DIY형": "🧱 미니어처/DIY형",
-  "집돌이/홈힐링형": "📚 집돌이/홈힐링형",
   "홈카페/미식가형": "☕ 홈카페/미식가형",
   "뷰티/그루밍형": "💄 뷰티/그루밍형",
 };
@@ -55,6 +49,12 @@ const foodOptions: readonly Preference[] = ["디저트형", "식사/간식형"];
 const foodLabels: Partial<Record<Preference, string>> = {
   "디저트형": "🍰 디저트파 (마카롱·케이크·젤리 등)",
   "식사/간식형": "🍚 식사·간식파 (한 끼·든든한 간식 중요)",
+};
+const hobbyOptions: readonly Preference[] = ["레저/캠핑형", "미니어처/DIY형", "집돌이/홈힐링형"];
+const hobbyLabels: Partial<Record<Preference, string>> = {
+  "레저/캠핑형": "⛺ 캠핑/아웃도어파",
+  "미니어처/DIY형": "🧱 미니어처/DIY파",
+  "집돌이/홈힐링형": "📚 집돌이/홈힐링파",
 };
 
 type StepId = "start" | "genderAge" | "relation" | "budget" | "preference" | "result";
@@ -66,6 +66,8 @@ export default function Home() {
   const [excludedIds, setExcludedIds] = useState<string[]>([]);
   const selectedFoodPrefs = (answers.preferences ?? []).filter((p) => foodOptions.includes(p));
   const [foodPanelOpen, setFoodPanelOpen] = useState(false);
+  const selectedHobbyPrefs = (answers.preferences ?? []).filter((p) => hobbyOptions.includes(p));
+  const [hobbyPanelOpen, setHobbyPanelOpen] = useState(false);
 
   const RECOMMEND_LIMIT = 5;
   const recommended = useMemo(
@@ -284,6 +286,44 @@ export default function Home() {
                           setAnswers((p) => {
                             const base = (p.preferences ?? []).filter((pref) => !foodOptions.includes(pref));
                             return { ...p, preferences: [...base, ...nextFood] };
+                          });
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="grid gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setHobbyPanelOpen((v) => !v)}
+                    className={[
+                      "min-h-11 rounded-2xl border px-3 py-2 text-left text-sm font-medium transition",
+                      hobbyPanelOpen || selectedHobbyPrefs.length > 0
+                        ? "border-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 text-white shadow-lg"
+                        : "border-zinc-200 bg-white/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50",
+                    ].join(" ")}
+                  >
+                    🎨 취미가 있어요
+                    {selectedHobbyPrefs.length > 0 && (
+                      <span className="ml-2 text-xs font-normal opacity-90">
+                        ({selectedHobbyPrefs
+                          .map((p) => (p === "레저/캠핑형" ? "캠핑" : p === "미니어처/DIY형" ? "미니어처/DIY" : "홈힐링"))
+                          .join(", ")} 선택됨)
+                      </span>
+                    )}
+                  </button>
+                  {hobbyPanelOpen && (
+                    <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3">
+                      <div className="mb-2 text-sm text-zinc-600">어떤 취미에 가까울까요?</div>
+                      <OptionGrid
+                        mode="multiple"
+                        values={selectedHobbyPrefs}
+                        options={hobbyOptions}
+                        labels={hobbyLabels}
+                        onChange={(nextHobby) => {
+                          setAnswers((p) => {
+                            const base = (p.preferences ?? []).filter((pref) => !hobbyOptions.includes(pref));
+                            return { ...p, preferences: [...base, ...nextHobby] };
                           });
                         }}
                       />
