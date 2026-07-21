@@ -110,6 +110,15 @@ export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "gucci-marmont-card-case",
 ]);
 
+// 독서형 카탈로그는 상품 수가 적어 특정 예산대(band)에 걸리지 않는 경우가 많다.
+// 예산이 안 맞아 결과가 0건이면, 예산 조건 없이 독서형 카탈로그를 그대로 보여준다.
+const READING_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
+  "aubriez-leather-book-cover",
+  "wood-metal-lucky-bookmark",
+  "reading-light-diffuser-set",
+  "malang-squishy",
+]);
+
 function scoreGift(gift: Gift, a: Answers): number {
   let score = 0;
   // Gender, age, and (when selected) preference are hard filters applied in
@@ -212,6 +221,15 @@ export function recommendGifts(
   const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
   if (filtered.length > 0) {
     return diversifyAndRotate(filtered.map((x) => x.g), limit, seed);
+  }
+
+  // 독서형을 선택했는데 예산대에 맞는 상품이 없으면, 예산 필터를 무시하고
+  // 독서 카탈로그(북커버·책갈피 등)를 그대로 보여준다.
+  if (answers.preferences?.includes("독서형")) {
+    const readingFallback = ranked.filter((x) => READING_FALLBACK_GIFT_IDS.has(x.g.id));
+    if (readingFallback.length > 0) {
+      return diversifyAndRotate(readingFallback.map((x) => x.g), limit, seed);
+    }
   }
 
   // For high-end budgets we continue to provide a luxury fallback catalog.
