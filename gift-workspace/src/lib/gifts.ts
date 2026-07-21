@@ -685,6 +685,110 @@ const raw: GiftInput[] = [
       preference: ["독서형"],
     },
   },
+  {
+    id: "calligraphy-feather-pen-set",
+    title: "고급 깃털펜 캘리그라피 세트 (펜촉 교체형, 잉크 포함)",
+    priceKRW: 15_900,
+    shortReason:
+      "펜촉 교체형 깃털펜과 잉크가 함께 구성된 캘리그라피 세트로, 감성 있는 선물용 필기구를 찾는 분께 잘 어울립니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9027906060?itemId=26479151785&vendorItemId=94154643483&sourceType=srp_product_ads&clickEventId=bbe9e7c0-83f9-11f1-924a-cce13befd0d3&korePlacement=15&koreSubPlacement=5&clickEventId=bbe9e7c0-83f9-11f1-924a-cce13befd0d3&korePlacement=15&koreSubPlacement=5&traceId=mrsrrwmv",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+        "선생님/은사님",
+        "스승의날",
+      ],
+      preference: ["감성/디자인 중시"],
+    },
+  },
+  {
+    id: "wood-pen-glass-inkwell-set",
+    title: "우드펜 + 글라스 잉크웰 세트",
+    priceKRW: 108_000,
+    shortReason:
+      "원목 펜과 유리 잉크웰로 구성된 프리미엄 필기구 세트로, 격을 갖춰야 하는 자리에 어울리는 감성 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/6347793093?itemId=13344854140&vendorItemId=87059264410&q=%EB%B9%84%EB%82%98%EB%98%90+%28Rubinato%29+%EA%B8%80%EB%9D%BC%EC%8A%A4%2F%EA%B9%83%ED%8E%9C+%EC%84%B8%ED%8A%B8&searchId=5033a76a9795771&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrsrrfgn",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "직장 상사",
+        "거래처",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["감성/디자인 중시"],
+    },
+  },
+  {
+    id: "mood-lamp-wireless-nightlight",
+    title: "감성 무드등 인테리어 조명 (무선 수면등)",
+    priceKRW: 59_900,
+    shortReason:
+      "코드 없이 어디든 둘 수 있는 무선 무드등으로, 은은한 감성 인테리어 소품을 좋아하는 분께 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8911772249?itemId=26034021067&vendorItemId=93015600110&q=%EA%B0%90%EC%84%B1%EC%A0%81+%EC%A1%B0%EB%AA%85&searchId=7e0b98a97128243&sourceType=search&itemsCount=60&searchRank=10&rank=10&traceId=mrsrkmqi",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["감성/디자인 중시"],
+    },
+  },
+  {
+    id: "artemide-nessino-table-lamp",
+    title: "아르떼미데 네시노 전기스탠드",
+    priceKRW: 332_100,
+    shortReason:
+      "이탈리아 디자인 브랜드 아르떼미데의 시그니처 테이블 램프로, 인테리어 감각이 있는 분께 특별한 감성 선물이 됩니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9009295299?itemId=26138689033&vendorItemId=93118823008&q=2.+%F0%9F%92%A1+%EC%A1%B0%EB%AA%85%3A+%EC%95%84%EB%A5%B4%EB%96%BC%EB%AF%B8%EB%8D%B0+%28Artemide%29+-+%EB%84%A4%EC%8B%9C%EB%85%B8+%28Nessino%29+%ED%85%8C%EC%9D%B4%EB%B8%94+%EB%9E%A8%ED%94%84&searchId=9644c75b1429497&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrsrj2k7",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: ["배우자", "정말 친한 절친", "부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시"],
+    },
+  },
+  {
+    id: "louis-poulsen-ph5-pendant-lamp",
+    title: "루이스 폴센 PH5 펜던트 조명 (북유럽 인테리어 식탁등)",
+    priceKRW: 105_710,
+    shortReason:
+      "북유럽 인테리어의 상징적인 루이스 폴센 PH5 펜던트 조명으로, 집 분위기를 중요하게 여기는 분께 어울리는 감성 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8658596958?itemId=25130237402&vendorItemId=93606348251&q=%EB%A3%A8%EC%9D%B4%EC%8A%A4%ED%8F%B4%EC%84%BC+%28Louis+Poulsen%29+-+PH+5+%EC%A1%B0%EB%AA%85&searchId=9f6c9172473559&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrsrepi6",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: ["배우자", "정말 친한 절친", "부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
+      preference: ["감성/디자인 중시"],
+    },
+  },
 ];
 
 
