@@ -84,7 +84,7 @@ const raw: GiftInput[] = [
       gender: ["무관"],
       age: ["30대", "40대", "50대", "60대 이상"],
       relation: ["부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
-      preference: ["감성/디자인 중시", "홈카페/미식가형"],
+      preference: ["감성/디자인 중시", "홈카페형"],
     },
   },
   {
@@ -220,7 +220,7 @@ const raw: GiftInput[] = [
         "선생님/은사님",
         "가볍게 아는 지인",
       ],
-      preference: ["홈카페/미식가형", "건강/웰빙형", "감성/디자인 중시"],
+      preference: ["홈카페형", "건강/웰빙형", "감성/디자인 중시"],
     },
   },
   {
@@ -280,7 +280,7 @@ const raw: GiftInput[] = [
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대"],
       relation: ["정말 친한 절친", "자녀", "가벼운 기념일(100일 등)", "특별한 기념일(생일, 1주년)"],
-      preference: ["집돌이/홈힐링형", "감성/디자인 중시"],
+      preference: ["독서형", "감성/디자인 중시"],
     },
   },
   {
@@ -400,7 +400,7 @@ const raw: GiftInput[] = [
       gender: ["여성", "남성", "무관"],
       age: ["30대", "40대", "50대", "60대 이상"],
       relation: ["부모님", "시댁/처가 어른", "배우자"],
-      preference: ["홈카페/미식가형", "실용성 우선"],
+      preference: ["홈카페형", "실용성 우선"],
     },
   },
   {
@@ -428,7 +428,7 @@ const raw: GiftInput[] = [
       gender: ["여성", "남성", "무관"],
       age: ["40대", "50대", "60대 이상"],
       relation: ["부모님", "시댁/처가 어른", "어버이날"],
-      preference: ["홈카페/미식가형", "실용성 우선"],
+      preference: ["홈카페형", "실용성 우선"],
     },
   },
   {
@@ -496,7 +496,7 @@ const raw: GiftInput[] = [
       gender: ["여성", "남성", "무관"],
       age: ["40대", "50대", "60대 이상"],
       relation: ["부모님", "시댁/처가 어른", "어버이날"],
-      preference: ["건강/웰빙형", "홈카페/미식가형"],
+      preference: ["건강/웰빙형", "홈카페형"],
     },
   },
   {
@@ -589,7 +589,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["집돌이/홈힐링형", "감성/디자인 중시"],
+      preference: ["독서형", "감성/디자인 중시"],
     },
   },
   {
@@ -637,6 +637,52 @@ const raw: GiftInput[] = [
         "특별한 기념일(생일, 1주년)",
       ],
       preference: ["식사/간식형", "실용성 우선"],
+    },
+  },
+  {
+    id: "aubriez-leather-book-cover",
+    title: "오브리즈 공방 클래식 가죽 북커버 (A5/B6 다이어리 커버)",
+    priceKRW: 14_800,
+    shortReason:
+      "책과 다이어리를 즐겨 쓰는 집돌이·홈힐링형에게 잘 어울리는 클래식 가죽 북커버로, 감성 있게 노트를 보호해줍니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8307434602?itemId=23968615192&vendorItemId=90990020058&sourceType=srp_product_ads&clickEventId=ab824520-83fa-11f1-aea9-fe7fbed9da3d&korePlacement=15&koreSubPlacement=1&clickEventId=ab824520-83fa-11f1-aea9-fe7fbed9da3d&korePlacement=15&koreSubPlacement=1&traceId=mrss00ql",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["독서형", "감성/디자인 중시"],
+    },
+  },
+  {
+    id: "wood-metal-lucky-bookmark",
+    title: "고급 책갈피 행운 북마크 (우드·메탈 북클립/북스토퍼)",
+    priceKRW: 20_000,
+    shortReason:
+      "우드·메탈 소재의 고급 책갈피 겸 북클립으로, 독서를 즐기는 집돌이·홈힐링형에게 실용적이면서도 감성 있는 선물이 됩니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8583301827?itemId=24881056353&vendorItemId=91832662689&sourceType=srp_product_ads&clickEventId=e48d5900-83f9-11f1-87b1-16c5a0caae0a&korePlacement=15&koreSubPlacement=6&clickEventId=e48d5900-83f9-11f1-87b1-16c5a0caae0a&korePlacement=15&koreSubPlacement=6&traceId=mrsrsudm",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["독서형", "감성/디자인 중시"],
     },
   },
 ];

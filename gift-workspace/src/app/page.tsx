@@ -34,7 +34,7 @@ const preferenceOptions: readonly Preference[] = [
   "감성/디자인 중시",
   "건강/웰빙형",
   "자기계발/워커홀릭",
-  "홈카페/미식가형",
+  "홈카페형",
   "뷰티/그루밍형",
 ];
 const preferenceLabels: Partial<Record<Preference, string>> = {
@@ -42,7 +42,7 @@ const preferenceLabels: Partial<Record<Preference, string>> = {
   "감성/디자인 중시": "🎨 감성/디자인 중시",
   "건강/웰빙형": "🌿 건강/웰빙형",
   "자기계발/워커홀릭": "📈 자기계발/워커홀릭",
-  "홈카페/미식가형": "☕ 홈카페/미식가형",
+  "홈카페형": "☕ 홈카페형",
   "뷰티/그루밍형": "💄 뷰티/그루밍형",
 };
 const foodOptions: readonly Preference[] = ["디저트형", "식사/간식형"];
@@ -50,11 +50,11 @@ const foodLabels: Partial<Record<Preference, string>> = {
   "디저트형": "🍰 디저트파 (마카롱·케이크·젤리 등)",
   "식사/간식형": "🍚 식사·간식파 (한 끼·든든한 간식 중요)",
 };
-const hobbyOptions: readonly Preference[] = ["레저/캠핑형", "미니어처/DIY형", "집돌이/홈힐링형"];
+const hobbyOptions: readonly Preference[] = ["레저/캠핑형", "미니어처/DIY형", "독서형"];
 const hobbyLabels: Partial<Record<Preference, string>> = {
   "레저/캠핑형": "⛺ 캠핑/아웃도어파",
   "미니어처/DIY형": "🧱 미니어처/DIY파",
-  "집돌이/홈힐링형": "📚 집돌이/홈힐링파",
+  "독서형": "📚 독서/독서 관련 용품",
 };
 
 type StepId = "start" | "genderAge" | "relation" | "budget" | "preference" | "result";
