@@ -613,7 +613,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["디저트형", "감성/디자인 중시"],
+      preference: ["디저트형"],
     },
   },
   {
@@ -858,6 +858,73 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
       ],
       preference: ["건강/웰빙형"],
+    },
+  },
+  {
+    id: "famille-milk-cake-frozen",
+    title: "파미유 떠먹는 우유케익 (냉동, 150g x 2개)",
+    priceKRW: 10_000,
+    shortReason:
+      "떠먹는 우유케익 2개 구성으로, 부담 없이 건네기 좋은 디저트 간식 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/281176729?itemId=892668816&vendorItemId=5245274756&pickType=COU_PICK&q=%ED%8C%8C%EB%AF%B8%EC%9C%A0+%EB%96%A0%EB%A8%B9%EB%8A%94+%EC%9A%B0%EC%9C%A0%EC%BC%80%EC%9D%B4%ED%81%AC&searchId=cd2810b825524163&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrxggofe",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["디저트형"],
+    },
+  },
+  {
+    id: "mont-chouchou-cheesecake",
+    title: "몽슈슈 떠먹는 치즈케이크 (200g)",
+    priceKRW: 18_500,
+    shortReason: "부드러운 떠먹는 치즈케이크로, 달콤한 디저트를 좋아하는 분께 어울리는 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/1086345605?itemId=2040478692&vendorItemId=70039868735&q=%EB%96%A0%EB%A8%B9%EB%8A%94+%EC%B9%98%EC%A6%88%EC%BC%80%EC%9D%B4%ED%81%AC&searchId=c1e18bd025194294&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrxgiclm",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["디저트형"],
+    },
+  },
+  {
+    id: "deobareun-pave-choco-rice-cake",
+    title: "더바른 파베초코크림떡 개별포장 (1박스, 360g)",
+    priceKRW: 16_400,
+    shortReason: "초코크림이 들어간 개별포장 떡으로, 나눠주기 좋은 디저트 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9063761896?itemId=26613341155&vendorItemId=93586378835&q=%EB%8D%94%EB%B0%94%EB%A5%B8+%ED%8C%8C%EB%B2%A0%EC%B4%88%EC%BD%94%ED%81%AC%EB%A6%BC%EB%96%A1&searchId=000140ee5412950&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrxgkf25",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["디저트형"],
     },
   },
 ];
