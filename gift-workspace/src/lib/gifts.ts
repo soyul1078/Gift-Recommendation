@@ -280,7 +280,7 @@ const raw: GiftInput[] = [
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
       relation: ["정말 친한 절친", "자녀", "가벼운 기념일(100일 등)", "특별한 기념일(생일, 1주년)"],
-      preference: ["독서형"],
+      preference: [],
     },
   },
   {
@@ -835,7 +835,7 @@ const raw: GiftInput[] = [
         "자녀",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["건강/웰빙형"],
+      preference: ["건강/웰빙형", "실용성 우선"],
     },
   },
   {
@@ -857,7 +857,7 @@ const raw: GiftInput[] = [
         "자녀",
         "가벼운 기념일(100일 등)",
       ],
-      preference: ["건강/웰빙형"],
+      preference: ["건강/웰빙형", "실용성 우선"],
     },
   },
   {
@@ -1151,6 +1151,56 @@ const raw: GiftInput[] = [
         "특별한 기념일(생일, 1주년)",
       ],
       preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "tnr-samsung-cell-docking-power-bank",
+    title: "티앤알 삼성배터리셀 도킹형 국산 보조배터리",
+    priceKRW: 22_800,
+    shortReason: "국산 삼성 배터리셀을 쓴 도킹형 보조배터리로, 실용성을 중요하게 여기는 분께 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8973746008?itemId=26265802134&vendorItemId=93244055067&sourceType=srp_product_ads&clickEventId=376c78d0-8699-11f1-8d41-292094ef748a&korePlacement=15&koreSubPlacement=1&clickEventId=376c78d0-8699-11f1-8d41-292094ef748a&korePlacement=15&koreSubPlacement=1&traceId=mrxjgp0o",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "직장 상사",
+        "직장 동기",
+        "직장 후배",
+        "거래처",
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["실용성 우선"],
+    },
+  },
+  {
+    id: "sinjimoru-car-wireless-charger-mount",
+    title: "신지모루 차량용 고속 무선충전 거치대 (오그랩엑스)",
+    priceKRW: 26_700,
+    shortReason: "강력 고정되는 차량용 고속 무선충전 거치대로, 실용적인 선물을 찾는 분께 좋습니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/5498366788?itemId=8534078186&vendorItemId=76419358863&q=%EC%B0%A8%EB%9F%89%EC%9A%A9+%ED%9C%B4%EB%8C%80%ED%8F%B0+%EA%B1%B0%EC%B9%98%EB%8C%80&searchId=8d51576415484532&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxji3n3",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "직장 상사",
+        "직장 동기",
+        "직장 후배",
+        "거래처",
+        "정말 친한 절친",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["실용성 우선"],
     },
   },
 ];

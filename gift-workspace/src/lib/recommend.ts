@@ -116,7 +116,6 @@ const READING_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "aubriez-leather-book-cover",
   "wood-metal-lucky-bookmark",
   "reading-light-diffuser-set",
-  "malang-squishy",
 ]);
 
 function scoreGift(gift: Gift, a: Answers): number {
@@ -211,6 +210,12 @@ export function recommendGifts(
     .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
     .filter((x) => x.s > 0);
 
+  // Diversity cap only makes sense when multiple preferences are active —
+  // with 0-1 selected, every match legitimately shares the same primary
+  // preference, so capping would wrongly throw away good matches.
+  const distinctPrefs = new Set(answers.preferences ?? []).size;
+  const preferenceCap = distinctPrefs <= 1 ? Number.POSITIVE_INFINITY : 2;
+
   const band = answers.budget;
   if (!band) {
     return rotateGifts(
@@ -220,7 +225,7 @@ export function recommendGifts(
   }
   const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
   if (filtered.length > 0) {
-    return diversifyAndRotate(filtered.map((x) => x.g), limit, seed);
+    return diversifyAndRotate(filtered.map((x) => x.g), limit, seed, preferenceCap);
   }
 
   // 독서형을 선택했는데 예산대에 맞는 상품이 없으면, 예산 필터를 무시하고
@@ -228,7 +233,7 @@ export function recommendGifts(
   if (answers.preferences?.includes("독서형")) {
     const readingFallback = ranked.filter((x) => READING_FALLBACK_GIFT_IDS.has(x.g.id));
     if (readingFallback.length > 0) {
-      return diversifyAndRotate(readingFallback.map((x) => x.g), limit, seed);
+      return diversifyAndRotate(readingFallback.map((x) => x.g), limit, seed, preferenceCap);
     }
   }
 
@@ -236,7 +241,7 @@ export function recommendGifts(
   if (HIGH_END_BUDGETS.has(band)) {
     const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
     if (fallback.length > 0) {
-      return diversifyAndRotate(fallback.map((x) => x.g), limit, seed);
+      return diversifyAndRotate(fallback.map((x) => x.g), limit, seed, preferenceCap);
     }
   }
 
@@ -246,11 +251,15 @@ export function recommendGifts(
   return [];
 }
 
-function diversifyAndRotate(list: Gift[], limit: number, seed: number): Gift[] {
+function diversifyAndRotate(
+  list: Gift[],
+  limit: number,
+  seed: number,
+  maxPerPreference: number,
+): Gift[] {
   const rotated = rotateGifts(list, seed);
   const seenTitle = new Set<string>();
   const preferenceCounts = new Map<string, number>();
-  const maxPerPreference = 2;
   const out: Gift[] = [];
 
   for (const g of rotated) {
