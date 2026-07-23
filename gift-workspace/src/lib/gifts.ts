@@ -996,6 +996,163 @@ const raw: GiftInput[] = [
       preference: ["레저/캠핑형"],
     },
   },
+  {
+    id: "suntouch-camping-burner-4-burner",
+    title: "썬터치 통주물바디 고화력 캠핑버너 4구 (그리들버너, ST-DS1F)",
+    priceKRW: 40_340,
+    shortReason:
+      "통주물바디 고화력 4구 버너로, 캠핑에서 직접 요리하는 걸 즐기는 분께 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8266674229?itemId=23820591643&vendorItemId=92538960893&pickType=COU_PICK&q=%EC%BA%A0%ED%95%91+%EB%B2%84%EB%84%88&searchId=5a2f1f48560370&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxig0i0",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "직장 동기",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "breezmoon-camping-cookware-15p-set",
+    title: "브리즈문 3중 스텐 캠핑 코펠 냄비 15p 세트",
+    priceKRW: 47_800,
+    shortReason:
+      "연마제로 세척한 3중 스텐 코펠 냄비 15p 구성으로, 캠핑 취사를 제대로 챙기는 분께 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8118221139?itemId=23018795728&vendorItemId=90419623430&q=%EC%BD%94%ED%8E%A0%20%EC%84%B8%ED%8A%B8&searchId=6f37e81a14607372&sourceType=search&itemsCount=59&searchRank=3&rank=3&traceId=mrxikp3f",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "직장 동기",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "lotticamp-lightweight-camping-chair-set",
+    title: "로티캠프 경량 로우 캠핑 의자 2p + 전용가방 2p 세트",
+    priceKRW: 35_800,
+    shortReason: "경량 로우 캠핑 의자 2인 세트로, 캠핑을 함께 즐기는 분들께 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8605213420?itemId=20982977436&vendorItemId=92097848832&q=%EC%BA%A0%ED%95%91+%EC%9D%98%EC%9E%90&searchId=f8444d623810081&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxilehr",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "직장 동기",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "kukalife-rectangular-tarp",
+    title: "크크라이프 실버 블랙 코팅 210D 렉타 타프",
+    priceKRW: 33_800,
+    shortReason: "코팅 원단 렉타 타프로, 캠핑 사이트를 제대로 꾸미는 분께 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8337763681?itemId=24076497388&vendorItemId=87042583860&q=%EC%BA%A0%ED%95%91+%ED%83%80%ED%94%84&searchId=9503ecc719347022&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxims6k",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "직장 동기",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "comet-folding-fire-pit",
+    title: "코멧 아웃도어 접이식 화로대",
+    priceKRW: 22_390,
+    shortReason: "접이식으로 휴대가 편한 화로대로, 캠핑·차박에서 불멍을 즐기는 분께 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/5257954155?itemId=7463433468&vendorItemId=74754339411&pickType=COU_PICK&q=%EC%BA%A0%ED%95%91%20%ED%99%94%EB%A1%9C%EB%8C%80&searchId=383d9f8a25870891&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxink6b",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "comet-mummy-sleeping-bag",
+    title: "코멧 머미형 사계절용 침낭 (220 x 80cm, 1950g)",
+    priceKRW: 25_540,
+    shortReason: "사계절 사용 가능한 머미형 침낭으로, 캠핑·백패킹을 즐기는 분께 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/207463706?itemId=614147267&vendorItemId=4611531972&q=%EC%BA%A0%ED%95%91%20%EC%B9%A8%EB%82%AD&searchId=390dd1a015736072&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxio9cz",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "campman-lightweight-field-cot",
+    title: "캠프맨 경량 야전침대 와이드 코트 (75cm, 백패킹용)",
+    priceKRW: 99_000,
+    shortReason:
+      "고하중을 지지하는 조립식 경량 야전침대로, 백패킹·캠핑에서 편안한 잠자리를 원하는 분께 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8026404479?itemId=22433075508&vendorItemId=89518411532&sourceType=srp_product_ads&clickEventId=3250f9a0-8696-11f1-bec3-1c09384ad114&korePlacement=15&koreSubPlacement=1&clickEventId=3250f9a0-8696-11f1-bec3-1c09384ad114&korePlacement=15&koreSubPlacement=1&traceId=mrxip3ql",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "직장 동기",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
 ];
 
 
