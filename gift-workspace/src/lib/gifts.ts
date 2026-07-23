@@ -613,7 +613,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["디저트형"],
+      preference: ["간식형"],
     },
   },
   {
@@ -637,7 +637,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["식사/간식형", "실용성 우선"],
+      preference: ["식사형"],
     },
   },
   {
@@ -880,7 +880,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["디저트형"],
+      preference: ["간식형"],
     },
   },
   {
@@ -902,7 +902,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["디저트형"],
+      preference: ["간식형"],
     },
   },
   {
@@ -924,7 +924,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["디저트형"],
+      preference: ["간식형"],
     },
   },
   {
@@ -1414,6 +1414,120 @@ const raw: GiftInput[] = [
         "특별한 기념일(생일, 1주년)",
       ],
       preference: ["뷰티/그루밍형"],
+    },
+  },
+  {
+    id: "grilled-cheese-bar-original",
+    title: "구워먹는 쫀득 치즈바 오리지널 (530g)",
+    priceKRW: 13_000,
+    shortReason: "구워 먹으면 쫀득해지는 치즈바로, 부담 없이 나눠주기 좋은 간식 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/7251915718?itemId=21342025260&vendorItemId=91111269665&pickType=COU_PICK&q=%EA%B5%AC%EC%9B%8C%EB%A8%B9%EB%8A%94+%EC%B9%98%EC%A6%88%EB%B0%94&searchId=c47918402254528&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmcwc8",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["간식형"],
+    },
+  },
+  {
+    id: "pinebrick-salt-butter-yakgwa-set",
+    title: "파인브릭 소금버터 개성약과 선물세트",
+    priceKRW: 29_900,
+    shortReason: "짭짤한 소금버터 풍미의 개성약과 선물세트로, 전통 간식을 좋아하는 분께 잘 어울립니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9325345344?itemId=27642388052&vendorItemId=94605017226&q=%EA%B3%A8%EB%93%A0%ED%94%BC%EC%8A%A4+%EC%95%BD%EA%B3%BC&searchId=f2f6d00513548523&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmfj00",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "부모님",
+        "시댁/처가 어른",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["간식형"],
+    },
+  },
+  {
+    id: "saenggwabang-handmade-yakgwa-set",
+    title: "생과방 수제약과 선물세트 (12개입, 480g)",
+    priceKRW: 46_490,
+    shortReason: "수제로 만든 전통 한과·약과 12개입 선물세트로, 격식 있게 건네기 좋은 간식 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9392098812?itemId=28438804487&vendorItemId=94446197674&q=%ED%91%B8%EB%A5%B8%EB%B1%80+%EC%95%BD%EA%B3%BC+%EC%84%B8%ED%8A%B8&searchId=567f9b1413609504&sourceType=search&itemsCount=36&searchRank=3&rank=3&traceId=mrxmgvkf",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "직장 상사",
+        "거래처",
+        "부모님",
+        "시댁/처가 어른",
+        "선생님/은사님",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["간식형"],
+    },
+  },
+  {
+    id: "ddeokbo-rice-cake-cake-1",
+    title: "[떡보의하루 본사] 떡케이크 행복담1호",
+    priceKRW: 43_500,
+    shortReason: "전국 매장에서 직접 배달되는 떡케이크로, 특별한 날 함께 나누기 좋은 간식 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8761233593?itemId=25475908882&vendorItemId=92468309910&q=%EC%B0%BD%EC%96%B5%EB%96%A1+%EC%BC%80%EC%9D%B4%ED%81%AC&searchId=cbc494b32325512&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmk3ow",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "부모님",
+        "시댁/처가 어른",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["간식형"],
+    },
+  },
+  {
+    id: "shiroi-koibito-mix-24",
+    title: "시로이고이비토 믹스 24개입",
+    priceKRW: 27_460,
+    shortReason: "화이트·밀크 초콜릿 쿠키가 함께 든 시로이고이비토 믹스로, 부담 없이 건네기 좋은 간식 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8244661431?itemId=21325468487&vendorItemId=88384415529&q=%EC%8B%9C%EB%A1%9C%EC%9D%B4%EC%BD%94%EC%9D%B4%EB%B9%84%ED%86%A0&searchId=4bb8ef5927538641&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmr4oi",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["간식형"],
     },
   },
 ];

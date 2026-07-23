@@ -110,14 +110,6 @@ export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "gucci-marmont-card-case",
 ]);
 
-// 독서형 카탈로그는 상품 수가 적어 특정 예산대(band)에 걸리지 않는 경우가 많다.
-// 예산이 안 맞아 결과가 0건이면, 예산 조건 없이 독서형 카탈로그를 그대로 보여준다.
-const READING_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
-  "aubriez-leather-book-cover",
-  "wood-metal-lucky-bookmark",
-  "reading-light-diffuser-set",
-]);
-
 function scoreGift(gift: Gift, a: Answers): number {
   let score = 0;
   // Gender, age, and (when selected) preference are hard filters applied in
@@ -169,17 +161,38 @@ function rotateGifts(list: Gift[], seed: number): Gift[] {
   return [...list.slice(offset), ...list.slice(0, offset)];
 }
 
+function blockExcludedRelations(list: Gift[], answers: Answers): Gift[] {
+  if (!answers.relation) return list;
+  const targets = new Set([answers.relation, ...relationTargets(answers.relation)]);
+  return list.filter((g) => !g.excludedRelations?.some((r) => targets.has(r)));
+}
+
+function rankAndScore(list: Gift[], answers: Answers) {
+  return list
+    .map((g) => ({ g, s: scoreGift(g, answers) }))
+    .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
+    .filter((x) => x.s > 0);
+}
+
 export function recommendGifts(
   answers: Answers,
   limit = gifts.length,
   seed = 0,
   excludeIds: string[] = [],
 ): Gift[] {
+  const ex = new Set(excludeIds);
+
+  // Diversity cap only makes sense when multiple preferences are active —
+  // with 0-1 selected, every match legitimately shares the same primary
+  // preference, so capping would wrongly throw away good matches.
+  const distinctPrefs = new Set(answers.preferences ?? []).size;
+  const preferenceCap = distinctPrefs <= 1 ? Number.POSITIVE_INFINITY : 2;
+
   // Gender, age, and preference are gate filters (AND/교집합), not scoring
   // weights — a gift that doesn't match the selected age or any selected
   // preference is dropped from the candidate pool entirely, so unrelated
   // items never slip through just because they scored well on something else.
-  let pool = [...gifts];
+  let pool = gifts.filter((g) => !ex.has(g.id));
   if (answers.gender) {
     pool = pool.filter((g) => g.tags.gender.includes(answers.gender!));
   }
@@ -190,64 +203,46 @@ export function recommendGifts(
     const selected = new Set(answers.preferences);
     pool = pool.filter((g) => g.tags.preference.some((p) => selected.has(p)));
   }
+  pool = blockExcludedRelations(pool, answers);
 
-  // Exclude previously shown items when requested (재추천 시 사용).
-  if (excludeIds.length > 0) {
-    const ex = new Set(excludeIds);
-    pool = pool.filter((g) => !ex.has(g.id));
-  }
-
-  // Hard-block gifts that are a poor fit for the selected relation, regardless of score.
-  if (answers.relation) {
-    const targets = new Set([answers.relation, ...relationTargets(answers.relation)]);
-    pool = pool.filter(
-      (g) => !g.excludedRelations?.some((r) => targets.has(r)),
-    );
-  }
-
-  const ranked = pool
-    .map((g) => ({ g, s: scoreGift(g, answers) }))
-    .sort((a, b) => b.s - a.s || a.g.priceKRW - b.g.priceKRW)
-    .filter((x) => x.s > 0);
-
-  // Diversity cap only makes sense when multiple preferences are active —
-  // with 0-1 selected, every match legitimately shares the same primary
-  // preference, so capping would wrongly throw away good matches.
-  const distinctPrefs = new Set(answers.preferences ?? []).size;
-  const preferenceCap = distinctPrefs <= 1 ? Number.POSITIVE_INFINITY : 2;
-
+  const ranked = rankAndScore(pool, answers);
   const band = answers.budget;
+
   if (!band) {
-    return rotateGifts(
-      ranked.slice(0, limit).map((x) => x.g),
-      seed,
-    );
-  }
-  const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
-  if (filtered.length > 0) {
-    return diversifyAndRotate(filtered.map((x) => x.g), limit, seed, preferenceCap);
+    const strict = rotateGifts(ranked.slice(0, limit).map((x) => x.g), seed);
+    if (strict.length > 0) return strict;
+  } else {
+    const filtered = ranked.filter((x) => priceFitsBudgetBand(x.g.priceKRW, band));
+    if (filtered.length > 0) {
+      return diversifyAndRotate(filtered.map((x) => x.g), limit, seed, preferenceCap);
+    }
   }
 
-  // 독서형을 선택했는데 예산대에 맞는 상품이 없으면, 예산 필터를 무시하고
-  // 독서 카탈로그(북커버·책갈피 등)를 그대로 보여준다.
-  if (answers.preferences?.includes("독서형")) {
-    const readingFallback = ranked.filter((x) => READING_FALLBACK_GIFT_IDS.has(x.g.id));
-    if (readingFallback.length > 0) {
-      return diversifyAndRotate(readingFallback.map((x) => x.g), limit, seed, preferenceCap);
+  // Preference-only fallback: a selected preference should always surface its
+  // catalog, even if gender/age/budget happen not to line up for this visitor.
+  // Still respects excludedRelations (hard "bad fit" blocks) and exclusion list.
+  if (answers.preferences && answers.preferences.length > 0) {
+    const selected = new Set(answers.preferences);
+    let fallbackPool = gifts.filter(
+      (g) => !ex.has(g.id) && g.tags.preference.some((p) => selected.has(p)),
+    );
+    fallbackPool = blockExcludedRelations(fallbackPool, answers);
+    const fallbackRanked = rankAndScore(fallbackPool, answers).map((x) => x.g);
+    if (fallbackRanked.length > 0) {
+      return diversifyAndRotate(fallbackRanked, limit, seed, preferenceCap);
     }
   }
 
   // For high-end budgets we continue to provide a luxury fallback catalog.
-  if (HIGH_END_BUDGETS.has(band)) {
+  if (band && HIGH_END_BUDGETS.has(band)) {
     const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
     if (fallback.length > 0) {
       return diversifyAndRotate(fallback.map((x) => x.g), limit, seed, preferenceCap);
     }
   }
 
-  // If there are no items that match the selected budget, do not return
-  // unrelated higher/lower priced items. Let the UI show the "no results"
-  // state so the user can adjust the budget or other filters.
+  // Nothing matched at all (no preferences selected and strict pass came up
+  // empty). Let the UI show the "no results" state so the user can adjust.
   return [];
 }
 

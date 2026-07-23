@@ -45,10 +45,10 @@ const preferenceLabels: Partial<Record<Preference, string>> = {
   "독서형": "📚 독서 중시/독서 용품",
   "뷰티/그루밍형": "💄 뷰티/그루밍형",
 };
-const foodOptions: readonly Preference[] = ["디저트형", "식사/간식형"];
+const foodOptions: readonly Preference[] = ["간식형", "식사형"];
 const foodLabels: Partial<Record<Preference, string>> = {
-  "디저트형": "🍰 디저트파 (마카롱·케이크·젤리 등)",
-  "식사/간식형": "🍚 식사·간식파 (한 끼·든든한 간식 중요)",
+  "간식형": "🍪 간식파 (마카롱·과자·떡·약과 등)",
+  "식사형": "🍚 식사파 (한 끼·든든한 식사)",
 };
 const hobbyOptions: readonly Preference[] = ["레저/캠핑형", "미니어처/DIY형"];
 const hobbyLabels: Partial<Record<Preference, string>> = {
@@ -269,13 +269,13 @@ export default function Home() {
                     🍽 음식이 중요해요
                     {selectedFoodPrefs.length > 0 && (
                       <span className="ml-2 text-xs font-normal opacity-90">
-                        ({selectedFoodPrefs.map((p) => (p === "디저트형" ? "디저트" : "식사/간식")).join(", ")} 선택됨)
+                        ({selectedFoodPrefs.map((p) => (p === "간식형" ? "간식" : "식사")).join(", ")} 선택됨)
                       </span>
                     )}
                   </button>
                   {foodPanelOpen && (
                     <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3">
-                      <div className="mb-2 text-sm text-zinc-600">디저트가 좋을까요, 식사·간식이 좋을까요?</div>
+                      <div className="mb-2 text-sm text-zinc-600">부가 간식</div>
                       <OptionGrid
                         mode="multiple"
                         values={selectedFoodPrefs}
@@ -313,7 +313,7 @@ export default function Home() {
                   </button>
                   {hobbyPanelOpen && (
                     <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3">
-                      <div className="mb-2 text-sm text-zinc-600">어떤 취미에 가까울까요?</div>
+                      <div className="mb-2 text-sm text-zinc-600">부가 취미</div>
                       <OptionGrid
                         mode="multiple"
                         values={selectedHobbyPrefs}
