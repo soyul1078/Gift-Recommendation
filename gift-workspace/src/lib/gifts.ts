@@ -588,8 +588,9 @@ const raw: GiftInput[] = [
         "가볍게 아는 지인",
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
+        "자녀",
       ],
-      preference: ["독서형"],
+      preference: ["독서형", "건강/웰빙형"],
     },
   },
   {
@@ -790,6 +791,73 @@ const raw: GiftInput[] = [
       age: ["20대", "30대", "40대", "50대", "60대 이상"],
       relation: ["배우자", "정말 친한 절친", "부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
       preference: ["감성/디자인 중시"],
+    },
+  },
+  {
+    id: "authentic-road-bike",
+    title: "어센틱 로드자전거",
+    priceKRW: 189_340,
+    shortReason:
+      "라이딩을 즐기거나 운동을 시작하려는 분께 좋은 로드자전거로, 건강·웰빙 성향의 선물로 잘 맞습니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9323657563?itemId=27636151018&vendorItemId=95058323011&sourceType=srp_product_ads&clickEventId=dd152720-8651-11f1-b6ff-65f3f7c11b2b&korePlacement=15&koreSubPlacement=6&clickEventId=dd152720-8651-11f1-b6ff-65f3f7c11b2b&korePlacement=15&koreSubPlacement=6&traceId=mrx183at",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대"],
+      relation: [
+        "정말 친한 절친",
+        "자녀",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["건강/웰빙형"],
+    },
+  },
+  {
+    id: "samsung-galaxy-watch-8",
+    title: "삼성전자 갤럭시워치 8 스마트워치 (SM-L320N)",
+    priceKRW: 398_000,
+    shortReason:
+      "심박수·수면·운동량을 챙겨주는 갤럭시워치 8로, 건강·웰빙을 중요하게 여기는 분께 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8847516888?itemId=25789644940&vendorItemId=92777426234&pickType=COU_PICK&q=%EC%8A%A4%EB%A7%88%ED%8A%B8+%EC%9B%8C%EC%B9%98+%EC%82%BC%EC%84%B1&searchId=1102648a4569910&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrx1eypc",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "배우자",
+        "정말 친한 절친",
+        "부모님",
+        "자녀",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["건강/웰빙형"],
+    },
+  },
+  {
+    id: "daicoo-bluetooth-smartwatch",
+    title: "DAICOO 다이코 통화가능 GPS 블루투스 스마트워치 42mm R8",
+    priceKRW: 18_900,
+    shortReason:
+      "통화 기능과 GPS를 지원하는 보급형 블루투스 스마트워치로, 부담 없이 건강 관리를 시작하기 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8316012959?itemId=28816384785&vendorItemId=95670367159&q=%EC%8A%A4%EB%A7%88%ED%8A%B8+%EC%9B%8C%EC%B9%98&searchId=f10e3bc66989534&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrx11wtm",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "가볍게 아는 지인",
+        "직장 동기",
+        "자녀",
+        "가벼운 기념일(100일 등)",
+      ],
+      preference: ["건강/웰빙형"],
     },
   },
 ];
