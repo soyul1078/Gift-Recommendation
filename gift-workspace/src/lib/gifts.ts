@@ -269,9 +269,9 @@ const raw: GiftInput[] = [
   },
   {
     id: "malang-squishy",
-    title: "말랑이(소프트 토이)",
-    priceKRW: 11020,
-    shortReason: "간단한 취미/스트레스 해소용 말랑이 토이입니다.",
+    title: "슬라임 랜덤박스",
+    priceKRW: 47_600,
+    shortReason: "간단한 취미/스트레스 해소용 슬라임 랜덤박스입니다.",
     affiliateUrls: {
       coupang:
         "https://www.coupang.com/vp/products/8901021453?itemId=22510569626&vendorItemId=89552647246&sourceType=srp_product_ads&clickEventId=d2787710-7ba0-11f1-92b0-9cc8ac73deaa&korePlacement=15&koreSubPlacement=5&traceId=mrdlbu41",
@@ -573,12 +573,12 @@ const raw: GiftInput[] = [
   {
     id: "reading-light-diffuser-set",
     title: "북라이트 & 아로마 디퓨저 세트",
-    priceKRW: 39_000,
+    priceKRW: 59_900,
     shortReason:
       "집에서 책 읽고 쉬는 시간을 좋아하는 분께 잘 맞는 독서등(북라이트)과 아로마 디퓨저 구성의 홈힐링 아이템입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/np/search?q=%EB%B6%81%EB%9D%BC%EC%9D%B4%ED%8A%B8%20%EC%95%84%EB%A1%9C%EB%A7%88%20%EB%94%94%ED%93%A8%EC%A0%80%20%EC%84%B8%ED%8A%B8",
+        "https://www.coupang.com/vp/products/8771322300?itemId=25514125624&vendorItemId=92550804190&q=%EB%B6%81%EB%9D%BC%EC%9D%B4%ED%8A%B8+%EC%95%84%EB%A1%9C%EB%A7%88+%EB%94%94%ED%93%A8%EC%A0%80+%EC%84%B8%ED%8A%B8&searchId=661b22154288724&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrx0vir6",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -761,6 +761,7 @@ const raw: GiftInput[] = [
     priceKRW: 332_100,
     shortReason:
       "이탈리아 디자인 브랜드 아르떼미데의 시그니처 테이블 램프로, 인테리어 감각이 있는 분께 특별한 감성 선물이 됩니다.",
+    imageUrl: "https://media.royaldesign.com/2/artemide-nessino-table-lamp-60",
     affiliateUrls: {
       coupang:
         "https://www.coupang.com/vp/products/9009295299?itemId=26138689033&vendorItemId=93118823008&q=2.+%F0%9F%92%A1+%EC%A1%B0%EB%AA%85%3A+%EC%95%84%EB%A5%B4%EB%96%BC%EB%AF%B8%EB%8D%B0+%28Artemide%29+-+%EB%84%A4%EC%8B%9C%EB%85%B8+%28Nessino%29+%ED%85%8C%EC%9D%B4%EB%B8%94+%EB%9E%A8%ED%94%84&searchId=9644c75b1429497&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrsrj2k7",
@@ -778,6 +779,8 @@ const raw: GiftInput[] = [
     priceKRW: 105_710,
     shortReason:
       "북유럽 인테리어의 상징적인 루이스 폴센 PH5 펜던트 조명으로, 집 분위기를 중요하게 여기는 분께 어울리는 감성 선물입니다.",
+    imageUrl:
+      "https://dam.louispoulsen.dk/DigizuiteCore/LegacyService/api/assetstream/9846/50422.webp",
     affiliateUrls: {
       coupang:
         "https://www.coupang.com/vp/products/8658596958?itemId=25130237402&vendorItemId=93606348251&q=%EB%A3%A8%EC%9D%B4%EC%8A%A4%ED%8F%B4%EC%84%BC+%28Louis+Poulsen%29+-+PH+5+%EC%A1%B0%EB%AA%85&searchId=9f6c9172473559&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrsrepi6",
