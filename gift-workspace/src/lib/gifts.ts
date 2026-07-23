@@ -927,6 +927,75 @@ const raw: GiftInput[] = [
       preference: ["디저트형"],
     },
   },
+  {
+    id: "keebright-3in1-camping-lantern",
+    title: "Keebright 3in1 감성 캠핑랜턴 (3000mAh, IP65방수, 접이식 무드등)",
+    priceKRW: 15_200,
+    shortReason:
+      "숫자표시·IP65 방수·접이식이 되는 3in1 캠핑랜턴으로, 차박·비상조명까지 챙기는 캠핑족에게 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8921895501?itemId=26072727304&vendorItemId=93053750114&q=%EC%BA%A0%ED%95%91+%EB%9E%9C%ED%84%B4&searchId=077332fe14081170&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxhfltu",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "breezmoon-camping-cutlery-set",
+    title: "브리즈문 SUS304 무광 캠핑 식기 그릇 커트러리 28p 세트",
+    priceKRW: 57_800,
+    shortReason:
+      "연마제로 세척한 SUS304 무광 스테인리스 식기·커트러리 28p 구성으로, 캠핑 살림을 제대로 챙기는 분께 좋은 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8131300974?itemId=23092069771&vendorItemId=90125489516&q=%EC%BA%A0%ED%95%91+%EC%8B%9D%EA%B8%B0%EC%84%B8%ED%8A%B8&searchId=b74c23c825731790&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxhntr3",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "직장 동기",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
+  {
+    id: "fittem-waterproof-cooler-bag",
+    title: "핏템 대용량 방수 캠핑 쿨러백 (대형)",
+    priceKRW: 39_000,
+    shortReason:
+      "대용량 방수 소재로 만들어진 캠핑 쿨러백으로, 야외 활동을 자주 즐기는 분께 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/7421102595?itemId=19250553883&vendorItemId=90782269114&sourceType=srp_product_ads&clickEventId=3b7aa050-8694-11f1-8354-0916bc78e647&korePlacement=15&koreSubPlacement=1&clickEventId=3b7aa050-8694-11f1-8354-0916bc78e647&korePlacement=15&koreSubPlacement=1&traceId=mrxi72q6",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["레저/캠핑형"],
+    },
+  },
 ];
 
 
