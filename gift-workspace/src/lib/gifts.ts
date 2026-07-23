@@ -1203,6 +1203,177 @@ const raw: GiftInput[] = [
       preference: ["실용성 우선"],
     },
   },
+  {
+    id: "phone-tablet-stand",
+    title: "하우스나인 2세대 170cm 휴대폰 태블릿 스탠드 거치대",
+    priceKRW: 10_000,
+    shortReason:
+      "높이 각도 조절이 되는 휴대폰·태블릿 거치대로, 책상 작업 시 화면을 편하게 볼 수 있는 실용적인 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9516659238?itemId=28529461713&vendorItemId=95317634438&q=%ED%83%9C%EB%B8%94%EB%A6%BF%20%EA%B1%B0%EC%B9%98%EB%8C%80&searchId=6bad7e581358687&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxkkq2z",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대"],
+      relation: [
+        "직장 동기",
+        "정말 친한 절친",
+        "자녀",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "wireless-keyboard-han-sung",
+    title: "한성컴퓨터 OfficeMaster 유무선 저소음 멤브레인 키보드",
+    priceKRW: 29_000,
+    shortReason:
+      "유무선을 모두 지원하는 저소음 멤브레인 키보드로, 업무 효율을 높이고 싶어하는 분께 어울리는 실용 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9444814049?itemId=28094093472&vendorItemId=93668521258&q=%EB%AC%B4%EC%84%A0+%ED%82%A4%EB%B3%B4%EB%93%9C+%ED%83%80%EC%9E%90%EA%B0%90+%EC%A2%8B%EC%9D%80%EA%B2%83&searchId=7bcf0da212868346&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxklnau",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대"],
+      relation: [
+        "직장 동기",
+        "직장 후배",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "notebook-cooling-stand",
+    title: "홈플래닛 와이드형 메탈 쿨링홀 노트북 거치대",
+    priceKRW: 22_870,
+    shortReason:
+      "높이와 각도를 자유롭게 조절할 수 있는 노트북 거치대로, 자세 개선과 노트북 열 관리를 동시에 해결하는 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/4674285118?itemId=5848037892&vendorItemId=73146292765&q=%EB%85%B8%ED%8A%B8%EB%B6%81%20%EC%8A%A4%ED%83%A0%EB%93%9C&searchId=535a7dc510129047&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxkmws7",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대"],
+      relation: [
+        "직장 동기",
+        "직장 후배",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "apple-ipad-2025-a16",
+    title: "Apple 2025 아이패드 (A16 모델)",
+    priceKRW: 645_000,
+    shortReason:
+      "A16 칩셋으로 강력한 성능을 갖춘 아이패드로, 업무와 창의적 작업을 하는 프로페셔널에게 최고의 도구가 됩니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8640169010?itemId=25073291205&vendorItemId=92077321721&pickType=COU_PICK&q=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C&searchId=a35ce99b3129697&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxkqz13",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대"],
+      relation: [
+        "배우자",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "sony-wh1000xm6-headphones",
+    title: "소니 노이즈캔슬링 블루투스 헤드폰 WH-1000XM6 플래티넘 실버",
+    priceKRW: 480_490,
+    shortReason:
+      "업계 최고의 노이즈캔슬링 기술과 40시간 배터리 지원으로, 출장과 재택근무를 자주 하는 분께 완벽한 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8832674019?itemId=25737269674&vendorItemId=92725754729&q=%EC%86%8C%EB%8B%88+WH-1000XM6&searchId=6b1a363c799838&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxkrw8p",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대"],
+      relation: [
+        "배우자",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "apple-airpods-pro-3-usb-c",
+    title: "Apple 2025 에어팟 프로 3 USB-C 블루투스 이어폰",
+    priceKRW: 322_100,
+    shortReason:
+      "최신 세대 에어팟 프로로 향상된 음질과 노이즈캔슬링 성능으로, 프리미엄 이어폰을 찾는 분께 최고의 선택입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9024163013?itemId=26462308675&vendorItemId=93437588392&q=%EC%97%90%EC%96%B4%ED%8C%9F+%ED%94%84%EB%A1%9C&searchId=284f1f6216022275&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxksjdm",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대"],
+      relation: [
+        "배우자",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "samsung-galaxy-tab-s10-light",
+    title: "삼성전자 갤럭시탭S10라이트 27.7cm(10.9형) S펜포함",
+    priceKRW: 555_000,
+    shortReason:
+      "S펜이 포함된 10.9인치 태블릿으로 문서 작성과 드로잉이 편하며, 멀티태스킹이 많은 분께 완벽한 생산성 도구입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9025721058?itemId=26470013612&vendorItemId=93445174014&q=%EA%B0%A4%EB%9F%AD%EC%8B%9C%ED%83%AD&searchId=4fc11db34564510&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxkt52d",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대"],
+      relation: [
+        "배우자",
+        "정말 친한 절친",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
+    id: "amazon-kindle-11-gen",
+    title: "아마존 올뉴 킨들 11세대 마차 Amazon Kindle 16GB",
+    priceKRW: 150_220,
+    shortReason:
+      "16GB 용량의 킨들로 수천 권의 전자책을 담을 수 있으며, 독서 습관을 기르고 싶은 분께 완벽한 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8411056255?itemId=24319668758&vendorItemId=94664718007&q=%ED%82%A8%EB%93%A4&searchId=b97bd18a3159751&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxkttkl",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대"],
+      relation: [
+        "정말 친한 절친",
+        "배우자",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["자기계발/워커홀릭", "독서형"],
+    },
+  },
 ];
 
 
