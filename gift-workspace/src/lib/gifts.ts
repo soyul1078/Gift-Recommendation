@@ -1339,6 +1339,83 @@ const raw: GiftInput[] = [
       preference: ["자기계발/워커홀릭"],
     },
   },
+  {
+    id: "dyson-airwrap-id-multi-styler",
+    title: "다이슨 에어랩 id 멀티 스타일러 앤 드라이어",
+    priceKRW: 526_470,
+    shortReason:
+      "열 손상 없이 스타일링과 드라이를 동시에 해결하는 다이슨 에어랩으로, 뷰티·그루밍에 진심인 분께 최고의 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8882805356?itemId=25925961694&vendorItemId=93687596744&q=%EB%8B%A4%EC%9D%B4%EC%8A%A8+%EC%97%90%EC%96%B4%EB%9E%A9&searchId=8a089618273981&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxleyyq",
+    },
+    tags: {
+      gender: ["여성", "무관"],
+      age: ["20대", "30대", "40대", "50대"],
+      relation: ["배우자", "정말 친한 절친", "부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
+      preference: ["뷰티/그루밍형"],
+    },
+  },
+  {
+    id: "chanel-no5-eau-de-parfum",
+    title: "샤넬 넘버5 오드빠르펭 + 쇼퍼백 (100ml)",
+    priceKRW: 145_600,
+    shortReason: "시대를 초월한 샤넬의 시그니처 향수로, 격을 갖춘 뷰티 선물을 찾는 분께 좋습니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9628242079?itemId=28756204534&vendorItemId=95694943672&q=%EC%83%A4%EB%84%AC%20%ED%96%A5%EC%88%98&searchId=b9f0287313273903&sourceType=search&itemsCount=26&searchRank=0&rank=0&traceId=mrxlpxgy",
+    },
+    tags: {
+      gender: ["여성", "무관"],
+      age: ["20대", "30대", "40대", "50대", "60대 이상"],
+      relation: ["배우자", "정말 친한 절친", "부모님", "시댁/처가 어른", "특별한 기념일(생일, 1주년)"],
+      preference: ["뷰티/그루밍형"],
+    },
+  },
+  {
+    id: "dior-addict-eau-fraiche",
+    title: "디올 어딕트 오 프레쉬 오드뚜왈렛 + 쇼퍼백 (30ml)",
+    priceKRW: 89_550,
+    shortReason: "산뜻한 시트러스 플로럴 향의 디올 시그니처 향수로, 부담 없이 건네기 좋은 뷰티 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/9627604455?itemId=28754043169&vendorItemId=95692888674&q=%EB%94%94%EC%98%AC+%ED%96%A5%EC%88%98&searchId=a4f1cc533518882&sourceType=search&itemsCount=34&searchRank=0&rank=0&traceId=mrxlqw99",
+    },
+    tags: {
+      gender: ["여성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "배우자",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["뷰티/그루밍형"],
+    },
+  },
+  {
+    id: "dolce-gabbana-my-juicy-sheer-lipstick",
+    title: "돌체앤가바나 뷰티 립스틸로 마이 쥬시 시어 립스틱 (MY1702)",
+    priceKRW: 51_850,
+    shortReason: "달콤하고 자연스러운 쥬시 핑크 톤의 립스틱으로, 가볍게 건네기 좋은 뷰티 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8544342533?itemId=24739164502&vendorItemId=91747888551&q=%EC%97%90%EB%A5%B4%EB%A9%94%EC%8A%A4+%EB%A6%BD%EC%8A%A4%ED%8B%B1&searchId=786ebd1114476933&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxlx0mu",
+    },
+    tags: {
+      gender: ["여성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대"],
+      relation: [
+        "정말 친한 절친",
+        "가볍게 아는 지인",
+        "직장 동기",
+        "가벼운 기념일(100일 등)",
+        "특별한 기념일(생일, 1주년)",
+      ],
+      preference: ["뷰티/그루밍형"],
+    },
+  },
 ];
 
 
