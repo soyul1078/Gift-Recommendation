@@ -1,5 +1,5 @@
 import { gifts } from "./gifts";
-import { priceFitsBudgetBand } from "./budgetBand";
+import { bandDistance, priceFitsBudgetBand } from "./budgetBand";
 import type { Answers, Budget, Gift } from "./types";
 
 /** 직접 입력에 자주 쓰이는 상황 키워드 → 해당 상황에 어울리는 선물 id 가점 */
@@ -208,6 +208,13 @@ export function recommendGifts(
   const ranked = rankAndScore(pool, answers);
   const band = answers.budget;
 
+  const hasPreferences = Boolean(answers.preferences && answers.preferences.length > 0);
+
+  const byBandProximity = (a: { g: Gift; s: number }, b: { g: Gift; s: number }) =>
+    bandDistance(a.g.priceKRW, band!) - bandDistance(b.g.priceKRW, band!) ||
+    b.s - a.s ||
+    a.g.priceKRW - b.g.priceKRW;
+
   if (!band) {
     const strict = rotateGifts(ranked.slice(0, limit).map((x) => x.g), seed);
     if (strict.length > 0) return strict;
@@ -216,33 +223,48 @@ export function recommendGifts(
     if (filtered.length > 0) {
       return diversifyAndRotate(filtered.map((x) => x.g), limit, seed, preferenceCap);
     }
+
+    // No preference selected + high-end budget: show the curated luxury
+    // catalog (deliberately priced a bit under the band) ahead of a generic
+    // nearest-price pick.
+    if (!hasPreferences && HIGH_END_BUDGETS.has(band)) {
+      const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
+      if (fallback.length > 0) {
+        return diversifyAndRotate(fallback.map((x) => x.g), limit, seed, preferenceCap);
+      }
+    }
+
+    // Budget didn't match exactly, but gender/age/preference did — prefer the
+    // closest price band instead of an arbitrary score-ranked pick, so a
+    // 1~3만 원대 pick doesn't surface something priced at 300,000원.
+    if (ranked.length > 0) {
+      const byProximity = [...ranked].sort(byBandProximity);
+      return diversifyAndRotate(byProximity.map((x) => x.g), limit, seed, preferenceCap);
+    }
   }
 
   // Preference-only fallback: a selected preference should always surface its
   // catalog, even if gender/age/budget happen not to line up for this visitor.
-  // Still respects excludedRelations (hard "bad fit" blocks) and exclusion list.
-  if (answers.preferences && answers.preferences.length > 0) {
+  // Still respects excludedRelations (hard "bad fit" blocks) and exclusion list,
+  // and — when a budget is set — orders by closeness to it.
+  if (hasPreferences) {
     const selected = new Set(answers.preferences);
     let fallbackPool = gifts.filter(
       (g) => !ex.has(g.id) && g.tags.preference.some((p) => selected.has(p)),
     );
     fallbackPool = blockExcludedRelations(fallbackPool, answers);
-    const fallbackRanked = rankAndScore(fallbackPool, answers).map((x) => x.g);
-    if (fallbackRanked.length > 0) {
-      return diversifyAndRotate(fallbackRanked, limit, seed, preferenceCap);
+    let fallbackRanked = rankAndScore(fallbackPool, answers);
+    if (band) {
+      fallbackRanked = [...fallbackRanked].sort(byBandProximity);
+    }
+    const fallbackGifts = fallbackRanked.map((x) => x.g);
+    if (fallbackGifts.length > 0) {
+      return diversifyAndRotate(fallbackGifts, limit, seed, preferenceCap);
     }
   }
 
-  // For high-end budgets we continue to provide a luxury fallback catalog.
-  if (band && HIGH_END_BUDGETS.has(band)) {
-    const fallback = ranked.filter((x) => LUXURY_FALLBACK_GIFT_IDS.has(x.g.id));
-    if (fallback.length > 0) {
-      return diversifyAndRotate(fallback.map((x) => x.g), limit, seed, preferenceCap);
-    }
-  }
-
-  // Nothing matched at all (no preferences selected and strict pass came up
-  // empty). Let the UI show the "no results" state so the user can adjust.
+  // Nothing matched at all. Let the UI show the "no results" state so the
+  // user can adjust the budget or other filters.
   return [];
 }
 

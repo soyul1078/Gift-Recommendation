@@ -1,6 +1,6 @@
 import type { Budget } from "./types";
 
-const BANDS_ORDERED: readonly Budget[] = [
+export const BANDS_ORDERED: readonly Budget[] = [
   "1~3만 원대",
   "3~5만 원대",
   "5~10만 원대",
@@ -48,6 +48,13 @@ export function primaryBudgetBandsForPrice(krw: number): Budget[] {
     if (priceFitsBudgetBand(krw, b)) return [b];
   }
   return [];
+}
+
+/** How many band-steps `krw` is away from `targetBand` (0 = same band). */
+export function bandDistance(krw: number, targetBand: Budget): number {
+  const priceBand = primaryBudgetBandsForPrice(krw)[0];
+  if (!priceBand) return Number.POSITIVE_INFINITY;
+  return Math.abs(BANDS_ORDERED.indexOf(priceBand) - BANDS_ORDERED.indexOf(targetBand));
 }
 
 export function catalogHasGiftInBudgetBand(
