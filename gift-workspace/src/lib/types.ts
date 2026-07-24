@@ -47,11 +47,7 @@ export type Preference =
   | "미니어처/DIY형"
   | "독서형"
   | "뷰티/그루밍형"
-  | "간식형"
-  | "식사형";
-
-/** '음식'을 고르면 이어서 묻는 하위 분기 (실제 매칭 태그는 Preference의 간식형/식사형). */
-export type FoodSubType = "간식" | "식사";
+  | "간식형";
 
 /** 부모님(40~60대) 추천 시 최우선으로 고려하는 3대 핵심 가치. */
 export type ParentValueTag = "몸에 도움" | "오래 사용" | "가족 경험";

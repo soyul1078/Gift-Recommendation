@@ -676,7 +676,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["식사형"],
+      preference: ["간식형"],
     },
   },
   {
