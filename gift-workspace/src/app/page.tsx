@@ -171,20 +171,20 @@ export default function Home() {
         <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
             {step === "start" && (
-              <div className="flex min-h-[60dvh] flex-col items-center justify-center gap-6 rounded-[24px] border border-slate-200 bg-white p-6 text-center shadow-sm sm:min-h-[65dvh] sm:gap-7 sm:p-10 lg:min-h-[70dvh] lg:gap-8 lg:p-14">
-                <div className="grid h-16 w-16 shrink-0 place-items-center rounded-3xl bg-slate-900 text-3xl text-white shadow sm:h-20 sm:w-20 sm:text-4xl">
+              <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-white p-6 text-center shadow-sm">
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-slate-900 text-3xl text-white shadow">
                   ✨
                 </div>
                 <div>
-                  <div className="text-2xl font-semibold text-slate-900 sm:text-3xl">선물 추천을 시작해 볼까요?</div>
-                  <p className="mx-auto mt-3 max-w-xs text-sm leading-7 text-slate-600 sm:max-w-2xl sm:text-base">
+                  <div className="text-2xl font-semibold text-slate-900">선물 추천을 시작해 볼까요?</div>
+                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
                     5가지 질문만으로 예산에 맞는 선물 3~5개를 추천하고, 카카오·쿠팡·네이버에서 바로 구매할 수 있어요.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setStep("genderAge")}
-                  className="mx-auto inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-white shadow transition hover:bg-slate-800 sm:h-14 sm:px-8 sm:text-base"
+                  className="mx-auto inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-white shadow transition hover:bg-slate-800"
                 >
                   시작하기
                 </button>
