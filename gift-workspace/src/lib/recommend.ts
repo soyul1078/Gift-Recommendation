@@ -101,6 +101,29 @@ function relationTargets(relation?: string): string[] {
   return [relation];
 }
 
+// 건강/웰빙형 + 40대 이상: 정관장 홍삼/공진단/침향환 같은 검증된 건강기능식품(parentValue
+// 보유 아이템)만 노출하고, 마사지건처럼 parentValue가 없는 일반 웰빙 가전은 제외한다.
+// 해당 아이템이 다른 선택된 성향으로도 매칭된다면(예: 감성/디자인 중시) 그 이유로는 남긴다.
+const ADULT_AGES: ReadonlySet<string> = new Set(["40대", "50대", "60대 이상"]);
+
+function restrictAdultHealthToVerifiedSupplements(
+  list: Gift[],
+  answers: Answers,
+  selectedPreferences: Set<string>,
+): Gift[] {
+  if (!answers.age || !ADULT_AGES.has(answers.age)) return list;
+  if (!selectedPreferences.has("건강/웰빙형")) return list;
+
+  return list.filter((g) => {
+    if (!g.tags.preference.includes("건강/웰빙형")) return true;
+    const matchesOtherSelected = g.tags.preference.some(
+      (p) => p !== "건강/웰빙형" && selectedPreferences.has(p),
+    );
+    if (matchesOtherSelected) return true;
+    return Boolean(g.parentValue?.length);
+  });
+}
+
 const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대"]);
 export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "lv-pocket-organizer",
@@ -202,6 +225,7 @@ export function recommendGifts(
   if (answers.preferences && answers.preferences.length > 0) {
     const selected = new Set(answers.preferences);
     pool = pool.filter((g) => g.tags.preference.some((p) => selected.has(p)));
+    pool = restrictAdultHealthToVerifiedSupplements(pool, answers, selected);
   }
   pool = blockExcludedRelations(pool, answers);
 

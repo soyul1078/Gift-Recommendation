@@ -75,6 +75,23 @@ const raw: GiftInput[] = [
     },
   },
   {
+    id: "chanel-no1-camellia-lotion-serum-set",
+    title: "샤넬 N°1 DE CHANEL 레드 까멜리아 에센스 로션&세럼 2종 세트",
+    priceKRW: 369_000,
+    shortReason: "샤넬 시그니처 까멜리아 성분의 로션&세럼 2종 세트로, 럭셔리 스킨케어를 선물하고 싶은 분께 좋은 고급 아이템입니다.",
+    brandUrl: "https://www.chanel.com/kr/",
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8933555202?itemId=26117334449&vendorItemId=93097829229&q=%EB%94%94%EC%98%AC+%ED%94%84%EB%A0%88%EC%8A%A4%ED%8B%B0%EC%A7%80+%EB%9D%BC+%ED%81%AC%EB%A0%98&searchId=a9af3ed01544648&sourceType=search&itemsCount=1&searchRank=0&rank=0&traceId=mry5wo6l",
+    },
+    tags: {
+      gender: ["여성"],
+      age: ["30대", "40대", "50대"],
+      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"] as any,
+      preference: ["뷰티/그루밍형", "감성/디자인 중시"],
+    },
+  },
+  {
     id: "royal-copenhagen-tea",
     title: "로얄 코펜하겐 티 컬렉션",
     priceKRW: 220_000,
@@ -124,7 +141,7 @@ const raw: GiftInput[] = [
         "가볍게 아는 지인",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["실용성 우선", "건강/웰빙형", "레저/캠핑형"],
+      preference: ["레저/캠핑형"],
     },
   },
   {
@@ -330,10 +347,14 @@ const raw: GiftInput[] = [
   {
     id: "massage-gun",
     title: "미니 마사지건",
-    priceKRW: 89_000,
+    priceKRW: 84_960,
     shortReason:
       "어깨와 허리 통증을 일상에서 해소하는, 부피가 작아 실사용률이 높은 검증된 효도 아이템입니다.",
     parentValue: ["몸에 도움", "오래 사용"],
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/4671177318?itemId=5841008202&vendorItemId=95504294793&q=%EB%AF%B8%EB%8B%88+%EB%A7%88%EC%82%AC%EC%A7%80%EA%B1%B4&searchId=d9e6f73a1591677&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mry5zi40",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["20대", "30대", "40대", "50대", "60대 이상"],
@@ -482,6 +503,24 @@ const raw: GiftInput[] = [
     },
   },
   {
+    id: "jkj-chimhyanghwan-gold",
+    title: "종근당 침향환 골드",
+    priceKRW: 65_100,
+    shortReason:
+      "면역력과 기력 보충에 좋은 침향환으로, 225g 구성으로 부담 없이 챙겨드릴 수 있는 전통 건강 선물입니다.",
+    parentValue: ["몸에 도움"],
+    affiliateUrls: {
+      coupang:
+        "https://www.coupang.com/vp/products/8203535204?itemId=476855525&vendorItemId=4196527902&q=%EA%B1%B4%EA%B0%95+%EC%8B%9D%ED%92%88&searchId=85cb996d4816025&sourceType=search&itemsCount=60&searchRank=3&rank=3&traceId=mry66wp8",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["40대", "50대", "60대 이상"],
+      relation: ["부모님", "시댁/처가 어른", "어버이날"],
+      preference: ["건강/웰빙형", "실용성 우선"],
+    },
+  },
+  {
     id: "sanseoham-811",
     title: "산서함 811",
     priceKRW: 103_800,
@@ -567,7 +606,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["레저/캠핑형", "실용성 우선"],
+      preference: ["레저/캠핑형"],
     },
   },
   {
