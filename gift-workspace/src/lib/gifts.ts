@@ -259,7 +259,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["미니어처/DIY형", "감성/디자인 중시"],
+      preference: ["미니어처/DIY형"],
     },
   },
   {
@@ -281,7 +281,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["미니어처/DIY형", "감성/디자인 중시"],
+      preference: ["미니어처/DIY형"],
     },
   },
   {
@@ -319,7 +319,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["미니어처/DIY형", "감성/디자인 중시"],
+      preference: ["미니어처/DIY형"],
     },
   },
   {
@@ -341,7 +341,7 @@ const raw: GiftInput[] = [
         "가벼운 기념일(100일 등)",
         "특별한 기념일(생일, 1주년)",
       ],
-      preference: ["미니어처/DIY형", "감성/디자인 중시"],
+      preference: ["미니어처/DIY형"],
     },
   },
   {
