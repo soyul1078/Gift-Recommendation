@@ -26,24 +26,6 @@ function finalize(g: GiftInput): Gift {
 const raw: GiftInput[] = [
   // --- High-end single items (top 1%) ---
   {
-    id: "lv-pocket-organizer",
-    title: "루이비통 가죽 포켓 오거나이저",
-    priceKRW: 450_000,
-    shortReason: "루이비통의 고급 가죽 포켓 오거나이저는 실용적이면서도 명품 감성을 전달합니다.",
-    brandUrl: "https://kr.louisvuitton.com/kor-kr/products/",
-    affiliateUrls: {
-      naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%A3%A8%EC%9D%B4%EB%B9%84%ED%88%AC%EC%8A%A4+%EA%B0%80%EC%A1%B1+%ED%8C%8C%EC%BB%B5+%EC%98%A4%EA%B1%B0%EB%82%98%EC%9D%B4%EC%A0%80",
-      coupang: "https://www.coupang.com/np/search?q=%EB%A3%A8%EC%9D%B4%EB%B9%84%ED%88%AC%EC%8A%A4+%EA%B0%80%EC%A1%B1+%ED%8C%8C%EC%BB%B5+%EC%98%A4%EA%B1%B0%EB%82%98%EC%9D%B4%EC%A0%80",
-      kakaoGift: "https://gift.kakao.com/search/result?query=%EB%A3%A8%EC%9D%B4%EB%B9%84%ED%88%AC%EC%8A%A4%20%EA%B0%80%EC%A1%B1%20%ED%8C%8C%EC%BB%B5%20%EC%98%A4%EA%B1%B0%EB%82%98%EC%9D%B4%EC%A0%80&searchType=search_related_keyword_search_box",
-    },
-    tags: {
-      gender: ["남성", "무관"],
-      age: ["30대", "40대", "50대"],
-      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
-      preference: ["실용성 우선", "감성/디자인 중시"],
-    },
-  },
-  {
     id: "dior-oblique-wallet",
     title: "디올 30 몽테뉴 로투스 3단 반지갑",
     priceKRW: 336_000,
@@ -51,7 +33,8 @@ const raw: GiftInput[] = [
     brandUrl: "https://www.dior.com/ko_kr",
     affiliateUrls: {
       naverShopping: "https://search.shopping.naver.com/search/all?query=%EB%94%94%EC%98%AC+30+%EB%AA%BD%ED%85%8C%EB%89%B4+%EB%A1%9C%ED%88%AC%EC%8A%A4+3%EB%8B%A8+%EB%B0%98%EC%A7%80%EA%B0%91",
-      coupang: "https://www.coupang.com/vp/products/9633616706?itemId=28778154560&vendorItemId=95715299227&q=%EB%94%94%EC%98%AC+30+%EB%AA%BD%ED%85%8C%EB%89%B4+%EB%A1%9C%ED%88%AC%EC%8A%A4+3%EB%8B%A8+%EB%B0%98%EC%A7%80%EA%B0%91&searchId=6100d3575375421&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrroeusi",
+      coupang:
+        "https://link.coupang.com/a/fPloBte2Ro",
       kakaoGift: "https://gift.kakao.com/search/result?query=%EB%94%94%EC%98%AC%2030%20%EB%AA%BD%ED%85%8C%EB%89%B4%20%EB%A1%9C%ED%88%AC%EC%8A%A4%203%EB%8B%A8%20%EB%B0%98%EC%A7%80%EA%B0%91&searchType=search_related_keyword_search_box",
     },
     tags: {
@@ -67,6 +50,10 @@ const raw: GiftInput[] = [
     priceKRW: 350_000,
     shortReason: "럭셔리 스킨케어로 특별한 사람에게 주기 좋은 고급 아이템입니다.",
     brandUrl: "https://www.dior.com/ko_kr",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPmnriufTg",
+    },
     tags: {
       gender: ["여성"],
       age: ["30대", "40대", "50대"],
@@ -82,7 +69,7 @@ const raw: GiftInput[] = [
     brandUrl: "https://www.chanel.com/kr/",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8933555202?itemId=26117334449&vendorItemId=93097829229&q=%EB%94%94%EC%98%AC+%ED%94%84%EB%A0%88%EC%8A%A4%ED%8B%B0%EC%A7%80+%EB%9D%BC+%ED%81%AC%EB%A0%98&searchId=a9af3ed01544648&sourceType=search&itemsCount=1&searchRank=0&rank=0&traceId=mry5wo6l",
+        "https://link.coupang.com/a/fPmvQGQ0oC",
     },
     tags: {
       gender: ["여성"],
@@ -97,6 +84,10 @@ const raw: GiftInput[] = [
     priceKRW: 220_000,
     shortReason: "하이엔드 식기·홈웨어로 집들이나 기념일에 어울리는 고급 선물입니다.",
     brandUrl: "https://www.royalcopenhagen.com/",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPmAwZoh3s",
+    },
     tags: {
       gender: ["무관"],
       age: ["30대", "40대", "50대", "60대 이상"],
@@ -126,7 +117,7 @@ const raw: GiftInput[] = [
       "국내 정가대에서 가장 많이 보이는 887ml 라인. 여행·캠핑에 들고 다니기 좋고 실용적이면서 색상 선택지도 많아요.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/6792297030?itemId=28754136502&vendorItemId=95692969028&q=%EC%8A%A4%ED%83%A0%EB%A6%AC+%ED%80%9C%EC%B2%98+H2.0+%ED%85%80%EB%B8%94%EB%9F%AC+887ml&searchId=f5c262825938132&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrdl5qp2",
+        "https://link.coupang.com/a/fPmKtXcOSy",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -152,7 +143,7 @@ const raw: GiftInput[] = [
       "대형 사이즈 기준 흔한 가격대. 책상 분위기·마우스 사용감이 바로 좋아져요.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/7279646307?itemId=18582944334&vendorItemId=90335345695&sourceType=srp_product_ads&clickEventId=8a8594b0-7ba0-11f1-9c68-9201e9ac44e9&korePlacement=15&koreSubPlacement=1&traceId=mrdl95qy",
+        "https://link.coupang.com/a/fPmRyD5DKm",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -175,6 +166,10 @@ const raw: GiftInput[] = [
     priceKRW: 21_900,
     shortReason:
       "브랜드 세트 기준으로 자주 보이는 가격대. 가벼운 답례·첫인상 선물로 부담이 적어요.",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPmXaRIQsC",
+    },
     tags: {
       gender: ["여성", "무관"],
       age: ["10대", "20대", "30대"],
@@ -197,7 +192,7 @@ const raw: GiftInput[] = [
       "애플 정품 맥세이프 충전기보다 낮고, 브랜드 스탠드 제품에서 흔한 대표가에 가깝게 맞춤.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9606479201?itemId=28678659938&vendorItemId=94995973251&sourceType=srp_product_ads&clickEventId=325a3ac0-7c09-11f1-9703-882ef51fb9b9&korePlacement=15&koreSubPlacement=1&traceId=mrec0kq8",
+        "https://link.coupang.com/a/fPm2xRXOV2",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -222,7 +217,7 @@ const raw: GiftInput[] = [
       "백화점·몰에서 자주 보이는 구성 기준 가격. 휴식·담소 선물로 무난해요.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8474157902?itemId=24521096106&vendorItemId=91533821651&q=%EC%98%A4%EC%85%9C%EB%A1%9D&searchId=a9c2fbeb4453255&sourceType=search&itemsCount=60&searchRank=3&rank=3&traceId=mrebywz7",
+        "https://link.coupang.com/a/fPm7lVUNci",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -249,7 +244,7 @@ const raw: GiftInput[] = [
     excludedRelations: ["직장 상사", "선생님/은사님", "스승의날"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8853414422?itemId=25811757566&vendorItemId=93852895705&q=%EC%B7%A8%EB%AF%B8+%ED%82%A4%ED%8A%B8%28%ED%96%A5%EC%B4%88%2F%EA%B0%80%EC%A3%BD%EA%B3%B5%EC%98%88%2F%EA%B7%B8%EB%A6%BC+%EB%93%B1%29&searchId=a7cbf4d44455320&sourceType=search&itemsCount=33&searchRank=0&rank=0&traceId=mrec2ygu",
+        "https://link.coupang.com/a/fPnbIe2vFA",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -270,7 +265,7 @@ const raw: GiftInput[] = [
       "취미 활동을 즐기는 분께 5~10만 원대에 잘 맞는 미니어처 DIY 키트입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8799085203?itemId=25619136028&vendorItemId=92609524987&sourceType=srp_product_ads&clickEventId=a27b9d30-7ba0-11f1-ae98-84258119afd8&korePlacement=15&koreSubPlacement=5&traceId=mrdla3gi",
+        "https://link.coupang.com/a/fPngykhgNo",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -291,7 +286,7 @@ const raw: GiftInput[] = [
     shortReason: "간단한 취미/스트레스 해소용 슬라임 랜덤박스입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8901021453?itemId=22510569626&vendorItemId=89552647246&sourceType=srp_product_ads&clickEventId=d2787710-7ba0-11f1-92b0-9cc8ac73deaa&korePlacement=15&koreSubPlacement=5&traceId=mrdlbu41",
+        "https://link.coupang.com/a/fPnpLOLGoK",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -496,7 +491,7 @@ const raw: GiftInput[] = [
     parentValue: ["몸에 도움", "오래 사용"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/np/search?q=%EA%B0%80%EC%8A%B5%20%EA%B2%B8%EC%9A%A9%20%EC%86%8C%ED%98%95%20%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0",
+        "https://link.coupang.com/a/fPnZRFB6m4",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -514,7 +509,7 @@ const raw: GiftInput[] = [
     parentValue: ["오래 사용", "가족 경험"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/np/search?q=%EC%BA%A1%EC%8A%90%20%EC%BB%A4%ED%94%BC%EB%A8%B8%EC%8B%A0%20%EC%9B%90%ED%84%B0%EC%B9%98",
+        "https://link.coupang.com/a/fPn7fRu6IS",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -628,7 +623,7 @@ const raw: GiftInput[] = [
     parentValue: ["몸에 도움", "가족 경험"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8411366204?itemId=24320644739&vendorItemId=91336393929&q=%EC%82%B0%EC%84%9C%ED%95%A8+811&searchId=8519b74d11711477&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrrovfq2",
+        "https://link.coupang.com/a/fPozaFGw7U",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -645,7 +640,7 @@ const raw: GiftInput[] = [
       "에어팟·갤럭시 버즈 등 입문 라인에서 자주 보이는 가격대(할인 전·정가 기준).",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9016203048?itemId=26432790619&vendorItemId=93408536548&sourceType=srp_product_ads&clickEventId=b0823740-7b50-11f1-9e89-e8c704ca0aec&korePlacement=15&koreSubPlacement=1&traceId=mrd0ucs0",
+        "https://link.coupang.com/a/fPoFPJ1aOO",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -716,7 +711,7 @@ const raw: GiftInput[] = [
       "집에서 책 읽고 쉬는 시간을 좋아하는 분께 잘 맞는 독서등(북라이트)과 아로마 디퓨저 구성의 홈힐링 아이템입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8771322300?itemId=25514125624&vendorItemId=92550804190&q=%EB%B6%81%EB%9D%BC%EC%9D%B4%ED%8A%B8+%EC%95%84%EB%A1%9C%EB%A7%88+%EB%94%94%ED%93%A8%EC%A0%80+%EC%84%B8%ED%8A%B8&searchId=661b22154288724&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrx0vir6",
+        "https://link.coupang.com/a/fPoZM1eadw",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -739,7 +734,7 @@ const raw: GiftInput[] = [
       "마카롱, 미니 케이크, 젤리 등을 골고루 담은 디저트 박스로, 달콤한 간식을 좋아하는 분께 부담 없이 건네기 좋아요.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/np/search?q=%EB%A7%88%EC%B9%B4%EB%A1%B1%20%EC%BC%80%EC%9D%B4%ED%81%AC%20%EC%A0%A4%EB%A6%AC%20%EB%94%94%EC%A0%80%ED%8A%B8%20%EB%B0%95%EC%8A%A4",
+        "https://link.coupang.com/a/fPo3NopTiu",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -786,7 +781,7 @@ const raw: GiftInput[] = [
       "책과 다이어리를 즐겨 쓰는 집돌이·홈힐링형에게 잘 어울리는 클래식 가죽 북커버로, 감성 있게 노트를 보호해줍니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8307434602?itemId=23968615192&vendorItemId=90990020058&sourceType=srp_product_ads&clickEventId=ab824520-83fa-11f1-aea9-fe7fbed9da3d&korePlacement=15&koreSubPlacement=1&clickEventId=ab824520-83fa-11f1-aea9-fe7fbed9da3d&korePlacement=15&koreSubPlacement=1&traceId=mrss00ql",
+        "https://link.coupang.com/a/fPpp4HVcHI",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -809,7 +804,7 @@ const raw: GiftInput[] = [
       "우드·메탈 소재의 고급 책갈피 겸 북클립으로, 독서를 즐기는 집돌이·홈힐링형에게 실용적이면서도 감성 있는 선물이 됩니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8583301827?itemId=24881056353&vendorItemId=91832662689&sourceType=srp_product_ads&clickEventId=e48d5900-83f9-11f1-87b1-16c5a0caae0a&korePlacement=15&koreSubPlacement=6&clickEventId=e48d5900-83f9-11f1-87b1-16c5a0caae0a&korePlacement=15&koreSubPlacement=6&traceId=mrsrsudm",
+        "https://link.coupang.com/a/fPpGK4BGdE",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -857,7 +852,7 @@ const raw: GiftInput[] = [
       "원목 펜과 유리 잉크웰로 구성된 프리미엄 필기구 세트로, 격을 갖춰야 하는 자리에 어울리는 감성 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/6347793093?itemId=13344854140&vendorItemId=87059264410&q=%EB%B9%84%EB%82%98%EB%98%90+%28Rubinato%29+%EA%B8%80%EB%9D%BC%EC%8A%A4%2F%EA%B9%83%ED%8E%9C+%EC%84%B8%ED%8A%B8&searchId=5033a76a9795771&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrsrrfgn",
+        "https://link.coupang.com/a/fPpRnCgQeW",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -879,7 +874,7 @@ const raw: GiftInput[] = [
       "코드 없이 어디든 둘 수 있는 무선 무드등으로, 은은한 감성 인테리어 소품을 좋아하는 분께 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8911772249?itemId=26034021067&vendorItemId=93015600110&q=%EA%B0%90%EC%84%B1%EC%A0%81+%EC%A1%B0%EB%AA%85&searchId=7e0b98a97128243&sourceType=search&itemsCount=60&searchRank=10&rank=10&traceId=mrsrkmqi",
+        "https://link.coupang.com/a/fPpXyAyuPI",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -903,7 +898,7 @@ const raw: GiftInput[] = [
     imageUrl: "https://media.royaldesign.com/2/artemide-nessino-table-lamp-60",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9009295299?itemId=26138689033&vendorItemId=93118823008&q=2.+%F0%9F%92%A1+%EC%A1%B0%EB%AA%85%3A+%EC%95%84%EB%A5%B4%EB%96%BC%EB%AF%B8%EB%8D%B0+%28Artemide%29+-+%EB%84%A4%EC%8B%9C%EB%85%B8+%28Nessino%29+%ED%85%8C%EC%9D%B4%EB%B8%94+%EB%9E%A8%ED%94%84&searchId=9644c75b1429497&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrsrj2k7",
+        "https://link.coupang.com/a/fPp6VumAJE",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -922,7 +917,7 @@ const raw: GiftInput[] = [
       "https://dam.louispoulsen.dk/DigizuiteCore/LegacyService/api/assetstream/9846/50422.webp",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8658596958?itemId=25130237402&vendorItemId=93606348251&q=%EB%A3%A8%EC%9D%B4%EC%8A%A4%ED%8F%B4%EC%84%BC+%28Louis+Poulsen%29+-+PH+5+%EC%A1%B0%EB%AA%85&searchId=9f6c9172473559&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrsrepi6",
+        "https://link.coupang.com/a/fPqePvAobQ",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -939,7 +934,7 @@ const raw: GiftInput[] = [
       "라이딩을 즐기거나 운동을 시작하려는 분께 좋은 로드자전거로, 건강·웰빙 성향의 선물로 잘 맞습니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9323657563?itemId=27636151018&vendorItemId=95058323011&sourceType=srp_product_ads&clickEventId=dd152720-8651-11f1-b6ff-65f3f7c11b2b&korePlacement=15&koreSubPlacement=6&clickEventId=dd152720-8651-11f1-b6ff-65f3f7c11b2b&korePlacement=15&koreSubPlacement=6&traceId=mrx183at",
+        "https://link.coupang.com/a/fPqhV8Yw8q",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -961,7 +956,7 @@ const raw: GiftInput[] = [
       "심박수·수면·운동량을 챙겨주는 갤럭시워치 8로, 건강·웰빙을 중요하게 여기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8847516888?itemId=25789644940&vendorItemId=92777426234&pickType=COU_PICK&q=%EC%8A%A4%EB%A7%88%ED%8A%B8+%EC%9B%8C%EC%B9%98+%EC%82%BC%EC%84%B1&searchId=1102648a4569910&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrx1eypc",
+        "https://link.coupang.com/a/fPqqAyvBTw",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -984,7 +979,7 @@ const raw: GiftInput[] = [
       "통화 기능과 GPS를 지원하는 보급형 블루투스 스마트워치로, 부담 없이 건강 관리를 시작하기 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8316012959?itemId=28816384785&vendorItemId=95670367159&q=%EC%8A%A4%EB%A7%88%ED%8A%B8+%EC%9B%8C%EC%B9%98&searchId=f10e3bc66989534&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrx11wtm",
+        "https://link.coupang.com/a/fPqu83INgq",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1003,6 +998,10 @@ const raw: GiftInput[] = [
     title: "요가매트 필라테스 홈트레이닝 세트",
     priceKRW: 39_000,
     shortReason: "요가매트·저항밴드·폼롤러가 함께 구성된 홈트레이닝 세트로, 운동을 시작하려는 분께 부담 없는 건강 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPqAS7HK44",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대", "40대", "50대"],
@@ -1051,6 +1050,10 @@ const raw: GiftInput[] = [
     title: "브랜드 홈트레이닝 러닝머신",
     priceKRW: 890_000,
     shortReason: "접이식으로 공간을 적게 차지하는 가정용 러닝머신으로, 건강 관리를 꾸준히 하고 싶은 분께 최고의 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPqIlYmV3s",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["20대", "30대", "40대", "50대"],
@@ -1066,7 +1069,7 @@ const raw: GiftInput[] = [
       "떠먹는 우유케익 2개 구성으로, 부담 없이 건네기 좋은 디저트 간식 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/281176729?itemId=892668816&vendorItemId=5245274756&pickType=COU_PICK&q=%ED%8C%8C%EB%AF%B8%EC%9C%A0+%EB%96%A0%EB%A8%B9%EB%8A%94+%EC%9A%B0%EC%9C%A0%EC%BC%80%EC%9D%B4%ED%81%AC&searchId=cd2810b825524163&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrxggofe",
+        "https://link.coupang.com/a/fPqQSwjVzE",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1088,7 +1091,7 @@ const raw: GiftInput[] = [
     shortReason: "부드러운 떠먹는 치즈케이크로, 달콤한 디저트를 좋아하는 분께 어울리는 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/1086345605?itemId=2040478692&vendorItemId=70039868735&q=%EB%96%A0%EB%A8%B9%EB%8A%94+%EC%B9%98%EC%A6%88%EC%BC%80%EC%9D%B4%ED%81%AC&searchId=c1e18bd025194294&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrxgiclm",
+        "https://link.coupang.com/a/fPq32Loy4W",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1110,7 +1113,7 @@ const raw: GiftInput[] = [
     shortReason: "초코크림이 들어간 개별포장 떡으로, 나눠주기 좋은 디저트 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9063761896?itemId=26613341155&vendorItemId=93586378835&q=%EB%8D%94%EB%B0%94%EB%A5%B8+%ED%8C%8C%EB%B2%A0%EC%B4%88%EC%BD%94%ED%81%AC%EB%A6%BC%EB%96%A1&searchId=000140ee5412950&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mrxgkf25",
+        "https://link.coupang.com/a/fPq7QE3l2y",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1133,7 +1136,7 @@ const raw: GiftInput[] = [
       "숫자표시·IP65 방수·접이식이 되는 3in1 캠핑랜턴으로, 차박·비상조명까지 챙기는 캠핑족에게 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8921895501?itemId=26072727304&vendorItemId=93053750114&q=%EC%BA%A0%ED%95%91+%EB%9E%9C%ED%84%B4&searchId=077332fe14081170&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxhfltu",
+        "https://link.coupang.com/a/fPrmVF96Rg",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1156,7 +1159,7 @@ const raw: GiftInput[] = [
       "연마제로 세척한 SUS304 무광 스테인리스 식기·커트러리 28p 구성으로, 캠핑 살림을 제대로 챙기는 분께 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8131300974?itemId=23092069771&vendorItemId=90125489516&q=%EC%BA%A0%ED%95%91+%EC%8B%9D%EA%B8%B0%EC%84%B8%ED%8A%B8&searchId=b74c23c825731790&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxhntr3",
+        "https://link.coupang.com/a/fPrpDBHPiK",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1179,7 +1182,7 @@ const raw: GiftInput[] = [
       "대용량 방수 소재로 만들어진 캠핑 쿨러백으로, 야외 활동을 자주 즐기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/7421102595?itemId=19250553883&vendorItemId=90782269114&sourceType=srp_product_ads&clickEventId=3b7aa050-8694-11f1-8354-0916bc78e647&korePlacement=15&koreSubPlacement=1&clickEventId=3b7aa050-8694-11f1-8354-0916bc78e647&korePlacement=15&koreSubPlacement=1&traceId=mrxi72q6",
+        "https://link.coupang.com/a/fPrvfW0pjw",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1202,7 +1205,7 @@ const raw: GiftInput[] = [
       "통주물바디 고화력 4구 버너로, 캠핑에서 직접 요리하는 걸 즐기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8266674229?itemId=23820591643&vendorItemId=92538960893&pickType=COU_PICK&q=%EC%BA%A0%ED%95%91+%EB%B2%84%EB%84%88&searchId=5a2f1f48560370&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxig0i0",
+        "https://link.coupang.com/a/fPrD7ORlAa",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1247,7 +1250,7 @@ const raw: GiftInput[] = [
     shortReason: "경량 로우 캠핑 의자 2인 세트로, 캠핑을 함께 즐기는 분들께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8605213420?itemId=20982977436&vendorItemId=92097848832&q=%EC%BA%A0%ED%95%91+%EC%9D%98%EC%9E%90&searchId=f8444d623810081&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxilehr",
+        "https://link.coupang.com/a/fPrLhXJHk4",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1269,7 +1272,7 @@ const raw: GiftInput[] = [
     shortReason: "코팅 원단 렉타 타프로, 캠핑 사이트를 제대로 꾸미는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8337763681?itemId=24076497388&vendorItemId=87042583860&q=%EC%BA%A0%ED%95%91+%ED%83%80%ED%94%84&searchId=9503ecc719347022&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxims6k",
+        "https://link.coupang.com/a/fPrZPbEqZN",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1291,7 +1294,7 @@ const raw: GiftInput[] = [
     shortReason: "접이식으로 휴대가 편한 화로대로, 캠핑·차박에서 불멍을 즐기는 분께 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/5257954155?itemId=7463433468&vendorItemId=74754339411&pickType=COU_PICK&q=%EC%BA%A0%ED%95%91%20%ED%99%94%EB%A1%9C%EB%8C%80&searchId=383d9f8a25870891&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxink6b",
+        "https://link.coupang.com/a/fPr4uXrJme",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1313,7 +1316,7 @@ const raw: GiftInput[] = [
     shortReason: "사계절 사용 가능한 머미형 침낭으로, 캠핑·백패킹을 즐기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/207463706?itemId=614147267&vendorItemId=4611531972&q=%EC%BA%A0%ED%95%91%20%EC%B9%A8%EB%82%AD&searchId=390dd1a015736072&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxio9cz",
+        "https://link.coupang.com/a/fPsaNlMmvA",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1333,6 +1336,10 @@ const raw: GiftInput[] = [
     title: "2인용 원터치 캠핑 텐트",
     priceKRW: 129_000,
     shortReason: "펼치기만 하면 설치가 끝나는 원터치 텐트로, 캠핑을 이제 막 시작하는 분께 부담 없는 선물입니다.",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPsfdXgIhg",
+    },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["20대", "30대", "40대", "50대"],
@@ -1430,7 +1437,7 @@ const raw: GiftInput[] = [
     shortReason: "국산 삼성 배터리셀을 쓴 도킹형 보조배터리로, 실용성을 중요하게 여기는 분께 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8973746008?itemId=26265802134&vendorItemId=93244055067&sourceType=srp_product_ads&clickEventId=376c78d0-8699-11f1-8d41-292094ef748a&korePlacement=15&koreSubPlacement=1&clickEventId=376c78d0-8699-11f1-8d41-292094ef748a&korePlacement=15&koreSubPlacement=1&traceId=mrxjgp0o",
+        "https://link.coupang.com/a/fPsGbMtOSq",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1455,7 +1462,7 @@ const raw: GiftInput[] = [
     shortReason: "강력 고정되는 차량용 고속 무선충전 거치대로, 실용적인 선물을 찾는 분께 좋습니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/5498366788?itemId=8534078186&vendorItemId=76419358863&q=%EC%B0%A8%EB%9F%89%EC%9A%A9+%ED%9C%B4%EB%8C%80%ED%8F%B0+%EA%B1%B0%EC%B9%98%EB%8C%80&searchId=8d51576415484532&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrxji3n3",
+        "https://link.coupang.com/a/fPsTIsiD8K",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1481,7 +1488,7 @@ const raw: GiftInput[] = [
       "높이 각도 조절이 되는 휴대폰·태블릿 거치대로, 책상 작업 시 화면을 편하게 볼 수 있는 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9516659238?itemId=28529461713&vendorItemId=95317634438&q=%ED%83%9C%EB%B8%94%EB%A6%BF%20%EA%B1%B0%EC%B9%98%EB%8C%80&searchId=6bad7e581358687&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxkkq2z",
+        "https://link.coupang.com/a/fPsZdsf0ua",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1498,7 +1505,7 @@ const raw: GiftInput[] = [
       "유무선을 모두 지원하는 저소음 멤브레인 키보드로, 업무 효율을 높이고 싶어하는 분께 어울리는 실용 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9444814049?itemId=28094093472&vendorItemId=93668521258&q=%EB%AC%B4%EC%84%A0+%ED%82%A4%EB%B3%B4%EB%93%9C+%ED%83%80%EC%9E%90%EA%B0%90+%EC%A2%8B%EC%9D%80%EA%B2%83&searchId=7bcf0da212868346&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxklnau",
+        "https://link.coupang.com/a/fPs4KPn3wO",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1515,7 +1522,7 @@ const raw: GiftInput[] = [
       "높이와 각도를 자유롭게 조절할 수 있는 노트북 거치대로, 자세 개선과 노트북 열 관리를 동시에 해결하는 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/4674285118?itemId=5848037892&vendorItemId=73146292765&q=%EB%85%B8%ED%8A%B8%EB%B6%81%20%EC%8A%A4%ED%83%A0%EB%93%9C&searchId=535a7dc510129047&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxkmws7",
+        "https://link.coupang.com/a/fPs70hExCC",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1532,13 +1539,30 @@ const raw: GiftInput[] = [
       "A16 칩셋으로 강력한 성능을 갖춘 아이패드로, 업무와 창의적 작업을 하는 프로페셔널에게 최고의 도구가 됩니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8640169010?itemId=25073291205&vendorItemId=92077321721&pickType=COU_PICK&q=%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C&searchId=a35ce99b3129697&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxkqz13",
+        "https://link.coupang.com/a/fPti4EGxvU",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대", "40대", "50대", "60대 이상"],
       relation: ["직장 상사", "직장 동기", "직장 후배", "퇴사자/이직자", "거래처", "부모님", "형제/자매", "배우자", "시댁/처가 어른", "정말 친한 절친", "가볍게 아는 지인", "선생님/은사님", "가벼운 기념일(100일 등)", "어버이날", "스승의날", "자녀", "특별한 기념일(생일, 1주년)"],
       preference: ["자기계발/워커홀릭"],
+    },
+  },
+  {
+    id: "apple-iphone-17-pro",
+    title: "Apple 아이폰 17 Pro 자급제",
+    priceKRW: 1_772_100,
+    shortReason:
+      "최신 프로 라인 아이폰으로, 프리미엄 스마트폰을 원하는 분께 최고급 선물이 됩니다.",
+    affiliateUrls: {
+      coupang:
+        "https://link.coupang.com/a/fPoMs0ef8e",
+    },
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["10대", "20대", "30대", "40대", "50대"],
+      relation: ["배우자", "정말 친한 절친", "자녀", "특별한 기념일(생일, 1주년)"],
+      preference: ["자기계발/워커홀릭", "감성/디자인 중시"],
     },
   },
   {
@@ -1549,7 +1573,7 @@ const raw: GiftInput[] = [
       "업계 최고의 노이즈캔슬링 기술과 40시간 배터리 지원으로, 출장과 재택근무를 자주 하는 분께 완벽한 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8832674019?itemId=25737269674&vendorItemId=92725754729&q=%EC%86%8C%EB%8B%88+WH-1000XM6&searchId=6b1a363c799838&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxkrw8p",
+        "https://link.coupang.com/a/fPtmO7qevQ",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1566,7 +1590,7 @@ const raw: GiftInput[] = [
       "최신 세대 에어팟 프로로 향상된 음질과 노이즈캔슬링 성능으로, 프리미엄 이어폰을 찾는 분께 최고의 선택입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9024163013?itemId=26462308675&vendorItemId=93437588392&q=%EC%97%90%EC%96%B4%ED%8C%9F+%ED%94%84%EB%A1%9C&searchId=284f1f6216022275&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxksjdm",
+        "https://link.coupang.com/a/fPtq9Lvuvs",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1583,7 +1607,7 @@ const raw: GiftInput[] = [
       "S펜이 포함된 10.9인치 태블릿으로 문서 작성과 드로잉이 편하며, 멀티태스킹이 많은 분께 완벽한 생산성 도구입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9025721058?itemId=26470013612&vendorItemId=93445174014&q=%EA%B0%A4%EB%9F%AD%EC%8B%9C%ED%83%AD&searchId=4fc11db34564510&sourceType=search&itemsCount=36&searchRank=2&rank=2&traceId=mrxkt52d",
+        "https://link.coupang.com/a/fPtACmBuQC",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1600,7 +1624,7 @@ const raw: GiftInput[] = [
       "16GB 용량의 킨들로 수천 권의 전자책을 담을 수 있으며, 독서 습관을 기르고 싶은 분께 완벽한 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8411056255?itemId=24319668758&vendorItemId=94664718007&q=%ED%82%A8%EB%93%A4&searchId=b97bd18a3159751&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxkttkl",
+        "https://link.coupang.com/a/fPtGBMPSLI",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1617,7 +1641,7 @@ const raw: GiftInput[] = [
       "열 손상 없이 스타일링과 드라이를 동시에 해결하는 다이슨 에어랩으로, 뷰티·그루밍에 진심인 분께 최고의 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8882805356?itemId=25925961694&vendorItemId=93687596744&q=%EB%8B%A4%EC%9D%B4%EC%8A%A8+%EC%97%90%EC%96%B4%EB%9E%A9&searchId=8a089618273981&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxleyyq",
+        "https://link.coupang.com/a/fPvLamZGNM",
     },
     tags: {
       gender: ["여성", "무관"],
@@ -1633,7 +1657,7 @@ const raw: GiftInput[] = [
     shortReason: "시대를 초월한 샤넬의 시그니처 향수로, 격을 갖춘 뷰티 선물을 찾는 분께 좋습니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9628242079?itemId=28756204534&vendorItemId=95694943672&q=%EC%83%A4%EB%84%AC%20%ED%96%A5%EC%88%98&searchId=b9f0287313273903&sourceType=search&itemsCount=26&searchRank=0&rank=0&traceId=mrxlpxgy",
+        "https://link.coupang.com/a/fPvOQ65Ym4",
     },
     tags: {
       gender: ["여성", "무관"],
@@ -1649,7 +1673,7 @@ const raw: GiftInput[] = [
     shortReason: "산뜻한 시트러스 플로럴 향의 디올 시그니처 향수로, 부담 없이 건네기 좋은 뷰티 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9627604455?itemId=28754043169&vendorItemId=95692888674&q=%EB%94%94%EC%98%AC+%ED%96%A5%EC%88%98&searchId=a4f1cc533518882&sourceType=search&itemsCount=34&searchRank=0&rank=0&traceId=mrxlqw99",
+        "https://link.coupang.com/a/fPvXbX0Eou",
     },
     tags: {
       gender: ["여성", "무관"],
@@ -1671,7 +1695,7 @@ const raw: GiftInput[] = [
     shortReason: "달콤하고 자연스러운 쥬시 핑크 톤의 립스틱으로, 가볍게 건네기 좋은 뷰티 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8544342533?itemId=24739164502&vendorItemId=91747888551&q=%EC%97%90%EB%A5%B4%EB%A9%94%EC%8A%A4+%EB%A6%BD%EC%8A%A4%ED%8B%B1&searchId=786ebd1114476933&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxlx0mu",
+        "https://link.coupang.com/a/fPv5dO0NUa",
     },
     tags: {
       gender: ["여성", "무관"],
@@ -1693,7 +1717,7 @@ const raw: GiftInput[] = [
     shortReason: "구워 먹으면 쫀득해지는 치즈바로, 부담 없이 나눠주기 좋은 간식 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/7251915718?itemId=21342025260&vendorItemId=91111269665&pickType=COU_PICK&q=%EA%B5%AC%EC%9B%8C%EB%A8%B9%EB%8A%94+%EC%B9%98%EC%A6%88%EB%B0%94&searchId=c47918402254528&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmcwc8",
+        "https://link.coupang.com/a/fPv74uMAUK",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1715,7 +1739,7 @@ const raw: GiftInput[] = [
     shortReason: "짭짤한 소금버터 풍미의 개성약과 선물세트로, 전통 간식을 좋아하는 분께 잘 어울립니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/9325345344?itemId=27642388052&vendorItemId=94605017226&q=%EA%B3%A8%EB%93%A0%ED%94%BC%EC%8A%A4+%EC%95%BD%EA%B3%BC&searchId=f2f6d00513548523&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmfj00",
+        "https://link.coupang.com/a/fPwi1SgqGq",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -1785,7 +1809,7 @@ const raw: GiftInput[] = [
     shortReason: "화이트·밀크 초콜릿 쿠키가 함께 든 시로이고이비토 믹스로, 부담 없이 건네기 좋은 간식 선물입니다.",
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8244661431?itemId=21325468487&vendorItemId=88384415529&q=%EC%8B%9C%EB%A1%9C%EC%9D%B4%EC%BD%94%EC%9D%B4%EB%B9%84%ED%86%A0&searchId=4bb8ef5927538641&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrxmr4oi",
+        "https://link.coupang.com/a/fPwwQ2OUCG",
     },
     tags: {
       gender: ["여성", "남성", "무관"],

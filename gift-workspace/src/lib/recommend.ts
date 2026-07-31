@@ -126,7 +126,6 @@ function restrictAdultHealthToVerifiedSupplements(
 
 const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대"]);
 export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
-  "lv-pocket-organizer",
   "dior-oblique-wallet",
   "dior-prestige-cream",
   "royal-copenhagen-tea",
