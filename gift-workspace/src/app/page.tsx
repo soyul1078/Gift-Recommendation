@@ -334,7 +334,10 @@ export default function Home() {
             {step === "result" && (
               <div className="grid gap-4">
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-                  <div className="text-sm font-semibold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
+                  <p className="text-xs font-semibold text-amber-700">
+                    이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.
+                  </p>
+                  <div className="mt-2 text-sm font-semibold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
                   <p className="mt-1 text-sm text-zinc-500">
                     마음에 들지 않으면 다른 추천을 받아보세요. 구매 버튼은 표시 가격대에 맞춰 검색합니다.
                   </p>
@@ -449,6 +452,9 @@ export default function Home() {
                               </div>
                             </div>
                           </div>
+                          <p className="mt-3 text-xs text-zinc-400">
+                            이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+                          </p>
                         </div>
                       );
                     })}
