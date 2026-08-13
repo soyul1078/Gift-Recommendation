@@ -1,5 +1,5 @@
 import { gifts } from "./gifts";
-import { bandDistance, priceFitsBudgetBand } from "./budgetBand";
+import { BANDS_ORDERED, bandDistance, budgetBandBounds, priceFitsBudgetBand } from "./budgetBand";
 import type { Answers, Budget, Gift } from "./types";
 
 /** 직접 입력에 자주 쓰이는 상황 키워드 → 해당 상황에 어울리는 선물 id 가점 */
@@ -124,7 +124,7 @@ function restrictAdultHealthToVerifiedSupplements(
   });
 }
 
-const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상", "70~100만 원대"]);
+const HIGH_END_BUDGETS: ReadonlySet<Budget> = new Set(["50만 원 이상"]);
 export const LUXURY_FALLBACK_GIFT_IDS: ReadonlySet<string> = new Set([
   "dior-oblique-wallet",
   "dior-prestige-cream",
@@ -196,24 +196,15 @@ function rankAndScore(list: Gift[], answers: Answers) {
     .filter((x) => x.s > 0);
 }
 
-export function recommendGifts(
-  answers: Answers,
-  limit = gifts.length,
-  seed = 0,
-  excludeIds: string[] = [],
-): Gift[] {
+// Gender, age, and preference are gate filters (AND/교집합), not scoring
+// weights — a gift that doesn't match the selected age or any selected
+// preference is dropped from the candidate pool entirely, so unrelated
+// items never slip through just because they scored well on something else.
+// Budget-independent on purpose: this is the single source of truth for both
+// recommendGifts' scoring pool and the budget-band availability check below,
+// so the two can never drift apart on what counts as a "real" match.
+function buildCandidatePool(answers: Answers, excludeIds: string[] = []): Gift[] {
   const ex = new Set(excludeIds);
-
-  // Diversity cap only makes sense when multiple preferences are active —
-  // with 0-1 selected, every match legitimately shares the same primary
-  // preference, so capping would wrongly throw away good matches.
-  const distinctPrefs = new Set(answers.preferences ?? []).size;
-  const preferenceCap = distinctPrefs <= 1 ? Number.POSITIVE_INFINITY : 2;
-
-  // Gender, age, and preference are gate filters (AND/교집합), not scoring
-  // weights — a gift that doesn't match the selected age or any selected
-  // preference is dropped from the candidate pool entirely, so unrelated
-  // items never slip through just because they scored well on something else.
   let pool = gifts.filter((g) => !ex.has(g.id));
   if (answers.gender) {
     pool = pool.filter((g) => g.tags.gender.includes(answers.gender!));
@@ -226,8 +217,33 @@ export function recommendGifts(
     pool = pool.filter((g) => g.tags.preference.some((p) => selected.has(p)));
     pool = restrictAdultHealthToVerifiedSupplements(pool, answers, selected);
   }
-  pool = blockExcludedRelations(pool, answers);
+  return blockExcludedRelations(pool, answers);
+}
 
+/** How many gifts actually fit `band` under the current gender/age/relation/preference answers (budget itself excluded). */
+export function budgetBandMatchCount(answers: Answers, band: Budget): number {
+  const pool = buildCandidatePool(answers);
+  return pool.filter((g) => priceFitsBudgetBand(g.priceKRW, band)).length;
+}
+
+/** Budget bands worth showing as options, given the answers collected so far — recomputed from the live catalog, never hardcoded. */
+export function availableBudgetBands(answers: Answers): Budget[] {
+  return BANDS_ORDERED.filter((band) => budgetBandMatchCount(answers, band) > 0);
+}
+
+export function recommendGifts(
+  answers: Answers,
+  limit = gifts.length,
+  seed = 0,
+  excludeIds: string[] = [],
+): Gift[] {
+  // Diversity cap only makes sense when multiple preferences are active —
+  // with 0-1 selected, every match legitimately shares the same primary
+  // preference, so capping would wrongly throw away good matches.
+  const distinctPrefs = new Set(answers.preferences ?? []).size;
+  const preferenceCap = distinctPrefs <= 1 ? Number.POSITIVE_INFINITY : 2;
+
+  const pool = buildCandidatePool(answers, excludeIds);
   const ranked = rankAndScore(pool, answers);
   const band = answers.budget;
 
@@ -271,6 +287,7 @@ export function recommendGifts(
   // Still respects excludedRelations (hard "bad fit" blocks) and exclusion list,
   // and — when a budget is set — orders by closeness to it.
   if (hasPreferences) {
+    const ex = new Set(excludeIds);
     const selected = new Set(answers.preferences);
     let fallbackPool = gifts.filter(
       (g) => !ex.has(g.id) && g.tags.preference.some((p) => selected.has(p)),
@@ -329,7 +346,17 @@ export function isLuxuryCatalogGift(giftId: string): boolean {
 export function buildReason(gift: Gift, answers: Answers): string {
   const bits: string[] = [];
   if (answers.relation) bits.push(`${answers.relation}에게 무난한 선택`);
-  if (answers.budget) bits.push(`${answers.budget} 예산대에 잘 맞음`);
+  if (answers.budget) {
+    // Single source of truth shared with the "예산대 일치/불일치" badge in
+    // page.tsx — never state a budget match without checking the actual price.
+    const fits = priceFitsBudgetBand(gift.priceKRW, answers.budget);
+    if (fits) {
+      bits.push(`${answers.budget} 예산대에 잘 맞음`);
+    } else {
+      const { min } = budgetBandBounds(answers.budget);
+      bits.push(gift.priceKRW < min ? "선택하신 예산보다 저렴해요" : "선택하신 예산보다 비싸요");
+    }
+  }
   const prefs = answers.preferences?.filter(Boolean) ?? [];
   if (prefs.length === 1) bits.push(`${prefs[0]} 성향과 궁합이 좋음`);
   else if (prefs.length > 1)

@@ -5,9 +5,16 @@ import { OptionGrid } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
-import { buildReason, formatKRW, recommendGifts, isLuxuryCatalogGift } from "@/lib/recommend";
+import {
+  availableBudgetBands,
+  budgetBandMatchCount,
+  buildReason,
+  formatKRW,
+  recommendGifts,
+  isLuxuryCatalogGift,
+} from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
-import type { AgeBand, Answers, Budget, Gender, Preference } from "@/lib/types";
+import type { AgeBand, Answers, Gender, Preference } from "@/lib/types";
 
 const genderOptions: readonly Gender[] = ["여성", "남성", "무관"];
 const ageOptions: readonly AgeBand[] = [
@@ -17,17 +24,6 @@ const ageOptions: readonly AgeBand[] = [
   "40대",
   "50대",
   "60대 이상",
-];
-const budgetOptions: readonly Budget[] = [
-  "1~3만 원대",
-  "3~5만 원대",
-  "5~10만 원대",
-  "10~15만 원대",
-  "15~20만 원대",
-  "20~30만 원대",
-  "30~50만 원대",
-  "50만 원 이상",
-  "70~100만 원대",
 ];
 const preferenceOptions: readonly Preference[] = [
   "실용성 우선",
@@ -67,6 +63,26 @@ export default function Home() {
   const selectedHobbyPrefs = (answers.preferences ?? []).filter((p) => hobbyOptions.includes(p));
   const [hobbyPanelOpen, setHobbyPanelOpen] = useState(false);
 
+  // Recomputed from the live catalog on every relevant answer change — never
+  // hardcoded — so a band that's empty today reappears on its own once the
+  // catalog grows into it.
+  const visibleBudgetOptions = useMemo(() => availableBudgetBands(answers), [answers]);
+
+  // Single point of mutation for `answers`. If the update makes the current
+  // budget stop matching anything (e.g. relation/preference changed after a
+  // budget was already picked), clear it in the same update instead of
+  // leaving a 0-result selection sitting in state — the budget step
+  // re-renders with nothing selected and the user has to pick again.
+  function updateAnswers(updater: (prev: Answers) => Answers) {
+    setAnswers((prev) => {
+      const next = updater(prev);
+      if (next.budget && budgetBandMatchCount(next, next.budget) === 0) {
+        return { ...next, budget: undefined };
+      }
+      return next;
+    });
+  }
+
   const RECOMMEND_LIMIT = 5;
   const recommended = useMemo(
     () => recommendGifts(answers, RECOMMEND_LIMIT, recommendSeed, excludedIds),
@@ -84,25 +100,25 @@ export default function Home() {
         ? Boolean(answers.gender && answers.age)
         : step === "relation"
           ? Boolean(answers.relation)
-          : step === "budget"
-            ? Boolean(answers.budget)
-            : step === "preference"
-              ? Boolean(answers.preferences && answers.preferences.length > 0)
+          : step === "preference"
+            ? Boolean(answers.preferences && answers.preferences.length > 0)
+            : step === "budget"
+              ? Boolean(answers.budget)
               : true;
 
   const progressLabel =
-    step === "genderAge" ? "1/5" : step === "relation" ? "2/5" : step === "budget" ? "3/5" : step === "preference" ? "4/5" : "0/5";
+    step === "genderAge" ? "1/5" : step === "relation" ? "2/5" : step === "preference" ? "3/5" : step === "budget" ? "4/5" : "0/5";
   const progressWidth =
-    step === "genderAge" ? "20%" : step === "relation" ? "40%" : step === "budget" ? "60%" : step === "preference" ? "80%" : "0%";
+    step === "genderAge" ? "20%" : step === "relation" ? "40%" : step === "preference" ? "60%" : step === "budget" ? "80%" : "0%";
 
   function next() {
     if (!canNext) return;
     setStep((s) => {
       if (s === "start") return "genderAge";
       if (s === "genderAge") return "relation";
-      if (s === "relation") return "budget";
-      if (s === "budget") return "preference";
-      if (s === "preference") {
+      if (s === "relation") return "preference";
+      if (s === "preference") return "budget";
+      if (s === "budget") {
         setRecommendSeed(0);
         return "result";
       }
@@ -112,9 +128,9 @@ export default function Home() {
 
   function back() {
     setStep((s) => {
-      if (s === "result") return "preference";
-      if (s === "preference") return "budget";
-      if (s === "budget") return "relation";
+      if (s === "result") return "budget";
+      if (s === "budget") return "preference";
+      if (s === "preference") return "relation";
       if (s === "relation") return "genderAge";
       if (s === "genderAge") return "start";
       return "start";
@@ -199,7 +215,7 @@ export default function Home() {
                 </div>
                 <RelationSectionPicker
                   value={answers.relation}
-                  onChange={(relation) => setAnswers((p) => ({ ...p, relation }))}
+                  onChange={(relation) => updateAnswers((p) => ({ ...p, relation }))}
                 />
               </div>
             )}
@@ -213,11 +229,11 @@ export default function Home() {
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <div className="text-sm font-semibold text-zinc-900">성별</div>
-                    <OptionGrid value={answers.gender} options={genderOptions} onChange={(gender) => setAnswers((p) => ({ ...p, gender }))} />
+                    <OptionGrid value={answers.gender} options={genderOptions} onChange={(gender) => updateAnswers((p) => ({ ...p, gender }))} />
                   </div>
                   <div className="grid gap-2">
                     <div className="text-sm font-semibold text-zinc-900">연령대</div>
-                    <OptionGrid value={answers.age} options={ageOptions} onChange={(age) => setAnswers((p) => ({ ...p, age }))} />
+                    <OptionGrid value={answers.age} options={ageOptions} onChange={(age) => updateAnswers((p) => ({ ...p, age }))} />
                   </div>
                 </div>
               </div>
@@ -229,10 +245,20 @@ export default function Home() {
                   <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
                 </div>
-                <div className="grid gap-2">
-                  <div className="text-sm font-semibold text-zinc-900">예산</div>
-                  <OptionGrid value={answers.budget} options={budgetOptions} onChange={(budget) => setAnswers((p) => ({ ...p, budget }))} />
-                </div>
+                {visibleBudgetOptions.length === 0 ? (
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
+                    선택하신 관계·성향 조건에 맞는 상품이 없어요. 이전 단계로 돌아가 성향이나 관계를 조정해 주세요.
+                  </div>
+                ) : (
+                  <div className="grid gap-2">
+                    <div className="text-sm font-semibold text-zinc-900">예산</div>
+                    <OptionGrid
+                      value={answers.budget}
+                      options={visibleBudgetOptions}
+                      onChange={(budget) => updateAnswers((p) => ({ ...p, budget }))}
+                    />
+                  </div>
+                )}
               </div>
             )}
 
@@ -251,7 +277,7 @@ export default function Home() {
                     values={answers.preferences ?? []}
                     options={preferenceOptions}
                     labels={preferenceLabels}
-                    onChange={(preferences) => setAnswers((p) => ({ ...p, preferences: [...preferences] }))}
+                    onChange={(preferences) => updateAnswers((p) => ({ ...p, preferences: [...preferences] }))}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -281,7 +307,7 @@ export default function Home() {
                         options={foodOptions}
                         labels={foodLabels}
                         onChange={(nextFood) => {
-                          setAnswers((p) => {
+                          updateAnswers((p) => {
                             const base = (p.preferences ?? []).filter((pref) => !foodOptions.includes(pref));
                             return { ...p, preferences: [...base, ...nextFood] };
                           });
@@ -319,7 +345,7 @@ export default function Home() {
                         options={hobbyOptions}
                         labels={hobbyLabels}
                         onChange={(nextHobby) => {
-                          setAnswers((p) => {
+                          updateAnswers((p) => {
                             const base = (p.preferences ?? []).filter((pref) => !hobbyOptions.includes(pref));
                             return { ...p, preferences: [...base, ...nextHobby] };
                           });
@@ -350,7 +376,7 @@ export default function Home() {
                   <>
                     {isBudgetFallback && (
                       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
-                        선택하신 예산대에 딱 맞는 상품은 없지만, 비슷한 스타일의 프리미엄 선물 3~5개를 추천해 드립니다.
+                        선택하신 예산대에 맞는 상품을 찾지 못했어요.
                       </div>
                     )}
                     {recommended.map((gift) => {
