@@ -183,9 +183,7 @@ export default function Home() {
         </div>
       )}
 
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 pb-28 sm:px-6 lg:px-8">
-        <section className="rounded-2xl border border-zinc-200 bg-surface p-6 shadow-sm sm:p-8">
-          <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-surface p-4 shadow-inner sm:p-6">
+      <main className="mx-auto flex w-full max-w-[600px] flex-col gap-6 px-4 py-8 pb-28 sm:px-6 lg:px-8">
             {step === "start" && (
               <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-surface p-6 text-center shadow-sm">
                 <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-slate-900 text-3xl text-white shadow">
@@ -222,9 +220,9 @@ export default function Home() {
 
             {step === "genderAge" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
-                  <div className="text-sm font-semibold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
-                  <p className="mt-1 text-sm text-zinc-500">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
+                <div>
+                  <div className="text-2xl font-bold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
+                  <p className="mt-1 text-sm text-soft">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
                 </div>
                 <div className="grid gap-4">
                   <div className="grid gap-2">
@@ -488,10 +486,8 @@ export default function Home() {
                 )}
               </div>
             )}
-          </div>
-        </section>
 
-        <footer className="text-center text-xs leading-5 text-zinc-500">
+        <footer className="text-center text-xs leading-5 text-soft">
           개인정보·결제정보는 수집하지 않습니다. 제휴 구매 버튼 클릭 시 익명으로 채널·추천 ID만 기록해 CTR 분석에 쓸 수 있으며, 웹훅을 설정하지 않으면 서버에 저장되지 않습니다.
         </footer>
       </main>
