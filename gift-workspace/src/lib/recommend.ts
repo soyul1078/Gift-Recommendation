@@ -350,9 +350,7 @@ export function buildReason(gift: Gift, answers: Answers): string {
     // Single source of truth shared with the "예산대 일치/불일치" badge in
     // page.tsx — never state a budget match without checking the actual price.
     const fits = priceFitsBudgetBand(gift.priceKRW, answers.budget);
-    if (fits) {
-      bits.push(`${answers.budget} 예산대에 잘 맞음`);
-    } else {
+    if (!fits) {
       const { min } = budgetBandBounds(answers.budget);
       bits.push(gift.priceKRW < min ? "선택하신 예산보다 저렴해요" : "선택하신 예산보다 비싸요");
     }

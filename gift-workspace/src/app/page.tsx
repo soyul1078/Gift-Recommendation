@@ -138,13 +138,6 @@ export default function Home() {
     });
   }
 
-  function reset() {
-    setAnswers({});
-    setRecommendSeed(0);
-    setExcludedIds([]);
-    setStep("start");
-  }
-
   function recommendAgain() {
     const nextExcluded = [...new Set([...excludedIds, ...recommended.map((g) => g.id)])];
     const nextSeed = recommendSeed + 1;
@@ -421,101 +414,88 @@ export default function Home() {
                     {recommended.map((gift) => {
                       const links = outboundLinksForGift(gift);
                       const exactBudgetMatch = answers.budget ? priceFitsBudgetBand(gift.priceKRW, answers.budget) : false;
-                      const hasDirectAffiliateLink = Boolean(
-                        gift.affiliateUrls?.naverShopping || gift.affiliateUrls?.coupang || gift.affiliateUrls?.kakaoGift,
-                      );
                       const isLuxuryGift = isLuxuryCatalogGift(gift.id);
+                      const budgetNote = isBudgetFallback
+                        ? "선택하신 예산대에 딱 맞는 상품은 없지만, 비슷한 스타일의 추천을 제공합니다."
+                        : answers.budget
+                          ? exactBudgetMatch
+                            ? null
+                            : "예산대에 근접한 추천입니다."
+                          : "위 금액은 국내 주요 몰 기준 대표 소비자가예요. 구매 버튼은 이 가격대에 맞춰 검색·필터를 적용합니다.";
 
                       return (
                         <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-surface p-5 shadow-sm">
-                          <div className="grid gap-4 lg:grid-cols-[170px_minmax(0,1fr)] lg:items-start">
-                            <div className="overflow-hidden rounded-3xl bg-tint">
+                          <div className="flex gap-4">
+                            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-tint">
                               {gift.imageUrl ? (
-                                <img src={gift.imageUrl} alt={gift.title} className="h-44 w-full object-cover" />
+                                <img src={gift.imageUrl} alt={gift.title} className="h-16 w-16 object-cover" />
                               ) : (
-                                <div className="flex h-44 flex-col items-center justify-center gap-2 px-3 text-center">
-                                  <span className="text-3xl" aria-hidden>
+                                <div className="flex h-16 w-16 items-center justify-center">
+                                  <span className="text-2xl" aria-hidden>
                                     {isLuxuryGift ? "✨" : "🎁"}
                                   </span>
-                                  <span className="text-xs font-semibold leading-5 text-zinc-500">{gift.title}</span>
                                 </div>
                               )}
                             </div>
-                            <div>
-                              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                                <div className="max-w-2xl">
-                                  <div className="flex flex-wrap items-center gap-2">
-                                    <div className="text-lg font-semibold text-zinc-900 font-[family-name:var(--font-display)]">{gift.title}</div>
-                                    {isLuxuryGift && (
-                                      <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
-                                        프리미엄
-                                      </span>
-                                    )}
-                                  </div>
-                                  <div className="mt-2 space-y-2">
-                                    <div className="text-xl font-bold tracking-tight text-slate-900 font-[family-name:var(--font-display)]">{formatKRW(gift.priceKRW)}</div>
-                                    <div className="flex flex-wrap gap-2 text-sm text-slate-600">
-                                      <span>선택 예산: {answers.budget ?? "—"}</span>
-                                      <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-semibold text-slate-600">
-                                        {answers.budget ? (exactBudgetMatch ? "예산대 일치" : "예산대 불일치") : "예산 정보 없음"}
-                                      </span>
-                                      {hasDirectAffiliateLink && (
-                                        <span className="rounded-full border border-accent bg-tint px-2.5 py-1 text-xs font-semibold text-accent-dark">
-                                          직접 추천 링크
-                                        </span>
-                                      )}
-                                      {gift.badge && (
-                                        <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
-                                          {gift.badge}
-                                        </span>
-                                      )}
-                                    </div>
-                                    <div className="text-xs leading-relaxed text-slate-500">
-                                      {isBudgetFallback
-                                        ? "선택하신 예산대에 딱 맞는 상품은 없지만, 비슷한 스타일의 추천을 제공합니다."
-                                        : answers.budget
-                                          ? exactBudgetMatch
-                                            ? "예산대에 잘 맞는 추천입니다."
-                                            : "예산대에 근접한 추천입니다."
-                                          : "위 금액은 국내 주요 몰 기준 대표 소비자가예요. 구매 버튼은 이 가격대에 맞춰 검색·필터를 적용합니다."}
-                                    </div>
-                                  </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <div className="text-lg font-semibold text-zinc-900 font-[family-name:var(--font-display)]">{gift.title}</div>
+                                {isLuxuryGift && (
+                                  <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
+                                    프리미엄
+                                  </span>
+                                )}
+                              </div>
+                              <div className="mt-2 space-y-2">
+                                <div className="text-xl font-bold tracking-tight text-slate-900 font-[family-name:var(--font-display)]">{formatKRW(gift.priceKRW)}</div>
+                                <div className="flex flex-wrap gap-2 text-sm text-slate-600">
+                                  <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-semibold text-slate-600">
+                                    {answers.budget ? (exactBudgetMatch ? "예산대 일치" : "예산대 불일치") : "예산 정보 없음"}
+                                  </span>
+                                  {gift.badge && (
+                                    <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                                      {gift.badge}
+                                    </span>
+                                  )}
                                 </div>
-                                <div className="flex flex-wrap gap-2">
-                                  <a
-                                    className="rounded-xl border border-zinc-200 bg-surface px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
-                                    href={links.kakaoGift}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    onClick={() => trackAffiliateClick("kakao", gift.id)}
-                                  >
-                                    카카오톡 선물하기
-                                  </a>
-                                  <a
-                                    className="rounded-xl border border-zinc-200 bg-accent px-3 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
-                                    href={links.coupang}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    onClick={() => trackAffiliateClick("coupang", gift.id)}
-                                  >
-                                    쿠팡 바로가기
-                                  </a>
-                                  <a
-                                    className="rounded-xl border border-zinc-200 bg-surface px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
-                                    href={links.naverShopping}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    onClick={() => trackAffiliateClick("naver", gift.id)}
-                                  >
-                                    네이버 쇼핑
-                                  </a>
-                                </div>
+                                {budgetNote && (
+                                  <div className="text-xs leading-relaxed text-slate-500">{budgetNote}</div>
+                                )}
                               </div>
                               <div className="mt-4">
                                 <div className="text-sm font-semibold text-zinc-900">이유</div>
                                 <p className="mt-2 whitespace-pre-line text-sm leading-6 text-zinc-700">{buildReason(gift, answers)}</p>
                               </div>
                             </div>
+                          </div>
+                          <a
+                            className="mt-4 block w-full rounded-xl bg-accent px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-accent-dark"
+                            href={links.coupang}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() => trackAffiliateClick("coupang", gift.id)}
+                          >
+                            쿠팡 바로가기
+                          </a>
+                          <div className="mt-2 flex justify-center gap-4 text-xs">
+                            <a
+                              className="font-medium text-zinc-500 underline-offset-2 hover:underline"
+                              href={links.kakaoGift}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={() => trackAffiliateClick("kakao", gift.id)}
+                            >
+                              카카오톡 선물하기
+                            </a>
+                            <a
+                              className="font-medium text-zinc-500 underline-offset-2 hover:underline"
+                              href={links.naverShopping}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={() => trackAffiliateClick("naver", gift.id)}
+                            >
+                              네이버 쇼핑
+                            </a>
                           </div>
                           <p className="mt-3 text-xs text-soft">
                             이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
@@ -541,18 +521,13 @@ export default function Home() {
                 <button type="button" onClick={back} className="h-12 min-w-[48px] rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
                   이전
                 </button>
-                <div className="flex flex-wrap items-center justify-end gap-2">
-                  <button type="button" onClick={reset} className="h-12 min-w-[48px] rounded-xl bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200">
-                    초기화
-                  </button>
-                  <button
-                    type="button"
-                    onClick={recommendAgain}
-                    className="h-12 min-w-[48px] rounded-xl bg-zinc-900 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800"
-                  >
-                    다시 추천받기
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={recommendAgain}
+                  className="h-12 min-w-[48px] rounded-xl bg-accent px-5 text-sm font-semibold text-white transition hover:bg-accent-dark"
+                >
+                  다시 추천받기
+                </button>
               </>
             ) : (
               <>
