@@ -36,6 +36,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
         {/* 현재 대시보드의 측정 ID로 스크립트 로드 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDNT5S5ZX5"

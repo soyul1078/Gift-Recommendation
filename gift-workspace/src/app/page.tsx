@@ -157,11 +157,11 @@ export default function Home() {
   
 
   return (
-    <div className="min-h-screen bg-zinc-50 text-slate-900">
-      <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-5xl items-center px-4 py-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-bg text-slate-900">
+      <header className="border-b border-zinc-200 bg-surface">
+        <div className="mx-auto flex max-w-[600px] items-center px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-zinc-900 text-sm font-semibold text-white">
+            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-accent text-sm font-semibold text-white">
               G
             </div>
             <div>
@@ -173,21 +173,21 @@ export default function Home() {
       </header>
 
       {step !== "start" && (
-        <div className="sticky top-0 z-10 border-b border-zinc-200 bg-white/95 backdrop-blur">
-          <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
+        <div className="sticky top-0 z-10 border-b border-zinc-200 bg-surface/95 backdrop-blur">
+          <div className="mx-auto flex max-w-[600px] items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-200">
-              <div className="h-1.5 rounded-full bg-emerald-500 transition-all" style={{ width: progressWidth }} />
+              <div className="h-1.5 rounded-full bg-accent transition-all" style={{ width: progressWidth }} />
             </div>
-            <span className="shrink-0 text-xs font-semibold text-emerald-800">진행도 {progressLabel}</span>
+            <span className="shrink-0 text-xs font-semibold text-accent-dark">진행도 {progressLabel}</span>
           </div>
         </div>
       )}
 
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 pb-28 sm:px-6 lg:px-8">
-        <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-gradient-to-br from-white via-zinc-50 to-amber-50/70 p-4 shadow-inner sm:p-6">
+        <section className="rounded-2xl border border-zinc-200 bg-surface p-6 shadow-sm sm:p-8">
+          <div className="mt-6 rounded-[28px] border border-zinc-200/80 bg-surface p-4 shadow-inner sm:p-6">
             {step === "start" && (
-              <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-white p-6 text-center shadow-sm">
+              <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-surface p-6 text-center shadow-sm">
                 <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-slate-900 text-3xl text-white shadow">
                   ✨
                 </div>
@@ -209,7 +209,7 @@ export default function Home() {
 
             {step === "relation" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">관계를 선택해 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">가장 자연스러운 선물 포인트가 보이도록 관계를 골라주세요.</p>
                 </div>
@@ -222,7 +222,7 @@ export default function Home() {
 
             {step === "genderAge" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">누구에게 선물할지 먼저 알려주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">성별과 연령대를 선택하면 더 정확한 추천이 가능해요.</p>
                 </div>
@@ -241,12 +241,12 @@ export default function Home() {
 
             {step === "budget" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
                 </div>
                 {visibleBudgetOptions.length === 0 ? (
-                  <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
+                  <div className="rounded-2xl border border-warn bg-warn-bg p-4 text-sm text-warn shadow-sm">
                     선택하신 관계·성향 조건에 맞는 상품이 없어요. 이전 단계로 돌아가 성향이나 관계를 조정해 주세요.
                   </div>
                 ) : (
@@ -264,7 +264,7 @@ export default function Home() {
 
             {step === "preference" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
                   <div className="text-sm font-semibold text-zinc-900">상대방의 성향을 골라 주세요</div>
                   <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다. 조건에 맞는 성향만 반영해 추천하니, 해당 사항이 없으면 누르지 마세요.</p>
                 </div>
@@ -285,10 +285,10 @@ export default function Home() {
                     type="button"
                     onClick={() => setFoodPanelOpen((v) => !v)}
                     className={[
-                      "min-h-11 rounded-2xl border px-3 py-2 text-left text-sm font-medium transition",
+                      "min-h-11 rounded-2xl border-2 px-3 py-2 text-left text-sm font-medium transition",
                       foodPanelOpen || selectedFoodPrefs.length > 0
-                        ? "border-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 text-white shadow-lg"
-                        : "border-zinc-200 bg-white/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50",
+                        ? "border-accent bg-accent text-white"
+                        : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
                     ].join(" ")}
                   >
                     🍽 음식이 중요해요
@@ -299,7 +299,7 @@ export default function Home() {
                     )}
                   </button>
                   {foodPanelOpen && (
-                    <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3">
+                    <div className="rounded-2xl border border-accent bg-tint p-3">
                       <div className="mb-2 text-sm text-zinc-600">부가 간식</div>
                       <OptionGrid
                         mode="multiple"
@@ -321,10 +321,10 @@ export default function Home() {
                     type="button"
                     onClick={() => setHobbyPanelOpen((v) => !v)}
                     className={[
-                      "min-h-11 rounded-2xl border px-3 py-2 text-left text-sm font-medium transition",
+                      "min-h-11 rounded-2xl border-2 px-3 py-2 text-left text-sm font-medium transition",
                       hobbyPanelOpen || selectedHobbyPrefs.length > 0
-                        ? "border-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 text-white shadow-lg"
-                        : "border-zinc-200 bg-white/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50",
+                        ? "border-accent bg-accent text-white"
+                        : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
                     ].join(" ")}
                   >
                     🎨 취미가 있어요
@@ -337,7 +337,7 @@ export default function Home() {
                     )}
                   </button>
                   {hobbyPanelOpen && (
-                    <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3">
+                    <div className="rounded-2xl border border-accent bg-tint p-3">
                       <div className="mb-2 text-sm text-zinc-600">부가 취미</div>
                       <OptionGrid
                         mode="multiple"
@@ -359,8 +359,8 @@ export default function Home() {
 
             {step === "result" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-                  <p className="text-xs font-semibold text-amber-700">
+                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
+                  <p className="text-xs font-normal text-soft">
                     이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.
                   </p>
                   <div className="mt-2 text-sm font-semibold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
@@ -369,13 +369,13 @@ export default function Home() {
                   </p>
                 </div>
                 {recommended.length === 0 ? (
-                  <div className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700 shadow-sm">
+                  <div className="rounded-2xl border border-zinc-200 bg-surface p-4 text-sm text-zinc-700 shadow-sm">
                     선택하신 조건에 맞는 상품이 없습니다. 이전 단계로 돌아가 예산을 변경하거나 다른 조건을 선택해 주세요.
                   </div>
                 ) : (
                   <>
                     {isBudgetFallback && (
-                      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 shadow-sm">
+                      <div className="rounded-2xl border border-warn bg-warn-bg p-4 text-sm text-warn shadow-sm">
                         선택하신 예산대에 맞는 상품을 찾지 못했어요.
                       </div>
                     )}
@@ -388,9 +388,9 @@ export default function Home() {
                       const isLuxuryGift = isLuxuryCatalogGift(gift.id);
 
                       return (
-                        <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                        <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-surface p-5 shadow-sm">
                           <div className="grid gap-4 lg:grid-cols-[170px_minmax(0,1fr)] lg:items-start">
-                            <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-100 via-white to-amber-50">
+                            <div className="overflow-hidden rounded-3xl bg-tint">
                               {gift.imageUrl ? (
                                 <img src={gift.imageUrl} alt={gift.title} className="h-44 w-full object-cover" />
                               ) : (
@@ -406,7 +406,7 @@ export default function Home() {
                               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                                 <div className="max-w-2xl">
                                   <div className="flex flex-wrap items-center gap-2">
-                                    <div className="text-lg font-semibold text-zinc-900">{gift.title}</div>
+                                    <div className="text-lg font-semibold text-zinc-900 font-[family-name:var(--font-display)]">{gift.title}</div>
                                     {isLuxuryGift && (
                                       <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
                                         프리미엄
@@ -414,14 +414,14 @@ export default function Home() {
                                     )}
                                   </div>
                                   <div className="mt-2 space-y-2">
-                                    <div className="text-2xl font-bold tracking-tight text-slate-900">{formatKRW(gift.priceKRW)}</div>
+                                    <div className="text-xl font-bold tracking-tight text-slate-900 font-[family-name:var(--font-display)]">{formatKRW(gift.priceKRW)}</div>
                                     <div className="flex flex-wrap gap-2 text-sm text-slate-600">
                                       <span>선택 예산: {answers.budget ?? "—"}</span>
                                       <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-semibold text-slate-600">
                                         {answers.budget ? (exactBudgetMatch ? "예산대 일치" : "예산대 불일치") : "예산 정보 없음"}
                                       </span>
                                       {hasDirectAffiliateLink && (
-                                        <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                                        <span className="rounded-full border border-accent bg-tint px-2.5 py-1 text-xs font-semibold text-accent-dark">
                                           직접 추천 링크
                                         </span>
                                       )}
@@ -444,7 +444,7 @@ export default function Home() {
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                   <a
-                                    className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
+                                    className="rounded-xl border border-zinc-200 bg-surface px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
                                     href={links.kakaoGift}
                                     target="_blank"
                                     rel="noreferrer"
@@ -453,7 +453,7 @@ export default function Home() {
                                     카카오톡 선물하기
                                   </a>
                                   <a
-                                    className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+                                    className="rounded-xl border border-zinc-200 bg-accent px-3 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
                                     href={links.coupang}
                                     target="_blank"
                                     rel="noreferrer"
@@ -462,7 +462,7 @@ export default function Home() {
                                     쿠팡 바로가기
                                   </a>
                                   <a
-                                    className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
+                                    className="rounded-xl border border-zinc-200 bg-surface px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-50"
                                     href={links.naverShopping}
                                     target="_blank"
                                     rel="noreferrer"
@@ -478,7 +478,7 @@ export default function Home() {
                               </div>
                             </div>
                           </div>
-                          <p className="mt-3 text-xs text-zinc-400">
+                          <p className="mt-3 text-xs text-soft">
                             이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
                           </p>
                         </div>
@@ -497,7 +497,7 @@ export default function Home() {
       </main>
 
       {step !== "start" && (
-        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-zinc-200 bg-white/95 backdrop-blur">
+        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-zinc-200 bg-surface/95 backdrop-blur">
           <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
             {step === "result" ? (
               <>
@@ -522,7 +522,7 @@ export default function Home() {
                 <button type="button" onClick={back} className="h-12 min-w-[48px] rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
                   이전
                 </button>
-                <button type="button" onClick={next} disabled={!canNext} className={["h-12 min-w-[48px] flex-1 max-w-[240px] rounded-xl px-5 text-sm font-semibold text-white transition", canNext ? "bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 hover:opacity-90" : "bg-zinc-300"].join(" ")}>
+                <button type="button" onClick={next} disabled={!canNext} className={["h-12 min-w-[48px] flex-1 max-w-[240px] rounded-xl px-5 text-sm font-semibold text-white transition", canNext ? "bg-accent hover:opacity-90" : "bg-zinc-300"].join(" ")}>
                   다음으로
                 </button>
               </>

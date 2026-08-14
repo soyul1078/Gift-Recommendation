@@ -36,10 +36,10 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
                 else onChange([...values, opt]);
               }}
               className={[
-                "min-h-11 rounded-2xl border px-3 py-2 text-left text-sm font-medium transition",
+                "min-h-11 rounded-2xl border-2 px-3 py-2 text-left text-sm font-medium transition",
                 active
-                  ? "border-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 text-white shadow-lg"
-                  : "border-zinc-200 bg-white/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50",
+                  ? "border-accent bg-accent text-white"
+                  : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
               ].join(" ")}
             >
               {labels?.[opt] ?? opt}
@@ -61,10 +61,10 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
             type="button"
             onClick={() => onChange(opt)}
             className={[
-              "h-11 rounded-2xl border px-3 text-sm font-medium transition",
+              "h-11 rounded-2xl border-2 px-3 text-sm font-medium transition",
               active
-                ? "border-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-lime-600 text-white shadow-lg"
-                : "border-zinc-200 bg-white/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50",
+                ? "border-accent bg-accent text-white"
+                : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
             ].join(" ")}
           >
             {labels?.[opt] ?? opt}

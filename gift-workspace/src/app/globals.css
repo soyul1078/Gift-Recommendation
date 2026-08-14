@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: #FFFBF8;
+  --color-surface: #FFFFFF;
+  --color-ink: #2A1F1C;
+  --color-soft: #8A7C77;
+  --color-line: #EFE4DE;
+  --color-accent: #FF6B4A;
+  --color-accent-dark: #E85530;
+  --color-tint: #FFEDE8;
+  --color-warn: #B8722A;
+  --color-warn-bg: #FFF6E9;
+  --font-display: "Gowun Batang", serif;
+}
+
+body { background-color: #FFFBF8; color: #2A1F1C; }
+
 :root {
-  --background: #fffaf7;
-  --foreground: #18181b;
+  --background: #FFFBF8;
+  --foreground: #2A1F1C;
 }
 
 @theme inline {

@@ -69,8 +69,8 @@ export function RelationSectionPicker({ value, onChange }: Props) {
 
         return (
           <div key={section.id} className={[
-            "overflow-hidden rounded-[24px] border bg-white/90 shadow-sm transition",
-            open || selectedInSection ? "border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-lime-50" : "border-zinc-200",
+            "overflow-hidden rounded-[24px] border-2 bg-surface/90 shadow-sm transition",
+            open || selectedInSection ? "border-accent bg-tint" : "border-zinc-200",
           ].join(" ")}>
             <button type="button" onClick={() => toggleSection(section.id)} className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left" aria-expanded={open}>
               <div className="flex-1">
@@ -81,11 +81,11 @@ export function RelationSectionPicker({ value, onChange }: Props) {
               </div>
               <div className="flex items-center gap-2">
                 {selectedInSection && (
-                  <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
+                  <span className="rounded-full border border-accent bg-tint px-2.5 py-0.5 text-xs font-semibold text-accent-dark">
                     {section.id === "other" ? OTHER_SECTION_LABELS[value!] ?? value : value}
                   </span>
                 )}
-                <span className={["grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm transition", open ? "bg-emerald-700 text-white" : "bg-zinc-100 text-zinc-600"].join(" ")} aria-hidden>
+                <span className={["grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm transition", open ? "bg-accent text-white" : "bg-zinc-100 text-zinc-600"].join(" ")} aria-hidden>
                   {open ? "∧" : "∨"}
                 </span>
               </div>
