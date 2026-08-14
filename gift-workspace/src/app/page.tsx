@@ -17,6 +17,7 @@ import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
 import type { AgeBand, Answers, Gender, Preference } from "@/lib/types";
 
 const genderOptions: readonly Gender[] = ["여성", "남성", "무관"];
+const genderLabels: Partial<Record<Gender, string>> = { "무관": "상관없어요" };
 const ageOptions: readonly AgeBand[] = [
   "10대",
   "20대",
@@ -242,16 +243,14 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-
-                <div className="text-center text-xs text-soft">개인정보를 수집하지 않아요.</div>
               </div>
             )}
 
             {step === "relation" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
-                  <div className="text-sm font-semibold text-zinc-900">관계를 선택해 주세요</div>
-                  <p className="mt-1 text-sm text-zinc-500">가장 자연스러운 선물 포인트가 보이도록 관계를 골라주세요.</p>
+                <div>
+                  <div className="text-2xl font-bold text-zinc-900">관계를 선택해 주세요</div>
+                  <p className="mt-1 text-sm text-soft">누구에게 주는 선물인가요?</p>
                 </div>
                 <RelationSectionPicker
                   value={answers.relation}
@@ -269,7 +268,7 @@ export default function Home() {
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <div className="text-sm font-semibold text-zinc-900">성별</div>
-                    <OptionGrid value={answers.gender} options={genderOptions} onChange={(gender) => updateAnswers((p) => ({ ...p, gender }))} />
+                    <OptionGrid value={answers.gender} options={genderOptions} labels={genderLabels} onChange={(gender) => updateAnswers((p) => ({ ...p, gender }))} />
                   </div>
                   <div className="grid gap-2">
                     <div className="text-sm font-semibold text-zinc-900">연령대</div>
@@ -281,9 +280,9 @@ export default function Home() {
 
             {step === "budget" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
-                  <div className="text-sm font-semibold text-zinc-900">예산 범위를 정해 주세요</div>
-                  <p className="mt-1 text-sm text-zinc-500">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
+                <div>
+                  <div className="text-2xl font-bold text-zinc-900">예산 범위를 정해 주세요</div>
+                  <p className="mt-1 text-sm text-soft">예산대에 맞춰 딱 맞는 추천을 드립니다.</p>
                 </div>
                 {visibleBudgetOptions.length === 0 ? (
                   <div className="rounded-2xl border border-warn bg-warn-bg p-4 text-sm text-warn shadow-sm">
@@ -304,9 +303,9 @@ export default function Home() {
 
             {step === "preference" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
-                  <div className="text-sm font-semibold text-zinc-900">상대방의 성향을 골라 주세요</div>
-                  <p className="mt-1 text-sm text-zinc-500">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다. 조건에 맞는 성향만 반영해 추천하니, 해당 사항이 없으면 누르지 마세요.</p>
+                <div>
+                  <div className="text-2xl font-bold text-zinc-900">상대방의 성향을 골라 주세요</div>
+                  <p className="mt-1 text-sm text-soft">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다. 조건에 맞는 성향만 반영해 추천하니, 해당 사항이 없으면 누르지 마세요.</p>
                 </div>
                 <div className="grid gap-2">
                   <div className="text-sm font-semibold text-zinc-900">
@@ -399,12 +398,12 @@ export default function Home() {
 
             {step === "result" && (
               <div className="grid gap-4">
-                <div className="rounded-2xl border border-zinc-200 bg-surface p-4 shadow-sm">
+                <div>
                   <p className="text-xs font-normal text-soft">
                     이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.
                   </p>
-                  <div className="mt-2 text-sm font-semibold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
-                  <p className="mt-1 text-sm text-zinc-500">
+                  <div className="mt-2 text-2xl font-bold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
+                  <p className="mt-1 text-sm text-soft">
                     마음에 들지 않으면 다른 추천을 받아보세요. 구매 버튼은 표시 가격대에 맞춰 검색합니다.
                   </p>
                 </div>
@@ -530,7 +529,7 @@ export default function Home() {
             )}
 
         <footer className="text-center text-xs leading-5 text-soft">
-          개인정보·결제정보는 수집하지 않습니다. 제휴 구매 버튼 클릭 시 익명으로 채널·추천 ID만 기록해 CTR 분석에 쓸 수 있으며, 웹훅을 설정하지 않으면 서버에 저장되지 않습니다.
+          개인정보를 수집하지 않습니다.
         </footer>
       </main>
 

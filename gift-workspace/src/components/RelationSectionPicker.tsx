@@ -85,9 +85,18 @@ export function RelationSectionPicker({ value, onChange }: Props) {
                     {section.id === "other" ? OTHER_SECTION_LABELS[value!] ?? value : value}
                   </span>
                 )}
-                <span className={["grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm transition", open ? "bg-accent text-white" : "bg-zinc-100 text-zinc-600"].join(" ")} aria-hidden>
-                  {open ? "∧" : "∨"}
-                </span>
+                <svg
+                  className={["h-4 w-4 shrink-0 transition-transform", open ? "rotate-180 text-accent" : "text-zinc-500"].join(" ")}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
               </div>
             </button>
 
