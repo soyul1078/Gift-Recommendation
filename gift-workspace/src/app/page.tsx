@@ -185,23 +185,65 @@ export default function Home() {
 
       <main className="mx-auto flex w-full max-w-[600px] flex-col gap-6 px-4 py-8 pb-28 sm:px-6 lg:px-8">
             {step === "start" && (
-              <div className="grid gap-5 rounded-[24px] border border-slate-200 bg-surface p-6 text-center shadow-sm">
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-slate-900 text-3xl text-white shadow">
-                  ✨
-                </div>
+              <div className="mx-auto grid w-full max-w-[600px] gap-6 px-5 text-left">
                 <div>
-                  <div className="text-2xl font-semibold text-slate-900">선물 추천을 시작해 볼까요?</div>
-                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-                    5가지 질문만으로 예산에 맞는 선물 3~5개를 추천하고, 카카오·쿠팡·네이버에서 바로 구매할 수 있어요.
+                  <h1 className="font-[family-name:var(--font-display)] text-4xl font-bold text-slate-900">
+                    이 사람한테
+                    <br />
+                    <span className="text-accent">뭐 주지?</span>
+                  </h1>
+                  <p className="mt-4 text-sm leading-7 text-soft">
+                    상황을 몇 가지만 알려주시면 예산에 맞는 선물을 찾아드려요.
+                    <br />
+                    바로 구매까지 연결됩니다.
                   </p>
                 </div>
+
                 <button
                   type="button"
                   onClick={() => setStep("genderAge")}
-                  className="mx-auto inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-6 text-sm font-semibold text-white shadow transition hover:bg-slate-800"
+                  className="w-full rounded-[14px] bg-accent py-[18px] text-base font-semibold text-white"
                 >
-                  시작하기
+                  선물 찾기 시작하기
                 </button>
+
+                <div className="grid w-full min-w-0 gap-3">
+                  <div className="text-left text-xs text-soft">이렇게 추천해 드려요</div>
+                  <div className="grid w-full min-w-0 grid-cols-3 gap-3">
+                    {[
+                      {
+                        name: "수제 디퓨저 세트",
+                        price: "48,000원",
+                        desc: "집들이 선물로 부담 없는 가격대",
+                      },
+                      {
+                        name: "프리미엄 찻잔 2인조",
+                        price: "52,000원",
+                        desc: "어른 취향에 무난하게 어울림",
+                      },
+                      {
+                        name: "무선 충전 스탠드",
+                        price: "45,900원",
+                        desc: "실용성 우선 성향에 잘 맞음",
+                      },
+                    ].map((item) => (
+                      <div
+                        key={item.name}
+                        className="rounded-[14px] border border-line bg-surface p-3 text-left"
+                      >
+                        <div
+                          className="aspect-square rounded-lg"
+                          style={{ background: "linear-gradient(150deg,#FFE8DF,#FFF4EE)" }}
+                        />
+                        <div className="mt-2 text-[13px] font-semibold">{item.name}</div>
+                        <div className="text-xs text-soft">{item.price}</div>
+                        <div className="text-[11.5px] text-accent-dark">{item.desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="text-center text-xs text-soft">개인정보를 수집하지 않아요.</div>
               </div>
             )}
 
@@ -494,7 +536,7 @@ export default function Home() {
 
       {step !== "start" && (
         <div className="fixed inset-x-0 bottom-0 z-20 border-t border-zinc-200 bg-surface/95 backdrop-blur">
-          <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-[600px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
             {step === "result" ? (
               <>
                 <button type="button" onClick={back} className="h-12 min-w-[48px] rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
