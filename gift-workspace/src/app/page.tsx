@@ -151,7 +151,7 @@ export default function Home() {
   
 
   return (
-    <div className="min-h-screen bg-bg text-slate-900">
+    <div className="bg-bg text-slate-900">
       <header className="border-b border-zinc-200 bg-surface">
         <div className="mx-auto flex max-w-[600px] items-center px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </header>
 
-      {step !== "start" && (
+      {step !== "start" && step !== "result" && (
         <div className="sticky top-0 z-10 border-b border-zinc-200 bg-surface/95 backdrop-blur">
           <div className="mx-auto flex max-w-[600px] items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-200">
@@ -177,7 +177,7 @@ export default function Home() {
         </div>
       )}
 
-      <main className="mx-auto flex w-full max-w-[600px] flex-col gap-6 px-4 py-8 pb-28 sm:px-6 lg:px-8">
+      <main className="mx-auto flex w-full max-w-[600px] flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
             {step === "start" && (
               <div className="mx-auto grid w-full max-w-[600px] gap-6 px-5 text-left">
                 <div>
@@ -392,10 +392,7 @@ export default function Home() {
             {step === "result" && (
               <div className="grid gap-4">
                 <div>
-                  <p className="text-xs font-normal text-soft">
-                    이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.
-                  </p>
-                  <div className="mt-2 text-2xl font-bold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
+                  <div className="text-2xl font-bold text-zinc-900">입력하신 조건에 맞는 선물이에요</div>
                   <p className="mt-1 text-sm text-soft">
                     마음에 들지 않으면 다른 추천을 받아보세요. 구매 버튼은 표시 가격대에 맞춰 검색합니다.
                   </p>
@@ -514,7 +511,7 @@ export default function Home() {
       </main>
 
       {step !== "start" && (
-        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-zinc-200 bg-surface/95 backdrop-blur">
+        <div className="mt-8 border-t border-zinc-200 bg-surface/95 backdrop-blur">
           <div className="mx-auto flex max-w-[600px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
             {step === "result" ? (
               <>
