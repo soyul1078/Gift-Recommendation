@@ -1,5 +1,14 @@
 "use client";
 
+export function optionChipClass(active: boolean): string {
+  return [
+    "rounded-xl border-2 px-[18px] py-3 text-sm font-medium transition-colors",
+    active
+      ? "border-accent bg-accent text-white"
+      : "border-line bg-surface text-zinc-800 hover:border-accent hover:bg-tint",
+  ].join(" ");
+}
+
 type Base<T extends string> = {
   options: readonly T[];
   /** Optional display text override, keyed by option value. Falls back to the option itself. */
@@ -24,7 +33,7 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
   if (props.mode === "multiple") {
     const { values, options, onChange, labels } = props;
     return (
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
           const active = values.includes(opt);
           return (
@@ -35,12 +44,7 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
                 if (active) onChange(values.filter((v) => v !== opt));
                 else onChange([...values, opt]);
               }}
-              className={[
-                "min-h-11 rounded-2xl border-2 px-3 py-2 text-left text-sm font-medium transition",
-                active
-                  ? "border-accent bg-accent text-white"
-                  : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
-              ].join(" ")}
+              className={optionChipClass(active)}
             >
               {labels?.[opt] ?? opt}
             </button>
@@ -52,21 +56,11 @@ export function OptionGrid<T extends string>(props: OptionGridProps<T>) {
 
   const { value, options, onChange, labels } = props;
   return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="flex flex-wrap gap-2">
       {options.map((opt) => {
         const active = value === opt;
         return (
-          <button
-            key={opt}
-            type="button"
-            onClick={() => onChange(opt)}
-            className={[
-              "h-11 rounded-2xl border-2 px-3 text-sm font-medium transition",
-              active
-                ? "border-accent bg-accent text-white"
-                : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
-            ].join(" ")}
-          >
+          <button key={opt} type="button" onClick={() => onChange(opt)} className={optionChipClass(active)}>
             {labels?.[opt] ?? opt}
           </button>
         );

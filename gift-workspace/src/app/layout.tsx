@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
@@ -54,7 +54,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="flex flex-col">
         {children}
         <Analytics />
       </body>

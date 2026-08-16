@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { OptionGrid } from "@/components/OptionGrid";
+import { OptionGrid, optionChipClass } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
@@ -35,12 +35,7 @@ const preferenceOptions: readonly Preference[] = [
   "뷰티/그루밍형",
 ];
 const preferenceLabels: Partial<Record<Preference, string>> = {
-  "실용성 우선": "💼 실용성 우선",
-  "감성/디자인 중시": "🎨 감성/디자인 중시",
-  "건강/웰빙형": "🌿 건강/웰빙형",
-  "자기계발/워커홀릭": "📈 자기계발/워커홀릭",
-  "독서형": "📚 독서 중시/독서 용품",
-  "뷰티/그루밍형": "💄 뷰티/그루밍형",
+  "독서형": "독서 중시/독서 용품",
 };
 const foodOptions: readonly Preference[] = ["간식형"];
 const foodLabels: Partial<Record<Preference, string>> = {
@@ -297,69 +292,52 @@ export default function Home() {
             {step === "preference" && (
               <div className="grid gap-4">
                 <div>
-                  <div className="text-2xl font-bold text-zinc-900">상대방의 성향을 골라 주세요</div>
-                  <p className="mt-1 text-sm text-soft">여러 개를 선택하면 더 잘 맞는 선물을 찾아드립니다. 조건에 맞는 성향만 반영해 추천하니, 해당 사항이 없으면 누르지 마세요.</p>
-                </div>
-                <div className="grid gap-2">
-                  <div className="text-sm font-semibold text-zinc-900">
-                    성향 <span className="font-normal text-zinc-500">(해당되는 항목을 모두 눌러 주세요)</span>
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    <div className="text-2xl font-bold text-zinc-900">상대방의 성향을 골라 주세요</div>
+                    <span className="text-sm font-semibold text-accent-dark">
+                      {(answers.preferences ?? []).length}개 선택됨
+                    </span>
                   </div>
-                  <OptionGrid
-                    mode="multiple"
-                    values={answers.preferences ?? []}
-                    options={preferenceOptions}
-                    labels={preferenceLabels}
-                    onChange={(preferences) => updateAnswers((p) => ({ ...p, preferences: [...preferences] }))}
-                  />
+                  <p className="mt-1 text-sm text-soft">해당하는 것을 모두 골라주세요.</p>
                 </div>
-                <div className="grid gap-2">
+                <div className="flex flex-wrap gap-2">
+                  {preferenceOptions.map((opt) => {
+                    const active = (answers.preferences ?? []).includes(opt);
+                    return (
+                      <button
+                        key={opt}
+                        type="button"
+                        onClick={() => {
+                          updateAnswers((p) => {
+                            const cur = p.preferences ?? [];
+                            const next = active ? cur.filter((v) => v !== opt) : [...cur, opt];
+                            return { ...p, preferences: next };
+                          });
+                        }}
+                        className={optionChipClass(active)}
+                      >
+                        {preferenceLabels[opt] ?? opt}
+                      </button>
+                    );
+                  })}
                   <button
                     type="button"
                     onClick={() => setFoodPanelOpen((v) => !v)}
-                    className={[
-                      "min-h-11 rounded-2xl border-2 px-3 py-2 text-left text-sm font-medium transition",
-                      foodPanelOpen || selectedFoodPrefs.length > 0
-                        ? "border-accent bg-accent text-white"
-                        : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
-                    ].join(" ")}
+                    className={optionChipClass(foodPanelOpen || selectedFoodPrefs.length > 0)}
                   >
-                    🍽 음식이 중요해요
+                    음식이 중요해요
                     {selectedFoodPrefs.length > 0 && (
                       <span className="ml-2 text-xs font-normal opacity-90">
                         ({selectedFoodPrefs.map(() => "간식").join(", ")} 선택됨)
                       </span>
                     )}
                   </button>
-                  {foodPanelOpen && (
-                    <div className="rounded-2xl border border-accent bg-tint p-3">
-                      <div className="mb-2 text-sm text-zinc-600">부가 간식</div>
-                      <OptionGrid
-                        mode="multiple"
-                        values={selectedFoodPrefs}
-                        options={foodOptions}
-                        labels={foodLabels}
-                        onChange={(nextFood) => {
-                          updateAnswers((p) => {
-                            const base = (p.preferences ?? []).filter((pref) => !foodOptions.includes(pref));
-                            return { ...p, preferences: [...base, ...nextFood] };
-                          });
-                        }}
-                      />
-                    </div>
-                  )}
-                </div>
-                <div className="grid gap-2">
                   <button
                     type="button"
                     onClick={() => setHobbyPanelOpen((v) => !v)}
-                    className={[
-                      "min-h-11 rounded-2xl border-2 px-3 py-2 text-left text-sm font-medium transition",
-                      hobbyPanelOpen || selectedHobbyPrefs.length > 0
-                        ? "border-accent bg-accent text-white"
-                        : "border-zinc-200 bg-surface/90 text-zinc-800 shadow-sm hover:-translate-y-0.5 hover:border-accent hover:bg-tint",
-                    ].join(" ")}
+                    className={optionChipClass(hobbyPanelOpen || selectedHobbyPrefs.length > 0)}
                   >
-                    🎨 취미가 있어요
+                    취미가 있어요
                     {selectedHobbyPrefs.length > 0 && (
                       <span className="ml-2 text-xs font-normal opacity-90">
                         ({selectedHobbyPrefs
@@ -368,24 +346,41 @@ export default function Home() {
                       </span>
                     )}
                   </button>
-                  {hobbyPanelOpen && (
-                    <div className="rounded-2xl border border-accent bg-tint p-3">
-                      <div className="mb-2 text-sm text-zinc-600">부가 취미</div>
-                      <OptionGrid
-                        mode="multiple"
-                        values={selectedHobbyPrefs}
-                        options={hobbyOptions}
-                        labels={hobbyLabels}
-                        onChange={(nextHobby) => {
-                          updateAnswers((p) => {
-                            const base = (p.preferences ?? []).filter((pref) => !hobbyOptions.includes(pref));
-                            return { ...p, preferences: [...base, ...nextHobby] };
-                          });
-                        }}
-                      />
-                    </div>
-                  )}
                 </div>
+                {foodPanelOpen && (
+                  <div className="rounded-2xl border border-accent bg-tint p-3">
+                    <div className="mb-2 text-sm text-zinc-600">어떤 간식을 좋아하세요?</div>
+                    <OptionGrid
+                      mode="multiple"
+                      values={selectedFoodPrefs}
+                      options={foodOptions}
+                      labels={foodLabels}
+                      onChange={(nextFood) => {
+                        updateAnswers((p) => {
+                          const base = (p.preferences ?? []).filter((pref) => !foodOptions.includes(pref));
+                          return { ...p, preferences: [...base, ...nextFood] };
+                        });
+                      }}
+                    />
+                  </div>
+                )}
+                {hobbyPanelOpen && (
+                  <div className="rounded-2xl border border-accent bg-tint p-3">
+                    <div className="mb-2 text-sm text-zinc-600">어떤 취미가 있으세요?</div>
+                    <OptionGrid
+                      mode="multiple"
+                      values={selectedHobbyPrefs}
+                      options={hobbyOptions}
+                      labels={hobbyLabels}
+                      onChange={(nextHobby) => {
+                        updateAnswers((p) => {
+                          const base = (p.preferences ?? []).filter((pref) => !hobbyOptions.includes(pref));
+                          return { ...p, preferences: [...base, ...nextHobby] };
+                        });
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             )}
 

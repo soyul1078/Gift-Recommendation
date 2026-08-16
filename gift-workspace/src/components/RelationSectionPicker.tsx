@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { OptionGrid } from "@/components/OptionGrid";
 import type { Relation } from "@/lib/types";
 
 type RelationSection = {
   id: string;
   label: string;
-  description: string;
   options: readonly Relation[];
 };
 
@@ -15,25 +13,21 @@ const relationSections: readonly RelationSection[] = [
   {
     id: "family",
     label: "가족",
-    description: "부모님, 자녀, 배우자, 형제·시댁 등",
     options: ["부모님", "자녀", "형제/자매", "배우자", "시댁/처가 어른"],
   },
   {
     id: "work",
-    label: "회사 관계",
-    description: "직장·거래처 등",
+    label: "회사",
     options: ["직장 상사", "직장 동기", "직장 후배", "퇴사자/이직자", "거래처"],
   },
   {
     id: "occasion",
-    label: "기념일",
-    description: "100일, 생일, 어버이날, 스승의날 등",
+    label: "기념일·시즌",
     options: ["가벼운 기념일(100일 등)", "생일·기념일", "어버이날", "스승의날"],
   },
   {
     id: "other",
-    label: "기타",
-    description: "친구, 지인, 선생님 등",
+    label: "그 외",
     options: ["정말 친한 절친", "가볍게 아는 지인", "선생님/은사님"],
   },
 ];
@@ -44,75 +38,25 @@ const OTHER_SECTION_LABELS: Partial<Record<Relation, string>> = {
   "선생님/은사님": "선생님",
 };
 
-function sectionIdForRelation(relation?: Relation): string | null {
-  if (!relation) return null;
-  return relationSections.find((s) => s.options.includes(relation))?.id ?? null;
-}
-
 type Props = {
   value?: Relation;
   onChange: (relation: Relation) => void;
 };
 
 export function RelationSectionPicker({ value, onChange }: Props) {
-  const [expandedId, setExpandedId] = useState<string | null>(() => sectionIdForRelation(value));
-
-  function toggleSection(id: string) {
-    setExpandedId((prev) => (prev === id ? null : id));
-  }
-
   return (
-    <div className="grid gap-3">
-      {relationSections.map((section) => {
-        const open = expandedId === section.id;
-        const selectedInSection = value != null && section.options.includes(value);
-
-        return (
-          <div key={section.id} className={[
-            "overflow-hidden rounded-[24px] border-2 bg-surface/90 shadow-sm transition",
-            open || selectedInSection ? "border-accent bg-tint" : "border-zinc-200",
-          ].join(" ")}>
-            <button type="button" onClick={() => toggleSection(section.id)} className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left" aria-expanded={open}>
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-semibold text-zinc-900">{section.label}</span>
-                </div>
-                <div className="mt-0.5 text-xs text-zinc-500">{section.description}</div>
-              </div>
-              <div className="flex items-center gap-2">
-                {selectedInSection && (
-                  <span className="rounded-full border border-accent bg-tint px-2.5 py-0.5 text-xs font-semibold text-accent-dark">
-                    {section.id === "other" ? OTHER_SECTION_LABELS[value!] ?? value : value}
-                  </span>
-                )}
-                <svg
-                  className={["h-4 w-4 shrink-0 transition-transform", open ? "rotate-180 text-accent" : "text-zinc-500"].join(" ")}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </div>
-            </button>
-
-            {open && (
-              <div className="border-t border-zinc-200 px-4 pb-4 pt-3">
-                <OptionGrid
-                  value={value}
-                  options={section.options}
-                  onChange={onChange}
-                  labels={section.id === "other" ? OTHER_SECTION_LABELS : undefined}
-                />
-              </div>
-            )}
-          </div>
-        );
-      })}
+    <div className="grid gap-5">
+      {relationSections.map((section) => (
+        <div key={section.id}>
+          <div className="mb-2 text-sm font-semibold text-soft">{section.label}</div>
+          <OptionGrid
+            value={value}
+            options={section.options}
+            onChange={onChange}
+            labels={section.id === "other" ? OTHER_SECTION_LABELS : undefined}
+          />
+        </div>
+      ))}
     </div>
   );
 }
