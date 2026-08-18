@@ -23,7 +23,7 @@ const relationSections: readonly RelationSection[] = [
   {
     id: "occasion",
     label: "기념일·시즌",
-    options: ["가벼운 기념일(100일 등)", "생일·기념일", "어버이날", "스승의날"],
+    options: ["가벼운 기념일(100일 등)", "특별한 기념일(생일, 1주년)", "어버이날", "스승의날"],
   },
   {
     id: "other",
@@ -31,6 +31,10 @@ const relationSections: readonly RelationSection[] = [
     options: ["정말 친한 절친", "가볍게 아는 지인", "선생님/은사님"],
   },
 ];
+
+const OCCASION_SECTION_LABELS: Partial<Record<Relation, string>> = {
+  "특별한 기념일(생일, 1주년)": "생일·기념일",
+};
 
 const OTHER_SECTION_LABELS: Partial<Record<Relation, string>> = {
   "정말 친한 절친": "친구",
@@ -53,7 +57,13 @@ export function RelationSectionPicker({ value, onChange }: Props) {
             value={value}
             options={section.options}
             onChange={onChange}
-            labels={section.id === "other" ? OTHER_SECTION_LABELS : undefined}
+            labels={
+              section.id === "other"
+                ? OTHER_SECTION_LABELS
+                : section.id === "occasion"
+                  ? OCCASION_SECTION_LABELS
+                  : undefined
+            }
           />
         </div>
       ))}

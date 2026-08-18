@@ -94,10 +94,8 @@ function freeTextSituationScore(giftId: string, raw: string): number {
 
 function relationTargets(relation?: string): string[] {
   if (!relation) return [];
-  if (relation === "생일·기념일") return ["특별한 기념일(생일, 1주년)", "가벼운 기념일(100일 등)"];
   if (relation === "어버이날") return ["부모님", "시댁/처가 어른"];
   if (relation === "스승의날") return ["선생님/은사님"];
-  if (relation === "가벼운 기념일(100일 등)") return ["가벼운 기념일(100일 등)", "생일·기념일"];
   return [relation];
 }
 
