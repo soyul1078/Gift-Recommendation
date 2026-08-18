@@ -146,7 +146,7 @@ export default function Home() {
   
 
   return (
-    <div className="bg-bg text-slate-900">
+    <div className="min-h-screen flex flex-col bg-bg text-slate-900">
       <header className="border-b border-zinc-200 bg-surface">
         <div className="mx-auto flex max-w-[600px] items-center px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
@@ -172,7 +172,7 @@ export default function Home() {
         </div>
       )}
 
-      <main className="mx-auto flex w-full max-w-[600px] flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto flex w-full max-w-[600px] flex-1 flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
             {step === "start" && (
               <div className="mx-auto grid w-full max-w-[600px] gap-6 px-5 text-left">
                 <div>
