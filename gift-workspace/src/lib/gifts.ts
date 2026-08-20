@@ -5,6 +5,9 @@ import type { Gift } from "./types";
 /**
  * Representative KRW prices (typical major KR malls / official-ish, before coupons).
  * `tags.budget` is derived from these numbers so UI, filters, and links stay aligned.
+ *
+ * shortReason에는 구체적 금액을 쓰지 않는다. 가격은 priceKRW 필드로만 표시한다.
+ * 쿠팡 가격은 쿠폰·시즌에 따라 수시로 바뀌므로 설명에 박아두면 금방 어긋난다.
  */
 type GiftInput = Omit<Gift, "tags"> & {
   tags: Omit<Gift["tags"], "budget">;
@@ -567,7 +570,7 @@ const raw: GiftInput[] = [
     title: "공진단",
     priceKRW: 73_000,
     shortReason:
-      "면역력과 기력 보충에 좋은 전통 건강 선물로, 1개 가격 73,000원에 부담 없이 챙겨드릴 수 있어요.",
+      "면역력과 기력 보충에 좋은 전통 건강 선물로, 부담 없이 챙겨드릴 수 있는 실속 구성이에요.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
@@ -582,12 +585,12 @@ const raw: GiftInput[] = [
   },
   {
     id: "parent-ginseng-stick",
-    title: "정관장 홍삼 스틱",
+    title: "정관장 홍삼진고 바이탈스틱 (쇼핑백 포함)",
     priceKRW: 34_000,
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/prod/fa279752-94cd-487d-b85a-8737f08079bf_fixing_v2.png",
     shortReason:
-      "휴대와 섭취가 간편한 정관장 홍삼 스틱으로, 1개 10,400원 · 3개 세트 83,200원으로 용량에 맞게 고르기 좋아요.",
+      "휴대와 섭취가 간편한 정관장 정품 홍삼진고 바이탈스틱으로, 쇼핑백이 포함되어 바로 전달하기 좋아요.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
