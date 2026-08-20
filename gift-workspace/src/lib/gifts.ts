@@ -212,7 +212,9 @@ const raw: GiftInput[] = [
   {
     id: "tea-giftbox",
     title: "오설록 오 땡큐 티 선물세트, 티박스 6종, 1개",
-    priceKRW: 21_200,
+    priceKRW: 60_260,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/d3fb/15722ce98d87564ddbffa56f6605ae87ade385cf3fe186b0fc86d00354e1.png",
     shortReason:
       "백화점·몰에서 자주 보이는 구성 기준 가격. 휴식·담소 선물로 무난해요.",
     affiliateUrls: {
@@ -581,7 +583,9 @@ const raw: GiftInput[] = [
   {
     id: "parent-ginseng-stick",
     title: "정관장 홍삼 스틱",
-    priceKRW: 10_400,
+    priceKRW: 34_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/prod/fa279752-94cd-487d-b85a-8737f08079bf_fixing_v2.png",
     shortReason:
       "휴대와 섭취가 간편한 정관장 홍삼 스틱으로, 1개 10,400원 · 3개 세트 83,200원으로 용량에 맞게 고르기 좋아요.",
     parentValue: ["몸에 도움"],
@@ -975,6 +979,8 @@ const raw: GiftInput[] = [
     id: "daicoo-bluetooth-smartwatch",
     title: "DAICOO 다이코 통화가능 GPS 블루투스 스마트워치 42mm R8",
     priceKRW: 18_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/5f20/fb0c4642f019713b5a366a9bfc76c4d80c45c59aa9e4f5bc7f6abdd544de.jpg",
     shortReason:
       "통화 기능과 GPS를 지원하는 보급형 블루투스 스마트워치로, 부담 없이 건강 관리를 시작하기 좋은 선물입니다.",
     affiliateUrls: {
