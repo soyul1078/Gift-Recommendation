@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { GiftThumbnail } from "@/components/GiftThumbnail";
 import { OptionGrid, optionChipClass } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
@@ -419,15 +420,11 @@ export default function Home() {
                         <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-surface p-5 shadow-sm">
                           <div className="flex gap-4">
                             <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-tint">
-                              {gift.imageUrl ? (
-                                <img src={gift.imageUrl} alt={gift.title} className="h-16 w-16 object-cover" />
-                              ) : (
-                                <div className="flex h-16 w-16 items-center justify-center">
-                                  <span className="text-2xl" aria-hidden>
-                                    {isLuxuryGift ? "✨" : "🎁"}
-                                  </span>
-                                </div>
-                              )}
+                              <GiftThumbnail
+                                imageUrl={gift.imageUrl}
+                                title={gift.title}
+                                fallbackEmoji={isLuxuryGift ? "✨" : "🎁"}
+                              />
                             </div>
                             <div className="min-w-0 flex-1">
                               <div className="flex flex-wrap items-center gap-2">
