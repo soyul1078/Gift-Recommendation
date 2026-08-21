@@ -190,7 +190,9 @@ const raw: GiftInput[] = [
   {
     id: "wireless-charger",
     title: "무선충전기 아이폰 애플워치 에어팟 고속충전",
-    priceKRW: 12_800,
+    priceKRW: 18_800,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/18e7/d5022048da9c9afdb70dce755b5f778c2e9bcb553123c3ff76836e2a7636.jpg",
     shortReason:
       "애플 정품 맥세이프 충전기보다 낮고, 브랜드 스탠드 제품에서 흔한 대표가에 가깝게 맞춤.",
     affiliateUrls: {
@@ -445,14 +447,16 @@ const raw: GiftInput[] = [
   },
   {
     id: "massage-gun",
-    title: "미니 마사지건",
-    priceKRW: 84_960,
+    title: "인사이디 무선 전동 미니 마사지건",
+    priceKRW: 18_830,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/1025_amir_coupang_oct_80k/40d5/91c3804740c926bde075109da8d7fc620d6a8b609aa17666c9ed3ec607d2.jpg",
     shortReason:
       "어깨와 허리 통증을 일상에서 해소하는, 부피가 작아 실사용률이 높은 검증된 효도 아이템입니다.",
     parentValue: ["몸에 도움", "오래 사용"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/4671177318?itemId=5841008202&vendorItemId=95504294793&q=%EB%AF%B8%EB%8B%88+%EB%A7%88%EC%82%AC%EC%A7%80%EA%B1%B4&searchId=d9e6f73a1591677&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mry5zi40",
+        "https://www.coupang.com/vp/products/7937124717?itemId=21849951719&vendorItemId=86420134711&pickType=COU_PICK&q=%EB%AF%B8%EB%8B%88%EB%A7%88%EC%82%AC%EC%A7%80%EA%B1%B4&searchId=1cbd6d402413143&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mt26kp34",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -568,13 +572,15 @@ const raw: GiftInput[] = [
   {
     id: "parent-gongjindan",
     title: "공진단",
-    priceKRW: 73_000,
+    priceKRW: 329_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/f503/02ceab55124b04b790f7d0e5b8d87dea58e1a4384b3783ca91f8e18f71af.jpg",
     shortReason:
       "면역력과 기력 보충에 좋은 전통 건강 선물로, 부담 없이 챙겨드릴 수 있는 실속 구성이에요.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/7523923017?itemId=25025332492&vendorItemId=94607411630&q=%EA%B3%B5%EC%A7%84%EB%8B%A8&searchId=d38966c712484958&sourceType=search&itemsCount=36&searchRank=0&rank=0&traceId=mrropw1i",
+        "https://www.coupang.com/vp/products/5528234235?itemId=8666959215&vendorItemId=75954126623&q=%EA%B3%B5%EC%A7%84%EB%8B%A8&searchId=bb8046762641570&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mt26x3r7",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -606,13 +612,15 @@ const raw: GiftInput[] = [
   {
     id: "jkj-chimhyanghwan-gold",
     title: "종근당 침향환 골드",
-    priceKRW: 65_100,
+    priceKRW: 63_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/33305798274524-92acde7d-0396-4c04-8ca3-80c741e172e7.jpg",
     shortReason:
       "면역력과 기력 보충에 좋은 침향환으로, 225g 구성으로 부담 없이 챙겨드릴 수 있는 전통 건강 선물입니다.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
-        "https://www.coupang.com/vp/products/8203535204?itemId=476855525&vendorItemId=4196527902&q=%EA%B1%B4%EA%B0%95+%EC%8B%9D%ED%92%88&searchId=85cb996d4816025&sourceType=search&itemsCount=60&searchRank=3&rank=3&traceId=mry66wp8",
+        "https://www.coupang.com/vp/products/8203535204?itemId=476855525&vendorItemId=4196527902&pickType=COU_PICK&q=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%B9%A8%ED%96%A5%ED%99%98+%EA%B3%A8%EB%93%9C&searchId=50e242113079907&sourceType=search&itemsCount=60&searchRank=0&rank=0&traceId=mt26y4n6",
     },
     tags: {
       gender: ["여성", "남성", "무관"],
@@ -667,6 +675,8 @@ const raw: GiftInput[] = [
     title: "무선 이어폰(중고)",
     badge: "중고",
     priceKRW: 89_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/ff9c/b57f70c2bc435e026785f6398180cdf5fb2f2b0e380375ac483c1a1cce9f.png",
     shortReason:
       "가성비를 중요하게 생각하는 분께 잘 맞는 중고 무선 이어폰입니다.",
     affiliateUrls: {
@@ -714,6 +724,8 @@ const raw: GiftInput[] = [
     id: "reading-light-diffuser-set",
     title: "북라이트 & 아로마 디퓨저 세트",
     priceKRW: 59_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/stage/manual/5806b4d23dca1b0fa77b3fdfba9192d1af218c97eaef3662697129f28ab7_1781744019902.jpg",
     shortReason:
       "집에서 책 읽고 쉬는 시간을 좋아하는 분께 잘 맞는 독서등(북라이트)과 아로마 디퓨저 구성의 홈힐링 아이템입니다.",
     affiliateUrls: {
@@ -784,6 +796,8 @@ const raw: GiftInput[] = [
     id: "aubriez-leather-book-cover",
     title: "오브리즈 공방 클래식 가죽 북커버 (A5/B6 다이어리 커버)",
     priceKRW: 14_800,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/93b5/906a9d3a92e2da9456d1b425a23df3165f26ea913a8d89c3922d4dc22f02.jpg",
     shortReason:
       "책과 다이어리를 즐겨 쓰는 집돌이·홈힐링형에게 잘 어울리는 클래식 가죽 북커버로, 감성 있게 노트를 보호해줍니다.",
     affiliateUrls: {
@@ -807,6 +821,8 @@ const raw: GiftInput[] = [
     id: "wood-metal-lucky-bookmark",
     title: "고급 책갈피 행운 북마크 (우드·메탈 북클립/북스토퍼)",
     priceKRW: 20_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/9c9e/20bf82cf4a9ad52bf1a5145a02821da6c6f78df933e64730145ef5e722bc.png",
     shortReason:
       "우드·메탈 소재의 고급 책갈피 겸 북클립으로, 독서를 즐기는 집돌이·홈힐링형에게 실용적이면서도 감성 있는 선물이 됩니다.",
     affiliateUrls: {
@@ -830,6 +846,8 @@ const raw: GiftInput[] = [
     id: "calligraphy-feather-pen-set",
     title: "고급 깃털펜 캘리그라피 세트 (펜촉 교체형, 잉크 포함)",
     priceKRW: 15_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/845e/be81bac0a60208aacbcc72995b7f3952042e77776cbc07b5652c9e8f63f6.jpg",
     shortReason:
       "펜촉 교체형 깃털펜과 잉크가 함께 구성된 캘리그라피 세트로, 감성 있는 선물용 필기구를 찾는 분께 잘 어울립니다.",
     affiliateUrls: {
@@ -877,6 +895,8 @@ const raw: GiftInput[] = [
     id: "mood-lamp-wireless-nightlight",
     title: "감성 무드등 인테리어 조명 (무선 수면등)",
     priceKRW: 59_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/8b45/28da63f94cb5431c75758f2ea9ccf9e5547de29ba57086a7eb079dd9a433.png",
     shortReason:
       "코드 없이 어디든 둘 수 있는 무선 무드등으로, 은은한 감성 인테리어 소품을 좋아하는 분께 좋은 선물입니다.",
     affiliateUrls: {
@@ -1074,6 +1094,8 @@ const raw: GiftInput[] = [
     id: "famille-milk-cake-frozen",
     title: "파미유 떠먹는 우유케익 (냉동, 150g x 2개)",
     priceKRW: 10_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2019/08/13/17/7/4c8a16af-4536-4124-a750-101acbbac678.jpg",
     shortReason:
       "떠먹는 우유케익 2개 구성으로, 부담 없이 건네기 좋은 디저트 간식 선물입니다.",
     affiliateUrls: {
@@ -1097,6 +1119,8 @@ const raw: GiftInput[] = [
     id: "mont-chouchou-cheesecake",
     title: "몽슈슈 떠먹는 치즈케이크 (200g)",
     priceKRW: 18_500,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/30977212222255-963074f9-2417-48ea-a330-01bf2c9525dc.jpg",
     shortReason: "부드러운 떠먹는 치즈케이크로, 달콤한 디저트를 좋아하는 분께 어울리는 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1119,6 +1143,8 @@ const raw: GiftInput[] = [
     id: "deobareun-pave-choco-rice-cake",
     title: "더바른 파베초코크림떡 개별포장 (1박스, 360g)",
     priceKRW: 16_400,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/cf1a/2f3fde93512940643a07902be7e9c190442a6697898cb9a71350d54d695d.jpg",
     shortReason: "초코크림이 들어간 개별포장 떡으로, 나눠주기 좋은 디저트 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1140,7 +1166,9 @@ const raw: GiftInput[] = [
   {
     id: "keebright-3in1-camping-lantern",
     title: "Keebright 3in1 감성 캠핑랜턴 (3000mAh, IP65방수, 접이식 무드등)",
-    priceKRW: 15_200,
+    priceKRW: 13_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/debf/86ba03b6edb3e226eb8eeaf2a8ddcb53851d7526866b37a93b24a22ec986.jpg",
     shortReason:
       "숫자표시·IP65 방수·접이식이 되는 3in1 캠핑랜턴으로, 차박·비상조명까지 챙기는 캠핑족에게 실용적인 선물입니다.",
     affiliateUrls: {
@@ -1300,6 +1328,8 @@ const raw: GiftInput[] = [
     id: "comet-folding-fire-pit",
     title: "코멧 아웃도어 접이식 화로대",
     priceKRW: 22_390,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/1025_amir_coupang_oct_80k/6bc6/0f4eaea7e90f9b2bb57464376506a35c12d98866b3ea9b49279166c14662.jpg",
     shortReason: "접이식으로 휴대가 편한 화로대로, 캠핑·차박에서 불멍을 즐기는 분께 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1322,6 +1352,8 @@ const raw: GiftInput[] = [
     id: "comet-mummy-sleeping-bag",
     title: "코멧 머미형 사계절용 침낭 (220 x 80cm, 1950g)",
     priceKRW: 25_540,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/1025_amir_coupang_oct_80k/080b/d85287e9fd3c72885c127643e86482c97cb1602646dc732c21f1b861febf.jpg",
     shortReason: "사계절 사용 가능한 머미형 침낭으로, 캠핑·백패킹을 즐기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1443,6 +1475,8 @@ const raw: GiftInput[] = [
     id: "tnr-samsung-cell-docking-power-bank",
     title: "티앤알 삼성배터리셀 도킹형 국산 보조배터리",
     priceKRW: 22_800,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/stage/manual/4fe9423c-4025-45ae-afd2-fbd92dc30f50_1766475397502_1783993081718.jpeg",
     shortReason: "국산 삼성 배터리셀을 쓴 도킹형 보조배터리로, 실용성을 중요하게 여기는 분께 좋은 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1467,7 +1501,9 @@ const raw: GiftInput[] = [
   {
     id: "sinjimoru-car-wireless-charger-mount",
     title: "신지모루 차량용 고속 무선충전 거치대 (오그랩엑스)",
-    priceKRW: 26_700,
+    priceKRW: 26_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/941329713570088-1bd31dcf-182e-4e31-9d61-5529987fbc31.jpg",
     shortReason: "강력 고정되는 차량용 고속 무선충전 거치대로, 실용적인 선물을 찾는 분께 좋습니다.",
     affiliateUrls: {
       coupang:
@@ -1493,6 +1529,8 @@ const raw: GiftInput[] = [
     id: "phone-tablet-stand",
     title: "하우스나인 2세대 170cm 휴대폰 태블릿 스탠드 거치대",
     priceKRW: 10_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/2b2c/68a3b0e99a8a52ef89de2aa4242e8bc05d74b275d81d160619a9d01c9f65.png",
     shortReason:
       "높이 각도 조절이 되는 휴대폰·태블릿 거치대로, 책상 작업 시 화면을 편하게 볼 수 있는 실용적인 선물입니다.",
     affiliateUrls: {
@@ -1510,6 +1548,8 @@ const raw: GiftInput[] = [
     id: "wireless-keyboard-han-sung",
     title: "한성컴퓨터 OfficeMaster 유무선 저소음 멤브레인 키보드",
     priceKRW: 29_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2025/09/28/9/3/e7cbdbc5-b57b-49ed-b6b4-e24a54abb82f.jpg",
     shortReason:
       "유무선을 모두 지원하는 저소음 멤브레인 키보드로, 업무 효율을 높이고 싶어하는 분께 어울리는 실용 선물입니다.",
     affiliateUrls: {
@@ -1527,6 +1567,8 @@ const raw: GiftInput[] = [
     id: "notebook-cooling-stand",
     title: "홈플래닛 와이드형 메탈 쿨링홀 노트북 거치대",
     priceKRW: 22_870,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/1025_amir_coupang_oct_80k/e0f4/e0e58e8a793ee9dca353b2e3a576146a2d9062b37bef78e5a4223eea25a1.jpg",
     shortReason:
       "높이와 각도를 자유롭게 조절할 수 있는 노트북 거치대로, 자세 개선과 노트북 열 관리를 동시에 해결하는 선물입니다.",
     affiliateUrls: {
@@ -1723,6 +1765,8 @@ const raw: GiftInput[] = [
     id: "grilled-cheese-bar-original",
     title: "구워먹는 쫀득 치즈바 오리지널 (530g)",
     priceKRW: 13_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/stage/manual/bef8ab5a-60d7-41f9-af60-e25209bfe25a_1752729447559.jpeg",
     shortReason: "구워 먹으면 쫀득해지는 치즈바로, 부담 없이 나눠주기 좋은 간식 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1745,6 +1789,8 @@ const raw: GiftInput[] = [
     id: "pinebrick-salt-butter-yakgwa-set",
     title: "파인브릭 소금버터 개성약과 선물세트",
     priceKRW: 29_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/prod/b0bbb722-65fb-4b1f-8c47-e62a4743f6b2_fixing_v2.png",
     shortReason: "짭짤한 소금버터 풍미의 개성약과 선물세트로, 전통 간식을 좋아하는 분께 잘 어울립니다.",
     affiliateUrls: {
       coupang:
@@ -1814,7 +1860,9 @@ const raw: GiftInput[] = [
   {
     id: "shiroi-koibito-mix-24",
     title: "시로이고이비토 믹스 24개입",
-    priceKRW: 27_460,
+    priceKRW: 39_230,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/4338/a8525837b68784ac01a5a0720459f2fc5ab9385427a841e17245bb7855da.jpg",
     shortReason: "화이트·밀크 초콜릿 쿠키가 함께 든 시로이고이비토 믹스로, 부담 없이 건네기 좋은 간식 선물입니다.",
     affiliateUrls: {
       coupang:
