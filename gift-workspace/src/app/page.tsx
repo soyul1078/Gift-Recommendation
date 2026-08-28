@@ -202,7 +202,7 @@ export default function Home() {
 
                 <div className="grid w-full min-w-0 gap-3">
                   <div className="text-left text-xs text-soft">이렇게 추천해 드려요</div>
-                  <div className="grid w-full min-w-0 grid-cols-3 gap-3">
+                  <div className="grid w-full min-w-0 grid-cols-3 items-stretch gap-3">
                     {landingExampleGifts.map((item) => (
                       <div
                         key={item.id}
@@ -211,9 +211,8 @@ export default function Home() {
                         <div className="overflow-hidden rounded-lg">
                           <GiftThumbnail imageUrl={item.imageUrl} title={item.title} />
                         </div>
-                        <div className="mt-2 text-[13px] font-semibold">{item.title}</div>
+                        <div className="mt-2 line-clamp-2 text-[13px] font-semibold">{item.title}</div>
                         <div className="text-xs text-soft">{formatKRW(item.priceKRW)}</div>
-                        <div className="line-clamp-2 text-[11.5px] text-accent-dark">{item.shortReason}</div>
                       </div>
                     ))}
                   </div>
