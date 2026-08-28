@@ -14,7 +14,7 @@ export const BANDS_ORDERED: readonly Budget[] = [
 export function budgetBandBounds(band: Budget): { min: number; max: number } {
   switch (band) {
     case "1~3만 원대":
-      return { min: 10_000, max: 30_000 };
+      return { min: 9_000, max: 30_000 };
     case "3~5만 원대":
       return { min: 30_000, max: 50_000 };
     case "5~10만 원대":

@@ -115,7 +115,9 @@ const raw: GiftInput[] = [
   {
     id: "stanley-tumbler",
     title: "스탠리 퀜처 H2.0 플로우 스테이트 텀블러",
-    priceKRW: 49_000,
+    priceKRW: 48_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2849633657372996-bcd9b1ee-ad66-43c3-9682-ce568d3cd3b4.jpg",
     shortReason:
       "국내 정가대에서 가장 많이 보이는 887ml 라인. 여행·캠핑에 들고 다니기 좋고 실용적이면서 색상 선택지도 많아요.",
     affiliateUrls: {
@@ -140,8 +142,10 @@ const raw: GiftInput[] = [
   },
   {
     id: "desk-mat",
-    title: "프리미엄 데스크 매트",
-    priceKRW: 25_900,
+    title: "야스트 가죽 데스크 매트",
+    priceKRW: 9_700,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/8deb/5179898048f632a65fc6309cc06b98d2f82ca6fcddf582e1a88d1af85ed3.jpg",
     shortReason:
       "대형 사이즈 기준 흔한 가격대. 책상 분위기·마우스 사용감이 바로 좋아져요.",
     affiliateUrls: {
@@ -164,9 +168,34 @@ const raw: GiftInput[] = [
     },
   },
   {
+    id: "elago-desk-mat-premium",
+    title: "엘라고 데스크매트 프리미엄",
+    priceKRW: 141_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2025/07/01/17/3/3f363c5d-1fb8-44a7-acc0-a452d2b01568.jpg",
+    shortReason:
+      "고급 소재의 프리미엄 라인 데스크 매트로, 책상 분위기를 확실하게 바꿔주고 싶을 때 좋은 선물입니다.",
+    tags: {
+      gender: ["여성", "남성", "무관"],
+      age: ["20대", "30대", "40대", "50대"],
+      relation: [
+        "직장 상사",
+        "직장 동기",
+        "직장 후배",
+        "퇴사자/이직자",
+        "거래처",
+        "선생님/은사님",
+        "가볍게 아는 지인",
+      ],
+      preference: ["자기계발/워커홀릭", "실용성 우선"],
+    },
+  },
+  {
     id: "perfume-hand-cream",
-    title: "퍼퓸 핸드크림 세트",
-    priceKRW: 21_900,
+    title: "더블유드레스룸 퍼퓸 핸드크림 97 50ml 2개",
+    priceKRW: 11_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/e0fb/9e28f480c77aadbe4fb9700e87d319ed876e29d90200a38556cabf5eabcf.jpg",
     shortReason:
       "브랜드 세트 기준으로 자주 보이는 가격대. 가벼운 답례·첫인상 선물로 부담이 적어요.",
     affiliateUrls: {
@@ -289,7 +318,9 @@ const raw: GiftInput[] = [
   {
     id: "malang-squishy",
     title: "슬라임 랜덤박스",
-    priceKRW: 47_600,
+    priceKRW: 20_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/advertiser/1763379280658/a0b54277-5299-4fe2-8a84-0c503e6cfb62.jpg",
     shortReason: "간단한 취미/스트레스 해소용 슬라임 랜덤박스입니다.",
     affiliateUrls: {
       coupang:
@@ -348,9 +379,11 @@ const raw: GiftInput[] = [
   },
   {
     id: "miniature-beginner-kit",
-    title: "미니어처 소품 만들기 키트 (입문형)",
-    priceKRW: 19_900,
-    shortReason: "가벼운 마음으로 시작하기 좋은 입문형 미니어처 키트로, 취미 삼아 손으로 만드는 걸 좋아하는 분께 부담 없는 선물입니다.",
+    title: "미니어처 진짜 벽돌 DIY 키트",
+    priceKRW: 26_750,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/d2a2/de48cff8ca08b3cc1f5232d142e45b5b4195bbf6eca22210658dbdad271a.png",
+    shortReason: "실제 벽돌 소재로 쌓아 만드는 미니어처 DIY 키트로, 손으로 만드는 걸 좋아하는 분께 부담 없는 선물입니다.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대"],
@@ -473,24 +506,6 @@ const raw: GiftInput[] = [
     },
   },
   // --- 부모님(40~60대) 맞춤: 몸에 도움 / 오래 사용 / 가족 경험 3대 가치 검증 카탈로그 ---
-  {
-    id: "parent-health-supplement-set",
-    title: "홍삼·오메가3 건강기능식품 세트",
-    priceKRW: 89_000,
-    shortReason:
-      "관절 및 피로 관리에 실질적인 도움을 주며 고급 포장으로 호불호가 없는 베스트 효도 선물입니다.",
-    parentValue: ["몸에 도움"],
-    affiliateUrls: {
-      coupang:
-        "https://www.coupang.com/np/search?q=%ED%99%8D%EC%82%BC%20%EC%98%A4%EB%A9%94%EA%B0%803%20%EA%B1%B4%EA%B0%95%EA%B8%B0%EB%8A%A5%EC%8B%9D%ED%92%88%20%EC%84%A0%EB%AC%BC%EC%84%B8%ED%8A%B8",
-    },
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["40대", "50대", "60대 이상"],
-      relation: ["부모님", "시댁/처가 어른", "어버이날"],
-      preference: ["건강/웰빙형", "실용성 우선"],
-    },
-  },
   {
     id: "parent-air-purifier-humidifier",
     title: "가습 겸용 소형 공기청정기",
@@ -685,14 +700,12 @@ const raw: GiftInput[] = [
   // --- 취향 세부 카테고리 보강: 레저/캠핑, 집돌이/홈힐링, 음식(디저트·식사/간식) ---
   {
     id: "camping-lantern-table-set",
-    title: "캠핑 랜턴 & 미니 테이블 세트",
-    priceKRW: 55_000,
+    title: "캠핑 랜턴",
+    priceKRW: 17_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/2322/9c6e3dae7d7e83dddef4ccfb2062214bf7413f17b30b6d239dcd7176ac2e.jpg",
     shortReason:
-      "야외 캠핑·차박에서 바로 쓰기 좋은 랜턴과 접이식 미니 테이블 구성으로, 아웃도어 활동을 즐기는 분께 실용적인 선물입니다.",
-    affiliateUrls: {
-      coupang:
-        "https://www.coupang.com/np/search?q=%EC%BA%A0%ED%95%91%20%EB%9E%9C%ED%84%B4%20%EB%AF%B8%EB%8B%88%20%ED%85%8C%EC%9D%B4%EB%B8%94%20%EC%84%B8%ED%8A%B8",
-    },
+      "야외 캠핑·차박에서 바로 쓰기 좋은 랜턴으로, 아웃도어 활동을 즐기는 분께 실용적인 선물입니다.",
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["20대", "30대", "40대", "50대"],
@@ -1011,7 +1024,9 @@ const raw: GiftInput[] = [
   {
     id: "yoga-mat-pilates-hometraining-set",
     title: "요가매트 필라테스 홈트레이닝 세트",
-    priceKRW: 39_000,
+    priceKRW: 32_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/085e/00b0e5dfd297bcf0a9828d81c04feff39ea7c9457b57989b22d5356b9c13.jpg",
     shortReason: "요가매트·저항밴드·폼롤러가 함께 구성된 홈트레이닝 세트로, 운동을 시작하려는 분께 부담 없는 건강 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1177,7 +1192,9 @@ const raw: GiftInput[] = [
   {
     id: "breezmoon-camping-cutlery-set",
     title: "브리즈문 SUS304 무광 캠핑 식기 그릇 커트러리 28p 세트",
-    priceKRW: 57_800,
+    priceKRW: 56_300,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/rs_quotation_api/t80tvgat/ed894f99b28d49ffbe733d1a7905d7a7.jpg",
     shortReason:
       "연마제로 세척한 SUS304 무광 스테인리스 식기·커트러리 28p 구성으로, 캠핑 살림을 제대로 챙기는 분께 좋은 선물입니다.",
     affiliateUrls: {
@@ -1201,6 +1218,8 @@ const raw: GiftInput[] = [
     id: "fittem-waterproof-cooler-bag",
     title: "핏템 대용량 방수 캠핑 쿨러백 (대형)",
     priceKRW: 39_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2024/07/24/12/3/a40caae9-e225-4a85-a9e2-f48b478efc9b.jpg",
     shortReason:
       "대용량 방수 소재로 만들어진 캠핑 쿨러백으로, 야외 활동을 자주 즐기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
@@ -1223,7 +1242,9 @@ const raw: GiftInput[] = [
   {
     id: "suntouch-camping-burner-4-burner",
     title: "썬터치 통주물바디 고화력 캠핑버너 4구 (그리들버너, ST-DS1F)",
-    priceKRW: 40_340,
+    priceKRW: 40_030,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/6187/c4c83f40a4efd6095315ed162f8c0ad9242fb809da126bcd1cc2ca2004e0.jpg",
     shortReason:
       "통주물바디 고화력 4구 버너로, 캠핑에서 직접 요리하는 걸 즐기는 분께 실용적인 선물입니다.",
     affiliateUrls: {
@@ -1246,7 +1267,9 @@ const raw: GiftInput[] = [
   {
     id: "breezmoon-camping-cookware-15p-set",
     title: "브리즈문 3중 스텐 캠핑 코펠 냄비 15p 세트",
-    priceKRW: 47_800,
+    priceKRW: 44_300,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/1025_amir_coupang_oct_80k/aef2/74d60cd2a5d8699adbf3324f5fe5b31fd3316d85883cad1d50b5768a69bd.jpg",
     shortReason:
       "연마제로 세척한 3중 스텐 코펠 냄비 15p 구성으로, 캠핑 취사를 제대로 챙기는 분께 좋은 선물입니다.",
     affiliateUrls: {
@@ -1269,7 +1292,9 @@ const raw: GiftInput[] = [
   {
     id: "lotticamp-lightweight-camping-chair-set",
     title: "로티캠프 경량 로우 캠핑 의자 2p + 전용가방 2p 세트",
-    priceKRW: 35_800,
+    priceKRW: 34_010,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/651432067828039-3f5076f5-0fcc-4900-9312-e99f8f503f73.jpg",
     shortReason: "경량 로우 캠핑 의자 2인 세트로, 캠핑을 함께 즐기는 분들께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1292,6 +1317,8 @@ const raw: GiftInput[] = [
     id: "kukalife-rectangular-tarp",
     title: "크크라이프 실버 블랙 코팅 210D 렉타 타프",
     priceKRW: 33_800,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/81d5/06558a47bb6c9952d06bf16bb5355d7e1eb43003d72444d024e882ef2d01.jpg",
     shortReason: "코팅 원단 렉타 타프로, 캠핑 사이트를 제대로 꾸미는 분께 실용적인 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1704,14 +1731,12 @@ const raw: GiftInput[] = [
     },
   },
   {
-    id: "dior-addict-eau-fraiche",
-    title: "디올 어딕트 오 프레쉬 오드뚜왈렛 + 쇼퍼백 (30ml)",
-    priceKRW: 89_550,
-    shortReason: "산뜻한 시트러스 플로럴 향의 디올 시그니처 향수로, 부담 없이 건네기 좋은 뷰티 선물입니다.",
-    affiliateUrls: {
-      coupang:
-        "https://link.coupang.com/a/fPvXbX0Eou",
-    },
+    id: "tomford-oud-wood-perfume",
+    title: "톰포드 오드 우드 오 드 퍼퓸 샌달 우드 + 쇼퍼백 (100ml)",
+    priceKRW: 48_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/3a98/16377862310a2adb8d5c96c81876983adf49c16ad49d7276362cc2b708fe.jpg",
+    shortReason: "우디하고 고급스러운 샌달우드 향의 톰포드 시그니처 향수로, 부담 없이 건네기 좋은 뷰티 선물입니다.",
     tags: {
       gender: ["여성", "무관"],
       age: ["10대", "20대", "30대", "40대", "50대"],
@@ -1728,7 +1753,9 @@ const raw: GiftInput[] = [
   {
     id: "dolce-gabbana-my-juicy-sheer-lipstick",
     title: "돌체앤가바나 뷰티 립스틸로 마이 쥬시 시어 립스틱 (MY1702)",
-    priceKRW: 51_850,
+    priceKRW: 54_900,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2025/01/10/10/8/daae124f-d86b-4873-adce-22d13447b20e.jpg",
     shortReason: "달콤하고 자연스러운 쥬시 핑크 톤의 립스틱으로, 가볍게 건네기 좋은 뷰티 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1800,7 +1827,9 @@ const raw: GiftInput[] = [
   {
     id: "saenggwabang-handmade-yakgwa-set",
     title: "생과방 수제약과 선물세트 (12개입, 480g)",
-    priceKRW: 46_490,
+    priceKRW: 50_300,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/b9a6/1a30808a47977e5a68bb8b9e24fbdb4b0e4d46cba33c7d9ebd38c930382d.png",
     shortReason: "수제로 만든 전통 한과·약과 12개입 선물세트로, 격식 있게 건네기 좋은 간식 선물입니다.",
     affiliateUrls: {
       coupang:
@@ -1824,7 +1853,9 @@ const raw: GiftInput[] = [
   {
     id: "ddeokbo-rice-cake-cake-1",
     title: "[떡보의하루 본사] 떡케이크 행복담1호",
-    priceKRW: 43_500,
+    priceKRW: 51_000,
+    imageUrl:
+      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/04b1/92e856731d8cd19263fff60d381f9fa9fd7dfea8a1aaff8ac9c158c233d3.png",
     shortReason: "전국 매장에서 직접 배달되는 떡케이크로, 특별한 날 함께 나누기 좋은 간식 선물입니다.",
     affiliateUrls: {
       coupang:
