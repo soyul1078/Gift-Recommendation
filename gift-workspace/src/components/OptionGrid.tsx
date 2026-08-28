@@ -2,10 +2,10 @@
 
 export function optionChipClass(active: boolean): string {
   return [
-    "rounded-xl border-2 px-[18px] py-3 text-sm font-medium transition-colors",
+    "rounded-full px-[22px] py-[13px] text-sm font-medium transition-colors",
     active
-      ? "border-accent bg-accent text-white"
-      : "border-line bg-surface text-zinc-800 hover:border-accent hover:bg-tint",
+      ? "bg-accent text-white"
+      : "bg-[#F6EFEA] text-[#5C4A43] hover:bg-[#EFE4DD]",
   ].join(" ");
 }
 
