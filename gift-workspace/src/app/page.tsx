@@ -6,6 +6,7 @@ import { OptionGrid, optionChipClass } from "@/components/OptionGrid";
 import { RelationSectionPicker } from "@/components/RelationSectionPicker";
 import { outboundLinksForGift } from "@/lib/affiliateLinks";
 import { priceFitsBudgetBand } from "@/lib/budgetBand";
+import { gifts } from "@/lib/gifts";
 import {
   availableBudgetBands,
   budgetBandMatchCount,
@@ -16,6 +17,8 @@ import {
 } from "@/lib/recommend";
 import { trackAffiliateClick } from "@/lib/trackAffiliateClick";
 import type { AgeBand, Answers, Gender, Preference } from "@/lib/types";
+
+const landingExampleGifts = gifts.filter((g) => g.imageUrl).slice(0, 3);
 
 const genderOptions: readonly Gender[] = ["여성", "남성", "무관"];
 const genderLabels: Partial<Record<Gender, string>> = { "무관": "상관없어요" };
@@ -200,34 +203,17 @@ export default function Home() {
                 <div className="grid w-full min-w-0 gap-3">
                   <div className="text-left text-xs text-soft">이렇게 추천해 드려요</div>
                   <div className="grid w-full min-w-0 grid-cols-3 gap-3">
-                    {[
-                      {
-                        name: "수제 디퓨저 세트",
-                        price: "48,000원",
-                        desc: "집들이 선물로 부담 없는 가격대",
-                      },
-                      {
-                        name: "프리미엄 찻잔 2인조",
-                        price: "52,000원",
-                        desc: "어른 취향에 무난하게 어울림",
-                      },
-                      {
-                        name: "무선 충전 스탠드",
-                        price: "45,900원",
-                        desc: "실용성 우선 성향에 잘 맞음",
-                      },
-                    ].map((item) => (
+                    {landingExampleGifts.map((item) => (
                       <div
-                        key={item.name}
+                        key={item.id}
                         className="rounded-[14px] border border-line bg-surface p-3 text-left"
                       >
-                        <div
-                          className="aspect-square rounded-lg"
-                          style={{ background: "linear-gradient(150deg,#FFE8DF,#FFF4EE)" }}
-                        />
-                        <div className="mt-2 text-[13px] font-semibold">{item.name}</div>
-                        <div className="text-xs text-soft">{item.price}</div>
-                        <div className="text-[11.5px] text-accent-dark">{item.desc}</div>
+                        <div className="overflow-hidden rounded-lg">
+                          <GiftThumbnail imageUrl={item.imageUrl} title={item.title} />
+                        </div>
+                        <div className="mt-2 text-[13px] font-semibold">{item.title}</div>
+                        <div className="text-xs text-soft">{formatKRW(item.priceKRW)}</div>
+                        <div className="line-clamp-2 text-[11.5px] text-accent-dark">{item.shortReason}</div>
                       </div>
                     ))}
                   </div>
@@ -417,78 +403,76 @@ export default function Home() {
                           : "위 금액은 국내 주요 몰 기준 대표 소비자가예요. 구매 버튼은 이 가격대에 맞춰 검색·필터를 적용합니다.";
 
                       return (
-                        <div key={gift.id} className="rounded-2xl border border-zinc-200 bg-surface p-5 shadow-sm">
-                          <div className="flex gap-4">
-                            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-tint">
-                              <GiftThumbnail
-                                imageUrl={gift.imageUrl}
-                                title={gift.title}
-                                fallbackEmoji={isLuxuryGift ? "✨" : "🎁"}
-                              />
+                        <div key={gift.id} className="overflow-hidden rounded-2xl border border-zinc-200 bg-surface shadow-sm">
+                          <div className="overflow-hidden rounded-t-2xl bg-tint">
+                            <GiftThumbnail
+                              imageUrl={gift.imageUrl}
+                              title={gift.title}
+                              fallbackEmoji={isLuxuryGift ? "✨" : "🎁"}
+                            />
+                          </div>
+                          <div className="p-5">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <div className="text-lg font-semibold text-zinc-900 font-[family-name:var(--font-display)]">{gift.title}</div>
+                              {isLuxuryGift && (
+                                <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
+                                  프리미엄
+                                </span>
+                              )}
                             </div>
-                            <div className="min-w-0 flex-1">
-                              <div className="flex flex-wrap items-center gap-2">
-                                <div className="text-lg font-semibold text-zinc-900 font-[family-name:var(--font-display)]">{gift.title}</div>
-                                {isLuxuryGift && (
-                                  <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
-                                    프리미엄
+                            <div className="mt-2 space-y-2">
+                              <div className="text-xl font-bold tracking-tight text-slate-900 font-[family-name:var(--font-display)]">{formatKRW(gift.priceKRW)}</div>
+                              <div className="flex flex-wrap gap-2 text-sm text-slate-600">
+                                <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-semibold text-slate-600">
+                                  {answers.budget ? (exactBudgetMatch ? "예산대 일치" : "예산대 불일치") : "예산 정보 없음"}
+                                </span>
+                                {gift.badge && (
+                                  <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                                    {gift.badge}
                                   </span>
                                 )}
                               </div>
-                              <div className="mt-2 space-y-2">
-                                <div className="text-xl font-bold tracking-tight text-slate-900 font-[family-name:var(--font-display)]">{formatKRW(gift.priceKRW)}</div>
-                                <div className="flex flex-wrap gap-2 text-sm text-slate-600">
-                                  <span className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-semibold text-slate-600">
-                                    {answers.budget ? (exactBudgetMatch ? "예산대 일치" : "예산대 불일치") : "예산 정보 없음"}
-                                  </span>
-                                  {gift.badge && (
-                                    <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
-                                      {gift.badge}
-                                    </span>
-                                  )}
-                                </div>
-                                {budgetNote && (
-                                  <div className="text-xs leading-relaxed text-slate-500">{budgetNote}</div>
-                                )}
-                              </div>
-                              <div className="mt-4">
-                                <div className="text-sm font-semibold text-zinc-900">이유</div>
-                                <p className="mt-2 whitespace-pre-line text-sm leading-6 text-zinc-700">{buildReason(gift, answers)}</p>
-                              </div>
+                              {budgetNote && (
+                                <div className="text-xs leading-relaxed text-slate-500">{budgetNote}</div>
+                              )}
                             </div>
-                          </div>
-                          <a
-                            className="mt-4 block w-full rounded-xl bg-accent px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-accent-dark"
-                            href={links.coupang}
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={() => trackAffiliateClick("coupang", gift.id)}
-                          >
-                            쿠팡 바로가기
-                          </a>
-                          <div className="mt-2 flex justify-center gap-4 text-xs">
+                            <div className="mt-4">
+                              <div className="text-sm font-semibold text-zinc-900">이유</div>
+                              <p className="mt-2 whitespace-pre-line text-sm leading-6 text-zinc-700">{buildReason(gift, answers)}</p>
+                            </div>
                             <a
-                              className="font-medium text-zinc-500 underline-offset-2 hover:underline"
-                              href={links.kakaoGift}
+                              className="mt-4 block w-full rounded-xl bg-accent px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-accent-dark"
+                              href={links.coupang}
                               target="_blank"
                               rel="noreferrer"
-                              onClick={() => trackAffiliateClick("kakao", gift.id)}
+                              onClick={() => trackAffiliateClick("coupang", gift.id)}
                             >
-                              카카오톡 선물하기
+                              쿠팡 바로가기
                             </a>
-                            <a
-                              className="font-medium text-zinc-500 underline-offset-2 hover:underline"
-                              href={links.naverShopping}
-                              target="_blank"
-                              rel="noreferrer"
-                              onClick={() => trackAffiliateClick("naver", gift.id)}
-                            >
-                              네이버 쇼핑
-                            </a>
+                            <div className="mt-2 flex justify-center gap-4 text-xs">
+                              <a
+                                className="font-medium text-zinc-500 underline-offset-2 hover:underline"
+                                href={links.kakaoGift}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => trackAffiliateClick("kakao", gift.id)}
+                              >
+                                카카오톡 선물하기
+                              </a>
+                              <a
+                                className="font-medium text-zinc-500 underline-offset-2 hover:underline"
+                                href={links.naverShopping}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => trackAffiliateClick("naver", gift.id)}
+                              >
+                                네이버 쇼핑
+                              </a>
+                            </div>
+                            <p className="mt-3 text-xs text-soft">
+                              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+                            </p>
                           </div>
-                          <p className="mt-3 text-xs text-soft">
-                            이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-                          </p>
                         </div>
                       );
                     })}

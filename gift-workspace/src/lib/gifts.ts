@@ -556,20 +556,6 @@ const raw: GiftInput[] = [
     },
   },
   {
-    id: "parent-flower-cash-box",
-    title: "꽃다발 + 현금 용돈박스",
-    priceKRW: 79_000,
-    shortReason:
-      "감성적인 꽃 비주얼과 가장 현실적인 실용성인 현금을 결합해 실패율이 없는 만족도 상위권 조합입니다.",
-    parentValue: ["몸에 도움"],
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["40대", "50대", "60대 이상"],
-      relation: ["부모님", "시댁/처가 어른", "어버이날"],
-      preference: ["감성/디자인 중시", "실용성 우선"],
-    },
-  },
-  {
     id: "parent-gongjindan",
     title: "공진단",
     priceKRW: 329_900,

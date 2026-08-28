@@ -16,14 +16,14 @@ export function GiftThumbnail({ imageUrl, title, fallbackEmoji = "🎁" }: GiftT
       <img
         src={imageUrl}
         alt={title}
-        className="h-16 w-16 rounded-lg object-cover"
+        className="aspect-[4/3] w-full object-cover"
         onError={() => setFailed(true)}
       />
     );
   }
 
   return (
-    <div className="flex h-16 w-16 items-center justify-center">
+    <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-tint to-zinc-100">
       <span className="text-2xl" aria-hidden>
         {fallbackEmoji}
       </span>
