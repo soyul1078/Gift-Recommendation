@@ -6,14 +6,17 @@ type GiftThumbnailProps = {
   imageUrl?: string;
   title: string;
   fallbackEmoji?: string;
+  /** Result-list cards: cap height so two cards fit in one screen instead of scaling with card width. */
+  compact?: boolean;
 };
 
-export function GiftThumbnail({ imageUrl, title, fallbackEmoji = "🎁" }: GiftThumbnailProps) {
+export function GiftThumbnail({ imageUrl, title, fallbackEmoji = "🎁", compact = false }: GiftThumbnailProps) {
   const [failed, setFailed] = useState(false);
+  const sizeClass = compact ? "h-[200px] w-full" : "aspect-[4/3] w-full";
 
   if (imageUrl && !failed) {
     return (
-      <div className="flex aspect-[4/3] w-full items-center justify-center bg-white p-2">
+      <div className={`flex items-center justify-center bg-white p-2 ${sizeClass}`}>
         <img
           src={imageUrl}
           alt={title}
@@ -25,7 +28,7 @@ export function GiftThumbnail({ imageUrl, title, fallbackEmoji = "🎁" }: GiftT
   }
 
   return (
-    <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-tint to-zinc-100">
+    <div className={`flex items-center justify-center bg-gradient-to-br from-tint to-zinc-100 ${sizeClass}`}>
       <span className="text-2xl" aria-hidden>
         {fallbackEmoji}
       </span>

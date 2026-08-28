@@ -408,6 +408,7 @@ export default function Home() {
                               imageUrl={gift.imageUrl}
                               title={gift.title}
                               fallbackEmoji={isLuxuryGift ? "✨" : "🎁"}
+                              compact
                             />
                           </div>
                           <div className="p-5">
