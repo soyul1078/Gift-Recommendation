@@ -49,7 +49,7 @@ type Props = {
 
 export function RelationSectionPicker({ value, onChange }: Props) {
   return (
-    <div className="grid gap-5">
+    <div className="grid gap-2">
       {relationSections.map((section) => (
         <div key={section.id}>
           <div className="mb-2 text-sm font-semibold text-soft">{section.label}</div>

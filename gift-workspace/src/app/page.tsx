@@ -486,8 +486,11 @@ export default function Home() {
       </main>
 
       {step !== "start" && (
-        <div className="mt-8 border-t border-zinc-200 bg-surface/95 backdrop-blur">
-          <div className="mx-auto flex max-w-[600px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <div
+          className="sticky bottom-0 z-10 mt-8"
+          style={{ background: "linear-gradient(to top, var(--color-bg) 74%, transparent)" }}
+        >
+          <div className="mx-auto flex max-w-[600px] items-center justify-between gap-3 px-4 pb-4 pt-6 sm:px-6 lg:px-8">
             {step === "result" ? (
               <>
                 <button type="button" onClick={back} className="h-12 min-w-[48px] rounded-xl bg-zinc-200 px-4 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-300">
