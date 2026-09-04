@@ -168,29 +168,6 @@ const raw: GiftInput[] = [
     },
   },
   {
-    id: "elago-desk-mat-premium",
-    title: "엘라고 데스크매트 프리미엄",
-    priceKRW: 141_000,
-    imageUrl:
-      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2025/07/01/17/3/3f363c5d-1fb8-44a7-acc0-a452d2b01568.jpg",
-    shortReason:
-      "고급 소재의 프리미엄 라인 데스크 매트로, 책상 분위기를 확실하게 바꿔주고 싶을 때 좋은 선물입니다.",
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["20대", "30대", "40대", "50대"],
-      relation: [
-        "직장 상사",
-        "직장 동기",
-        "직장 후배",
-        "퇴사자/이직자",
-        "거래처",
-        "선생님/은사님",
-        "가볍게 아는 지인",
-      ],
-      preference: ["자기계발/워커홀릭", "실용성 우선"],
-    },
-  },
-  {
     id: "perfume-hand-cream",
     title: "더블유드레스룸 퍼퓸 핸드크림 97 50ml 2개",
     priceKRW: 11_000,
@@ -294,28 +271,6 @@ const raw: GiftInput[] = [
     },
   },
   {
-    id: "miniature-craft-kit",
-    title: "미니어처 만들기 키트",
-    priceKRW: 58_900,
-    shortReason:
-      "취미 활동을 즐기는 분께 5~10만 원대에 잘 맞는 미니어처 DIY 키트입니다.",
-    affiliateUrls: {
-      coupang:
-        "https://link.coupang.com/a/fPngykhgNo",
-    },
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["10대", "20대", "30대", "40대"],
-      relation: [
-        "정말 친한 절친",
-        "자녀",
-        "가벼운 기념일(100일 등)",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["미니어처/DIY형"],
-    },
-  },
-  {
     id: "malang-squishy",
     title: "슬라임 랜덤박스",
     priceKRW: 20_000,
@@ -346,47 +301,6 @@ const raw: GiftInput[] = [
     tags: {
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대", "40대"],
-      relation: [
-        "정말 친한 절친",
-        "자녀",
-        "가벼운 기념일(100일 등)",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["미니어처/DIY형"],
-    },
-  },
-  {
-    id: "miniature-assembly-kit",
-    title: "미니어처 DIY 세트",
-    priceKRW: 67_900,
-    shortReason:
-      "취미 활동을 즐기는 분께 추천하는 5~10만 원대 미니어처 DIY 세트입니다.",
-    affiliateUrls: {
-      coupang:
-        "https://www.coupang.com/vp/products/8485577245?itemId=24868773397&vendorItemId=91875732291&sourceType=srp_product_ads&clickEventId=20555000-7b53-11f1-9b89-bc447aad98d3&korePlacement=15&koreSubPlacement=1&traceId=mrd1gnn6",
-    },
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["10대", "20대", "30대", "40대"],
-      relation: [
-        "정말 친한 절친",
-        "자녀",
-        "가벼운 기념일(100일 등)",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["미니어처/DIY형"],
-    },
-  },
-  {
-    id: "miniature-beginner-kit",
-    title: "미니어처 진짜 벽돌 DIY 키트",
-    priceKRW: 26_750,
-    imageUrl:
-      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/d2a2/de48cff8ca08b3cc1f5232d142e45b5b4195bbf6eca22210658dbdad271a.png",
-    shortReason: "실제 벽돌 소재로 쌓아 만드는 미니어처 DIY 키트로, 손으로 만드는 걸 좋아하는 분께 부담 없는 선물입니다.",
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["10대", "20대", "30대"],
       relation: [
         "정말 친한 절친",
         "자녀",
@@ -439,42 +353,6 @@ const raw: GiftInput[] = [
       gender: ["여성", "남성", "무관"],
       age: ["10대", "20대", "30대", "40대"],
       relation: ["정말 친한 절친", "자녀", "특별한 기념일(생일, 1주년)"],
-      preference: ["미니어처/DIY형"],
-    },
-  },
-  {
-    id: "lego-architecture-landmark-series",
-    title: "레고 아키텍처 랜드마크 시리즈 (대형)",
-    priceKRW: 399_000,
-    shortReason: "유명 건축물을 정교하게 재현한 대형 레고 아키텍처 시리즈로, 조립 취미가 확고한 분께 특별한 선물입니다.",
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["20대", "30대", "40대", "50대"],
-      relation: ["정말 친한 절친", "배우자", "특별한 기념일(생일, 1주년)"],
-      preference: ["미니어처/DIY형"],
-    },
-  },
-  {
-    id: "lego-technic-premium-large-set",
-    title: "레고 테크닉 프리미엄 대형 세트",
-    priceKRW: 599_000,
-    shortReason: "기계 구조까지 정교하게 구현한 레고 테크닉 대형 세트로, 조립 취미에 진심인 분께 최고급 선물입니다.",
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["20대", "30대", "40대", "50대"],
-      relation: ["정말 친한 절친", "배우자", "특별한 기념일(생일, 1주년)"],
-      preference: ["미니어처/DIY형"],
-    },
-  },
-  {
-    id: "lego-collectors-edition-flagship",
-    title: "레고 컬렉터스 에디션 플래그십 세트",
-    priceKRW: 899_000,
-    shortReason: "브랜드 최상위 라인의 대형 컬렉터스 에디션으로, 조립 취미를 오래 즐겨온 분께 드리는 최고급 선물입니다.",
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["20대", "30대", "40대", "50대"],
-      relation: ["배우자", "정말 친한 절친", "특별한 기념일(생일, 1주년)"],
       preference: ["미니어처/DIY형"],
     },
   },
@@ -543,34 +421,6 @@ const raw: GiftInput[] = [
     },
   },
   {
-    id: "parent-hotspring-healing-trip",
-    title: "1박 2일 국내 온천 힐링 투어권",
-    priceKRW: 259_000,
-    shortReason:
-      "일정을 잡기 수월하고 체력 부담이 적은 온천·힐링 투어로, 일상의 스트레스를 해소하고 가족 관계를 더욱 돈독하게 만들어주는 평생 기억에 남는 추억 선물입니다.",
-    parentValue: ["가족 경험"],
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["40대", "50대", "60대 이상"],
-      relation: ["부모님", "시댁/처가 어른", "어버이날"],
-      preference: ["레저/캠핑형", "감성/디자인 중시"],
-    },
-  },
-  {
-    id: "parent-dining-department-voucher",
-    title: "프리미엄 한우 다이닝·백화점 상품권",
-    priceKRW: 100_000,
-    shortReason:
-      "호불호가 전혀 없으며 만족도를 최고 수준으로 즉각 체감할 수 있는, 가장 현실적인 프리미엄 기프트입니다.",
-    parentValue: ["가족 경험", "몸에 도움"],
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["40대", "50대", "60대 이상"],
-      relation: ["부모님", "시댁/처가 어른", "어버이날"],
-      preference: ["실용성 우선"],
-    },
-  },
-  {
     id: "parent-gongjindan",
     title: "공진단",
     priceKRW: 329_900,
@@ -635,7 +485,7 @@ const raw: GiftInput[] = [
     title: "산서함 811",
     priceKRW: 103_800,
     shortReason:
-      "# 인삼정과 콩고물 도라지정과 도라지청 천혜향정과 생강편강 이바지음식 세트",
+      "인삼정과·도라지정과·도라지청·천혜향정과·생강편강 등을 담은 전통 정과·이바지 음식 세트로, 격식을 갖춰 어른께 드리기 좋은 선물입니다.",
     parentValue: ["몸에 도움", "가족 경험"],
     affiliateUrls: {
       coupang:
@@ -648,77 +498,7 @@ const raw: GiftInput[] = [
       preference: ["건강/웰빙형"],
     },
   },
-  {
-    id: "wireless-earbuds-entry",
-    title: "무선 이어폰(입문형)",
-    priceKRW: 119_000,
-    shortReason:
-      "에어팟·갤럭시 버즈 등 입문 라인에서 자주 보이는 가격대(할인 전·정가 기준).",
-    affiliateUrls: {
-      coupang:
-        "https://link.coupang.com/a/fPoFPJ1aOO",
-    },
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["10대", "20대", "30대", "40대"],
-      relation: [
-        "직장 동기",
-        "직장 후배",
-        "정말 친한 절친",
-        "배우자",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["실용성 우선", "자기계발/워커홀릭"],
-    },
-  },
-  {
-    id: "wireless-earbuds-used",
-    title: "무선 이어폰(중고)",
-    badge: "중고",
-    priceKRW: 89_000,
-    imageUrl:
-      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/ff9c/b57f70c2bc435e026785f6398180cdf5fb2f2b0e380375ac483c1a1cce9f.png",
-    shortReason:
-      "가성비를 중요하게 생각하는 분께 잘 맞는 중고 무선 이어폰입니다.",
-    affiliateUrls: {
-      coupang:
-        "https://www.coupang.com/vp/products/8427819177?itemId=24379702680&vendorItemId=94887813438&q=%EB%AC%B4%EC%84%A0+%EC%9D%B4%EC%96%B4%ED%8F%B0%28%EC%9E%85%EB%AC%B8%ED%98%95%29&searchId=48ca1d742073263&sourceType=search&itemsCount=34&searchRank=1&rank=1&traceId=mrd0rch5",
-    },
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["10대", "20대", "30대", "40대"],
-      relation: [
-        "직장 동기",
-        "직장 후배",
-        "정말 친한 절친",
-        "배우자",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["실용성 우선", "자기계발/워커홀릭"],
-    },
-  },
   // --- 취향 세부 카테고리 보강: 레저/캠핑, 집돌이/홈힐링, 음식(디저트·식사/간식) ---
-  {
-    id: "camping-lantern-table-set",
-    title: "캠핑 랜턴",
-    priceKRW: 17_900,
-    imageUrl:
-      "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/2322/9c6e3dae7d7e83dddef4ccfb2062214bf7413f17b30b6d239dcd7176ac2e.jpg",
-    shortReason:
-      "야외 캠핑·차박에서 바로 쓰기 좋은 랜턴으로, 아웃도어 활동을 즐기는 분께 실용적인 선물입니다.",
-    tags: {
-      gender: ["여성", "남성", "무관"],
-      age: ["20대", "30대", "40대", "50대"],
-      relation: [
-        "정말 친한 절친",
-        "직장 동기",
-        "배우자",
-        "가벼운 기념일(100일 등)",
-        "특별한 기념일(생일, 1주년)",
-      ],
-      preference: ["레저/캠핑형"],
-    },
-  },
   {
     id: "reading-light-diffuser-set",
     title: "북라이트 & 아로마 디퓨저 세트",
