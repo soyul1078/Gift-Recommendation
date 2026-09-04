@@ -119,7 +119,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/2849633657372996-bcd9b1ee-ad66-43c3-9682-ce568d3cd3b4.jpg",
     shortReason:
-      "국내 정가대에서 가장 많이 보이는 887ml 라인. 여행·캠핑에 들고 다니기 좋고 실용적이면서 색상 선택지도 많아요.",
+      "약 887ml 대용량에 보온·보냉이 오래가고, 여행·캠핑에 들고 다니기 좋으며 색상 선택지도 많아요.",
     affiliateUrls: {
       coupang:
         "https://link.coupang.com/a/fPmKtXcOSy",
@@ -147,7 +147,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/8deb/5179898048f632a65fc6309cc06b98d2f82ca6fcddf582e1a88d1af85ed3.jpg",
     shortReason:
-      "대형 사이즈 기준 흔한 가격대. 책상 분위기·마우스 사용감이 바로 좋아져요.",
+      "넉넉한 대형 사이즈 가죽 데스크 매트로, 깔기만 해도 책상 분위기와 마우스 사용감이 바로 좋아져요.",
     affiliateUrls: {
       coupang:
         "https://link.coupang.com/a/fPmRyD5DKm",
@@ -174,7 +174,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/e0fb/9e28f480c77aadbe4fb9700e87d319ed876e29d90200a38556cabf5eabcf.jpg",
     shortReason:
-      "브랜드 세트 기준으로 자주 보이는 가격대. 가벼운 답례·첫인상 선물로 부담이 적어요.",
+      "은은한 퍼퓸 향이 오래 남는 핸드크림 2개 구성으로, 가벼운 답례나 첫인상 선물로 부담 없이 건네기 좋아요.",
     affiliateUrls: {
       coupang:
         "https://link.coupang.com/a/fPmXaRIQsC",
@@ -200,7 +200,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/18e7/d5022048da9c9afdb70dce755b5f778c2e9bcb553123c3ff76836e2a7636.jpg",
     shortReason:
-      "애플 정품 맥세이프 충전기보다 낮고, 브랜드 스탠드 제품에서 흔한 대표가에 가깝게 맞춤.",
+      "아이폰·애플워치·에어팟을 한 번에 올려두고 고속 충전하는 스탠드형 무선충전기로, 책상·머리맡에 두기 좋아요.",
     affiliateUrls: {
       coupang:
         "https://link.coupang.com/a/fPm2xRXOV2",
@@ -227,7 +227,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/d3fb/15722ce98d87564ddbffa56f6605ae87ade385cf3fe186b0fc86d00354e1.png",
     shortReason:
-      "백화점·몰에서 자주 보이는 구성 기준 가격. 휴식·담소 선물로 무난해요.",
+      "오설록 티백 6종이 담긴 선물세트로, 부담 없이 건네기 좋고 휴식·담소 자리에 두루 어울려요.",
     affiliateUrls: {
       coupang:
         "https://link.coupang.com/a/fPm7lVUNci",
@@ -253,7 +253,7 @@ const raw: GiftInput[] = [
     title: "미니 아트 도자기 만들기 DIY",
     priceKRW: 41_000,
     shortReason:
-      "체험형 키트류에서 자주 보이는 중저가~중가 구간. 기억에 남는 선물로 좋아요.",
+      "직접 빚고 칠하며 만드는 도자기 DIY 키트로, 함께 하거나 혼자 몰입하기 좋은 기억에 남는 선물이에요.",
     excludedRelations: ["직장 상사", "선생님/은사님", "스승의날"],
     affiliateUrls: {
       coupang:
@@ -293,7 +293,7 @@ const raw: GiftInput[] = [
     title: "미니어처 공예 세트",
     priceKRW: 63_800,
     shortReason:
-      "취미 활동 성향을 가진 분께 좋은 5~10만 원대 미니어처 공예 세트입니다.",
+      "여러 미니어처 소품을 직접 만들 수 있는 공예 세트로, 손으로 만드는 취미를 즐기는 분께 잘 맞아요.",
     affiliateUrls: {
       coupang:
         "https://www.coupang.com/vp/products/8485137127?itemId=12381363424&vendorItemId=79651074825&q=%EB%AF%B8%EB%8B%88%EC%96%B4%EC%B3%90+%EB%A7%8C%EB%93%A4%EA%B8%B0&searchId=07f6ddcc6240921&sourceType=search&itemsCount=60&searchRank=2&rank=2&traceId=mrd1i04l",
@@ -427,7 +427,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/f503/02ceab55124b04b790f7d0e5b8d87dea58e1a4384b3783ca91f8e18f71af.jpg",
     shortReason:
-      "면역력과 기력 보충에 좋은 전통 건강 선물로, 부담 없이 챙겨드릴 수 있는 실속 구성이에요.",
+      "사향·당귀·산수유 등을 넣어 빚은 전통 한방 공진단으로, 기력이 달리는 어른께 예부터 챙겨온 보약 선물이에요.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
@@ -447,7 +447,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/vendor_inventory/image_audit/prod/fa279752-94cd-487d-b85a-8737f08079bf_fixing_v2.png",
     shortReason:
-      "휴대와 섭취가 간편한 정관장 정품 홍삼진고 바이탈스틱으로, 쇼핑백이 포함되어 바로 전달하기 좋아요.",
+      "짜 먹는 스틱형이라 물 없이 어디서나 챙겨 드시기 좋은 정관장 정품 홍삼진고로, 쇼핑백이 포함되어 바로 전달하기 좋아요.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
@@ -467,7 +467,7 @@ const raw: GiftInput[] = [
     imageUrl:
       "https://thumbnail.coupangcdn.com/thumbnails/remote/657x657q90trim/image/retail/images/33305798274524-92acde7d-0396-4c04-8ca3-80c741e172e7.jpg",
     shortReason:
-      "면역력과 기력 보충에 좋은 침향환으로, 225g 구성으로 부담 없이 챙겨드릴 수 있는 전통 건강 선물입니다.",
+      "귀한 침향에 인삼·녹용 등을 더해 환으로 빚은 종근당 침향환 골드로, 기력·컨디션 관리를 챙겨 드리고 싶은 어른께 어울려요.",
     parentValue: ["몸에 도움"],
     affiliateUrls: {
       coupang:
